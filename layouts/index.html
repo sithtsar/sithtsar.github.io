@@ -40,7 +40,7 @@
   <header class="section-head">
     <p class="section-index">01 / Register</p>
     <h2 id="work-title">Selected work</h2>
-    <a href="{{ "/work/" | relURL }}">View complete register <span aria-hidden="true">↗</span></a>
+    <a href="{{ "work/" | relURL }}">View complete register <span aria-hidden="true">↗</span></a>
   </header>
   <div class="project-register">
     {{ range $projects.ByWeight }}{{ partial "project-cover.html" . }}{{ end }}
@@ -53,7 +53,7 @@
     <p class="kicker">Field note · issue 001</p>
     <h2 id="dispatch-title">Why evidence beats demos</h2>
     <p>A working demo proves a path existed once. Evidence explains why it worked, where it failed, and whether another person can trust it.</p>
-    <a class="contact-link" href="{{ "/notes/why-evidence-beats-demos/" | relURL }}">Read the note <span aria-hidden="true">↗</span></a>
+    <a class="contact-link" href="{{ "notes/why-evidence-beats-demos/" | relURL }}">Read the note <span aria-hidden="true">↗</span></a>
   </div>
 </section>
 

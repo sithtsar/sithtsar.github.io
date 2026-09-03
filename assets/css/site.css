@@ -23,6 +23,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--ultramarine); o
 .skip-link:focus { top: 1rem; }
 .site-header, .site-footer { display: flex; justify-content: space-between; gap: 2rem; align-items: center; border-bottom: 1px solid var(--carbon); padding-block: 1rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
 .site-header nav { display: flex; gap: 1.4rem; }
+.wordmark, .site-header nav a, .site-footer a, .section-head > a, .contact-link { min-height: 2.75rem; display: inline-flex; align-items: center; }
 .wordmark { text-decoration: none; font-weight: 800; }
 .wordmark span { color: var(--vermilion-text); }
 .eyebrow { font: 600 .72rem/1.2 var(--mono); text-transform: uppercase; letter-spacing: .12em; }
@@ -68,6 +69,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .project-card__copy { grid-column: 9 / -1; display: flex; flex-direction: column; }
 .project-card__meta { margin: 0; font: 600 .66rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
 .project-card__meta span { display: inline-grid; place-items: center; width: 1.75rem; height: 1.75rem; margin-right: .5rem; border: 1px solid var(--carbon); border-radius: 50%; }
+.project-card__meta b { display: block; margin-top: .6rem; color: var(--vermilion-text); font-weight: 700; }
 .project-card h3 { margin: auto 0 1rem; font: 500 clamp(2.2rem, 4vw, 4.6rem)/.88 var(--serif); letter-spacing: -.045em; }
 .project-card h3 a { text-decoration: none; }
 .project-card__copy > p:not(.project-card__meta) { max-width: 40ch; margin: 0 0 1.5rem; line-height: 1.5; }
@@ -83,7 +85,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .dispatch div > p:not(.kicker) { max-width: 46ch; margin: 0 0 2rem; font: 500 clamp(1.2rem, 1.8vw, 1.7rem)/1.35 var(--serif); }
 .contact { border-bottom: 0; }
 .contact-link { display: inline-block; font: 650 .78rem/1.2 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
-.copy-button { margin-left: 1rem; border: 1px solid var(--carbon); border-radius: 100vmax; padding: .55rem .8rem; background: transparent; color: inherit; cursor: pointer; font: 650 .65rem/1 var(--mono); text-transform: uppercase; }
+.copy-button { min-height: 2.75rem; margin-left: 1rem; border: 1px solid var(--carbon); border-radius: 100vmax; padding: .55rem .8rem; background: transparent; color: inherit; cursor: pointer; font: 650 .65rem/1 var(--mono); text-transform: uppercase; }
 .copy-button:hover { background: var(--carbon); color: var(--paper); }
 .copy-status { display: block; min-height: 1.4em; margin-top: .8rem; font: .65rem/1.4 var(--mono); }
 .contact-caveat { margin-top: 1rem; color: var(--vermilion-text); font: .63rem/1.3 var(--mono); text-transform: uppercase; }
@@ -124,6 +126,8 @@ h1, h2, h3, p { text-wrap: pretty; }
 .evidence summary::after { content: '+'; margin-left: auto; font: 1rem var(--mono); }
 .evidence details[open] summary::after { content: '−'; }
 .evidence summary span { color: var(--vermilion-text); font: .7rem var(--mono); }
+.evidence summary strong { min-width: 6rem; }
+.evidence summary small { max-width: 42ch; font: 500 .78rem/1.35 var(--sans); }
 .evidence details p { max-width: 53ch; margin: 0; padding: 0 2rem 1.5rem; line-height: 1.5; }
 .report-nav { display: grid; grid-template-columns: 1fr 1fr; border-block: 1px solid var(--carbon); }
 .report-nav a { padding: 1.5rem; font: 500 clamp(1.3rem, 2.2vw, 2.2rem)/1 var(--serif); text-decoration: none; }
@@ -137,7 +141,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 
 @media (max-width: 40rem) {
   .site-header { align-items: flex-start; }
-  .site-header nav { flex-direction: column; gap: .45rem; }
+  .site-header nav { display: grid; grid-template-columns: repeat(2, auto); gap: 0 1rem; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 0; }
   .cover { min-height: 46rem; }
   .cover-meta { grid-template-columns: 1fr 1fr; }
@@ -152,6 +156,7 @@ h1, h2, h3, p { text-wrap: pretty; }
   .manifesto > .section-index, .dispatch > .section-index, .contact > .section-index, .manifesto > h2, .manifesto-copy, .dispatch > div, .contact > div { grid-column: 1; }
   .manifesto-copy { grid-template-columns: 1fr; }
   .section-head > a { justify-self: start; }
+  .copy-button { margin-left: .5rem; }
   .project-card, .project-card--compact { grid-template-columns: 1fr; min-height: 0; }
   .project-card .project-art-link, .project-card--compact .project-art-link, .project-card .project-card__copy, .project-card--compact .project-card__copy { grid-column: 1; }
   .project-card__copy { min-height: 17rem; }
@@ -161,6 +166,9 @@ h1, h2, h3, p { text-wrap: pretty; }
   .report { padding-top: 3rem; }
   .report-head__art { order: -1; }
   .report-meta { margin: 1rem 0 2rem; }
+  .evidence summary { display: grid; grid-template-columns: auto 1fr auto; }
+  .evidence summary small { grid-column: 2 / -1; }
+  .evidence summary::after { grid-column: 3; grid-row: 1; }
   .motif-grid { grid-template-columns: 1fr; }
 }
 

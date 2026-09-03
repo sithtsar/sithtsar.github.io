@@ -52,3 +52,9 @@ hugo.toml                   site and output configuration
 ```
 
 Deployment is intentionally deferred until the design and real content are approved.
+
+When deployment is approved, pass the final absolute site URL explicitly so canonical feed and subpath links are correct:
+
+```sh
+hugo --minify --panicOnWarning --baseURL https://example.com/portfolio/
+```
