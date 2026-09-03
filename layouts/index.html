@@ -4,34 +4,46 @@
   <div class="cover-meta">
     <p>Personal report <span>№ 01</span></p>
     <p>Engineering × research</p>
-    <p>New Delhi / Remote</p>
+    <p>Anywhere you need me</p>
   </div>
   <div class="cover-title">
     <p class="kicker">Independent engineer</p>
     <h1>Sarthak<br>Mishra</h1>
   </div>
-  <div class="cover-mark" aria-hidden="true">
-    <span class="cover-mark__disc"></span>
-    <span class="cover-mark__axis"></span>
-    <span class="cover-mark__stamp">SM<br>26</span>
+  <div class="cover-atlas" aria-hidden="true">
+    <svg viewBox="0 0 680 720">
+      <rect x="78" width="602" height="720" fill="#28559a"/>
+      <g fill="none" stroke="#f3eedc" stroke-width="2" opacity=".55">
+        <path d="M78 90h602M78 180h602M78 270h602M78 360h602M78 450h602M78 540h602M78 630h602"/>
+        <path d="M164 0v720M250 0v720M336 0v720M422 0v720M508 0v720M594 0v720"/>
+      </g>
+      <circle cx="424" cy="356" r="112" fill="#c83f2a"/>
+      <g fill="none" stroke="#f3eedc" stroke-width="10">
+        <path d="M0 184c216 0 252 20 307 76 38 38 70 44 117 44 64 0 114-30 256-30"/>
+        <path d="M0 526c216 0 252-20 307-76 38-38 70-44 117-44 64 0 114 30 256 30"/>
+      </g>
+      <path d="M0 356h680" stroke="#d1a326" stroke-width="24"/>
+      <g fill="#171713">
+        <circle cx="116" cy="114" r="13"/><circle cx="202" cy="114" r="13"/><circle cx="116" cy="200" r="13"/><circle cx="202" cy="200" r="13"/>
+      </g>
+      <g fill="none" stroke="#f3eedc" stroke-width="6"><path d="M478 150h30c30 0 30-52 60-52h24M508 150h84M508 150c30 0 30 52 60 52h24"/></g>
+      <circle cx="478" cy="150" r="16" fill="#171713"/><circle cx="612" cy="98" r="18" fill="#f3eedc"/><circle cx="612" cy="150" r="18" fill="#d1a326"/><circle cx="612" cy="202" r="18" fill="#c83f2a"/>
+      <g stroke="#28559a" stroke-width="3"><rect x="108" y="574" width="104" height="72" fill="#f3eedc"/><rect x="122" y="562" width="104" height="72" fill="#d1a326"/><rect x="136" y="550" width="104" height="72" fill="#f3eedc"/></g>
+      <path d="M154 570h68M154 586h52M154 602h68" stroke="#171713" stroke-width="4"/>
+      <text x="108" y="690" fill="#f3eedc" font-family="ui-monospace,monospace" font-size="18" letter-spacing="3">FLOW / RETRIEVAL / SIGNAL</text>
+      <text x="638" y="50" fill="#f3eedc" text-anchor="end" font-family="ui-monospace,monospace" font-size="24">SM—26</text>
+    </svg>
   </div>
   <p class="cover-statement">{{ .Params.statement }}</p>
   <p class="cover-folio">Selected systems and inquiries<br><span>2024—2026</span></p>
 </section>
-
-<aside class="prototype-note">
-  <div class="shell prototype-note__inner">
-    <strong>Candidate MVP</strong>
-    <span>Representative content — names, claims, links, and contact details are placeholders until verified.</span>
-  </div>
-</aside>
 
 {{ $projects := where site.RegularPages "Section" "work" }}
 <section class="shell manifesto" aria-labelledby="manifesto-title">
   <p class="section-index">00 / Position</p>
   <h2 id="manifesto-title">Proof before theatre.<br>Systems before slogans.</h2>
   <div class="manifesto-copy">
-    <p>I care about the seam where ambitious models meet unforgiving reality: evaluation, observability, interfaces, and the quiet infrastructure that makes a useful result repeatable.</p>
+    <p>I work where machine intelligence meets physical systems, messy documents, and the infrastructure required to make results repeatable.</p>
     <p>{{ .Params.availability }}</p>
   </div>
 </section>
@@ -61,10 +73,9 @@
   <p class="section-index">03 / Contact</p>
   <div>
     <h2 id="contact-title">Have a hard system<br>worth making clear?</h2>
-    <a class="contact-link" href="mailto:your-email@example.com">your-email@example.com <span aria-hidden="true">↗</span></a>
-    <button class="copy-button" type="button" data-copy="your-email@example.com">Copy email</button>
+    <a class="contact-link" href="mailto:mishrasarthak1520@gmail.com">mishrasarthak1520@gmail.com <span aria-hidden="true">↗</span></a>
+    <button class="copy-button" type="button" data-copy="mishrasarthak1520@gmail.com">Copy email</button>
     <span class="copy-status" data-copy-status aria-live="polite"></span>
-    <p class="contact-caveat">Replace with your real address before publishing.</p>
   </div>
 </section>
 {{ end }}

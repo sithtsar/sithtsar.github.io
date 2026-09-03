@@ -1,4 +1,4 @@
-# Sarthak Mishra — candidate portfolio
+# Sarthak Mishra — portfolio
 
 A zero-runtime-by-default portfolio built with Hugo, semantic HTML, and CSS.
 
@@ -16,8 +16,6 @@ Build and verify:
 hugo --minify --panicOnWarning
 sh tests/smoke.sh
 ```
-
-All project copy is representative until replaced with verified work.
 
 ## Exact stack
 
@@ -39,7 +37,7 @@ content/
   _index.md                homepage record
   work/                    project report records
   notes/                   field notes
-  about.md                 profile placeholder
+  about.md                 profile
   studio.md                generative-art method
 layouts/
   _default/                shared list, page, and document shell

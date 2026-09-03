@@ -1,12 +1,16 @@
 +++
 title = "About"
-description = "The working principles and profile structure behind this candidate portfolio."
-kicker = "Profile / draft"
+description = "Engineer at IIT Bombay working across machine intelligence, scientific computing, and product systems."
+kicker = "Profile / 2026"
 +++
 
-I am interested in technical work where the hard part is not producing an output, but making the system trustworthy enough to depend on.
+I am a B.Tech student in Chemical Engineering at IIT Bombay, graduating in 2026, with a minor in Machine Intelligence and Data Science.
 
-That usually means working across boundaries: models and evaluation, source code and tooling, research questions and durable infrastructure, complex internals and clear interfaces.
+My work crosses numerical simulation, computer vision, information retrieval, data pipelines, and applied machine learning. I am most interested in problems where models must survive contact with physical systems or messy real-world information.
+
+## Experience
+
+I have worked on financial-document NLP at QNLP, industrial digital twins at Zwilling Labs, and computer-vision software for spray-pattern analysis at Lechler India. At IIT Bombay, I have also served as an undergraduate teaching assistant for large-scale machine-learning optimisation and as Community Manager for the institute’s AI Community.
 
 ## Working principles
 
@@ -16,6 +20,4 @@ That usually means working across boundaries: models and evaluation, source code
 
 **Write down the failure.** The limits of an approach often reveal more judgment than the polished result.
 
-## Replace before publishing
-
-This candidate page deliberately avoids inventing biography, employers, credentials, or metrics. Add the real profile, location, experience, links, and contact details during the content pass.
+I am open to engineering and research roles where ambitious systems need rigorous implementation, clear evidence, and fast iteration.

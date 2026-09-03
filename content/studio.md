@@ -18,7 +18,7 @@ The main site does not ship p5.brush. A future `/studio/` experiment may lazy-lo
 ## The constraint set
 
 - Six inks, including the paper ground.
-- Three motifs: orbit, signal, and grid.
+- Three project diagrams: flow lattice, retrieval graph, and document pipeline.
 - Simple geometry that survives monochrome printing.
 - Text remains HTML; art never carries the only copy of meaning.
-- Unknown motif values fall back to the grid instead of becoming executable markup.
+- Unknown motif values fall back to the flow diagram instead of becoming executable markup.

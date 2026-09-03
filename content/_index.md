@@ -1,6 +1,6 @@
 +++
 title = "Sarthak Mishra"
-description = "Independent engineer working on reliable AI systems, research infrastructure, and tools that explain themselves."
-statement = "I build AI systems that can show their work."
+description = "IIT Bombay engineer working across machine intelligence, scientific computing, and reliable AI systems."
+statement = "I build machine intelligence for messy physical and information systems."
 availability = "Open to high-agency engineering and research collaborations."
 +++

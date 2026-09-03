@@ -1,33 +1,37 @@
-{{ $motif := .Params.cover_art.motif | default "grid" }}
-{{ if not (in (slice "orbit" "signal" "grid") $motif) }}{{ $motif = "grid" }}{{ end }}
+{{ $motif := .Params.cover_art.motif | default "flow" }}
+{{ if not (in (slice "flow" "retrieval" "filings") $motif) }}{{ $motif = "flow" }}{{ end }}
 {{ $density := int (.Params.cover_art.density | default 6) }}
 {{ if lt $density 1 }}{{ $density = 1 }}{{ else if gt $density 12 }}{{ $density = 12 }}{{ end }}
 {{ $angle := div (int (.Params.cover_art.rotation | default 0)) 4 }}
 {{ $line := div 14.0 $density }}
+{{ $ink := "#f3eedc" }}{{ if eq $motif "retrieval" }}{{ $ink = "#171713" }}{{ end }}
 <svg class="cover-art cover-art--{{ $motif }}" data-cover-motif="{{ $motif }}" data-cover-density="{{ $density }}" data-cover-rotation="{{ $angle }}" viewBox="0 0 720 520" aria-hidden="true" focusable="false">
-  <rect width="720" height="520" fill="{{ if eq $motif "signal" }}#f3eedc{{ else if eq $motif "grid" }}#d1a326{{ else }}#171713{{ end }}"/>
+  <rect width="720" height="520" fill="{{ if eq $motif "retrieval" }}#f3eedc{{ else if eq $motif "filings" }}#171713{{ else }}#28559a{{ end }}"/>
   <g transform="rotate({{ $angle }} 360 260)">
-  {{ if eq $motif "orbit" }}
-    <rect x="0" y="0" width="486" height="520" fill="#28559a"/>
-    <circle cx="448" cy="214" r="190" fill="#f3eedc"/>
-    <circle cx="448" cy="214" r="121" fill="none" stroke="#171713" stroke-width="{{ $line }}"/>
-    <circle cx="448" cy="214" r="52" fill="#c83f2a"/>
-    <path d="M55 460 654 46" stroke="#d1a326" stroke-width="20"/>
-    <path d="M55 484 654 70" stroke="#171713" stroke-width="{{ $line }}"/>
-    <circle cx="126" cy="103" r="42" fill="#171713"/>
-  {{ else if eq $motif "signal" }}
-    <rect x="0" y="0" width="206" height="520" fill="#c83f2a"/>
-    <path d="M110 330c70-210 140 210 210 0s140-210 210 0 140 210 210 0" fill="none" stroke="#28559a" stroke-width="28"/>
-    <path d="M110 367c70-210 140 210 210 0s140-210 210 0 140 210 210 0" fill="none" stroke="#171713" stroke-width="{{ $line }}"/>
-    <circle cx="548" cy="126" r="76" fill="#d1a326"/>
-    <path d="M0 94h720M0 134h720M0 174h720" stroke="#171713" stroke-width="{{ $line }}"/>
+  {{ if eq $motif "flow" }}
+    <path d="M0 80h720M0 160h720M0 240h720M0 320h720M0 400h720M90 0v520M180 0v520M270 0v520M360 0v520M450 0v520M540 0v520M630 0v520" stroke="#f3eedc" stroke-width="{{ $line }}" opacity=".28"/>
+    <circle cx="452" cy="260" r="92" fill="#c83f2a"/>
+    <g fill="none" stroke="#f3eedc" stroke-width="9">
+      <path d="M-20 110c250 0 285 18 337 64 42 37 79 40 135 40 76 0 127-24 288-24"/>
+      <path d="M-20 410c250 0 285-18 337-64 42-37 79-40 135-40 76 0 127 24 288 24"/>
+    </g>
+    <path d="M-20 260h760" stroke="#d1a326" stroke-width="22"/>
+    <g fill="#171713"><circle cx="88" cy="116" r="15"/><circle cx="158" cy="116" r="15"/><circle cx="88" cy="186" r="15"/><circle cx="158" cy="186" r="15"/></g>
+  {{ else if eq $motif "retrieval" }}
+    <g stroke="#171713" stroke-width="{{ $line }}">
+      <rect x="36" y="88" width="168" height="112" fill="#c83f2a"/><rect x="58" y="216" width="168" height="112" fill="#d1a326"/><rect x="80" y="344" width="168" height="112" fill="#f3eedc"/>
+      <path d="M204 144h78M226 272h56M248 400h34M282 144v256" fill="none"/>
+      <path d="M282 272c82 0 78-122 166-122M282 272c82 0 78 0 166 0M282 272c82 0 78 122 166 122" fill="none" stroke-width="8"/>
+    </g>
+    <circle cx="282" cy="272" r="34" fill="#171713"/><circle cx="474" cy="150" r="48" fill="#28559a"/><circle cx="474" cy="272" r="48" fill="#c83f2a"/><circle cx="474" cy="394" r="48" fill="#d1a326"/>
+    <path d="M522 272h72" stroke="#171713" stroke-width="10"/><rect x="594" y="188" width="96" height="168" fill="#28559a"/>
   {{ else }}
-    <path d="M90 0v520M180 0v520M270 0v520M360 0v520M450 0v520M540 0v520M630 0v520M0 86h720M0 173h720M0 260h720M0 347h720M0 434h720" stroke="#171713" stroke-width="{{ $line }}"/>
-    <rect x="180" y="86" width="360" height="261" fill="#28559a"/>
-    <circle cx="540" cy="347" r="130" fill="#c83f2a"/>
-    <circle cx="540" cy="347" r="66" fill="#f3eedc"/>
+    <g stroke="#f3eedc" stroke-width="{{ $line }}"><rect x="42" y="126" width="230" height="300" fill="#f3eedc"/><rect x="66" y="100" width="230" height="300" fill="#d1a326"/><rect x="90" y="74" width="230" height="300" fill="#f3eedc"/></g>
+    <g stroke="#171713" stroke-width="6"><path d="M126 130h158M126 174h132M126 218h158M126 262h116M126 306h158"/></g>
+    <path d="M320 260h130" stroke="#d1a326" stroke-width="24"/><path d="m430 220 48 40-48 40" fill="#d1a326"/>
+    <rect x="500" y="98" width="174" height="80" fill="#28559a"/><rect x="500" y="220" width="126" height="80" fill="#c83f2a"/><rect x="500" y="342" width="82" height="80" fill="#5d7147"/>
   {{ end }}
   </g>
-  <text x="28" y="44" fill="#f3eedc" font-family="ui-monospace,monospace" font-size="18" letter-spacing="3">{{ .Params.cover_art.label }}</text>
-  <text x="692" y="492" fill="#f3eedc" text-anchor="end" font-family="ui-monospace,monospace" font-size="13">GENERATED / DETERMINISTIC</text>
+  <text x="28" y="44" fill="{{ $ink }}" font-family="ui-monospace,monospace" font-size="18" letter-spacing="3">{{ .Params.cover_art.label }}</text>
+  <text x="692" y="492" fill="{{ $ink }}" text-anchor="end" font-family="ui-monospace,monospace" font-size="13">{{ if eq $motif "flow" }}D2Q9 / VELOCITY FIELD{{ else if eq $motif "retrieval" }}RAG / CONTEXT GRAPH{{ else }}PDF / NLP PIPELINE{{ end }}</text>
 </svg>

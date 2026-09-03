@@ -23,5 +23,3 @@ This does not require a platform. Plain records, stable identifiers, and direct 
 ## Design consequence
 
 That is why this portfolio is structured like a small annual report. The visual layer earns attention; the report structure spends that attention on judgment. Each finished case study will distinguish verified outcomes from working hypotheses and keep failure close to the result.
-
-*This note is representative editorial content for the candidate MVP.*
