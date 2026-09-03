@@ -27,6 +27,12 @@ context = "Computer Vision Engineer · Prospace, IIT Bombay"
 summary = "OpenCV software that automates 3D visualisation of a nozzle's water-level geometry and spray pattern, ArUco markers for proximity and scale on live video, and a Tauri and Plotly GUI with a debug mode."
 
 [[project]]
+title = "Federated LoRA under drift (FedICU)"
+period = "Autumn 2025 — in progress"
+context = "Research · MeDAL Lab · Prof. Amit Sethi · IIT Bombay"
+summary = "Incomplete research. A federated instruction-tuning harness where each client's LoRA update is split into consensus and divergence and aggregated by inter-client similarity, built toward a DoRA variant (BiDoRa). The pipeline runs end to end with FedAvg, FedProx, SCAFFOLD, and FedOpt baselines and an MT-Bench evaluator; no full-scale sweep or numbers yet."
+
+[[project]]
 title = "Supervised agent swarms on the BEAM"
 period = "2026 — ongoing"
 context = "Self-directed research · piexie and worldswarm"
@@ -38,13 +44,6 @@ period = "July 2026"
 context = "EPAM Being AI-Native Hackathon 2026 · BIA track"
 summary = "A Palantir-Foundry-inspired ops board: an LLM agent drafts an ontology over uploaded CSVs, a human approves each commitment, questions run as governed SQL with visible lineage, and insights become approved Jira tickets. FastAPI and DuckDB, a Bun and Vite frontend, SSE for live state, 97 backend tests, and a published Docker image."
 source = "https://github.com/sithtsar/HackBIA"
-
-[[project]]
-title = "Client selection by genetic algorithm"
-period = "Autumn 2025"
-context = "Course project · Prof. Avishek Ghosh · IIT Bombay"
-summary = "Reimplements two published genetic-algorithm client-selection methods for federated learning, FedCSGA and GenFed, against random selection on a Dirichlet-split MNIST with 10 clients over 50 rounds, with tests and CI."
-source = "https://github.com/sithtsar/FedGA"
 
 [[project]]
 title = "cricheros"

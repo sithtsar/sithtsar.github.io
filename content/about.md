@@ -59,12 +59,17 @@ Autumn 2025 · Bachelor thesis project · Prof. Amol Subhedar
 - Implementing colour-gradient lattice Boltzmann formulations to study interface dynamics and population interactions.
 - Extending the lattice Boltzmann framework to active-matter systems for non-equilibrium behaviour.
 
-### Federated Learning — BiDoRa integration
+### Federated learning with genetic algorithms
+Autumn 2025 · CS6007 · Prof. Avishek Ghosh
+
+- Reimplemented FedCSGA and GenFed and measured them against random selection on Dirichlet-split MNIST with tests and CI.
+- Found GA-inspired aggregation ten points ahead of the baseline and GA client selection below it, and traced the cause to a fitness function that rewards narrow clients.
+
+### Federated LoRA under drift (FedICU, in progress)
 Autumn 2025 · Research project · MeDAL Lab · Prof. Amit Sethi
 
-- Replaced LoRA adapters in FedICU with BiDoRa for decoupled magnitude and direction fine-tuning.
-- Integrated BiDoRa's bi-level client optimisation into FedICU's importance-aware aggregation.
-- Benchmarked against LoRA baselines on convergence, personalisation, and communication cost, and evaluated clinical utility across heterogeneous non-IID datasets.
+- A federated instruction-tuning harness splitting each client's LoRA update into consensus and divergence, aggregated by similarity, toward a DoRA variant.
+- Pipeline verified end to end against FedAvg, FedProx, and SCAFFOLD baselines with an MT-Bench evaluator; the full sweep is still to run.
 
 ## Positions of responsibility
 

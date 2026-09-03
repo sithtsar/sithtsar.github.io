@@ -54,7 +54,7 @@ paint_url=$(grep -o '/js/paint\.min\.[a-f0-9]*\.js' public/about/index.html | he
 test -f "public$paint_url"
 test "$(gzip -9 -c "public$paint_url" | wc -c)" -le 6144
 ! grep -q 'paint.min' public/work/index.html
-for page in public/work/atlas/index.html public/work/weave/index.html public/work/lathe/index.html public/work/locus/index.html public/work/federated-lora/index.html public/notes/quantum-computing-summer/index.html public/notes/dell-case-study/index.html; do
+for page in public/work/atlas/index.html public/work/weave/index.html public/work/lathe/index.html public/work/locus/index.html public/work/federated-ga/index.html public/notes/quantum-computing-summer/index.html public/notes/dell-case-study/index.html; do
   test -f "$page"
 done
 ! grep -q 'Financial Analysis' public/work/index.html
