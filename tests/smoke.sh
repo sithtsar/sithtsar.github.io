@@ -90,6 +90,8 @@ grep -q 'herdr' public/taste/index.html
 grep -q 'Hyprland' public/taste/index.html
 grep -q 'marimo' public/taste/index.html
 grep -q 'tl-row' public/work/index.html
-grep -q 'map__land' public/index.html
-grep -q 'img/me.jpg' public/about/index.html
+! grep -q 'map__land' public/index.html
+! grep -qi 'mumbai' public/index.html
+grep -q 'polaroid--empty' public/about/index.html
+! test -f public/img/me.jpg
 grep -q 'Bell Labs' public/index.html

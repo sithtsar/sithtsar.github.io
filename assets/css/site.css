@@ -57,17 +57,6 @@ h1, h2, h3, p { text-wrap: pretty; }
 .cover-atlas { position: absolute; width: min(52vw, 46rem); right: -1rem; top: 8%; }
 .cover-atlas svg { display: block; width: 100%; height: auto; }
 .cover { background-image: repeating-linear-gradient(to bottom, transparent 0 calc(2rem - 1px), color-mix(in srgb, var(--carbon) 13%, transparent) calc(2rem - 1px) 2rem); }
-.map { display: block; overflow: visible; font: 700 5px/1 var(--mono); letter-spacing: .6px; fill: var(--carbon); }
-.map__land { fill: var(--ultramarine); opacity: .9; }
-.map__route { fill: none; stroke: var(--vermilion); stroke-width: 1.2; stroke-dasharray: 2.5 2; }
-.map__dot { fill: var(--paper); stroke: var(--vermilion); stroke-width: 1.2; }
-.map__dot--now { fill: var(--vermilion); }
-.map--tiny { display: inline-block; height: 2.6rem; width: auto; margin-right: .6rem; vertical-align: middle; }
-.map--tiny text { display: none; }
-.cover-place { display: flex; align-items: center; justify-content: flex-end; gap: .2rem; text-align: left; }
-.plate-map { margin: 0; max-width: 20rem; }
-.plate-map .map { width: 100%; font-size: 4px; }
-.plate-map figcaption { margin-top: .8rem; font: 600 .62rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
 .cover-statement { grid-column: 1 / 6; align-self: end; margin: 0; max-width: 27ch; font: 500 clamp(1.25rem, 2.1vw, 2rem)/1.05 var(--serif); }
 
 .manifesto, .contact { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; padding-block: clamp(5rem, 11vw, 10rem); border-bottom: 1px solid var(--carbon); }
@@ -259,7 +248,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 
 
 /* Say hi */
-.hello__grid { display: grid; grid-template-columns: 2fr 3fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+.hello__grid { max-width: 44rem; }
 .hello__box > p:first-of-type { max-width: 40ch; margin: 0 0 2rem; font: 500 clamp(1.15rem, 1.7vw, 1.55rem)/1.35 var(--serif); }
 .hello__form label { display: block; margin: 0 0 1.2rem; font: 600 .66rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .1em; }
 .hello__form input, .hello__form textarea { display: block; width: 100%; margin-top: .35rem; padding: .5rem 0; border: 0; border-bottom: 1px solid var(--carbon); border-radius: 0; background: transparent; color: inherit; font: 500 1.15rem/1.4 var(--serif); text-transform: none; letter-spacing: 0; resize: vertical; }
@@ -286,15 +275,15 @@ h1, h2, h3, p { text-wrap: pretty; }
 @media (max-width: 48rem) {
   .cover-ascii { position: relative; width: 100%; right: auto; top: auto; margin: .5rem 0 0; grid-column: 1 / -1; justify-content: flex-start; }
   .ascii { font-size: .42rem; }
-  .cover-place { justify-content: flex-start; }
   .hello__grid { grid-template-columns: 1fr; }
-  .plate-map { max-width: 12rem; }
   .tl-row { grid-template-columns: 6rem 1fr; } .tl-axis { margin-left: 6.6rem; } .tl-label { font-size: .8rem; }
   .diary { columns: 1; }
 }
-.laureate { margin: 2rem 0 0; max-width: 16rem; }
-.laureate img { display: block; width: 100%; height: auto; border: 1px solid var(--carbon); padding: .4rem; background: #f3eedc; }
-.laureate figcaption { margin-top: .6rem; font: 600 .62rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .1em; }
+.polaroid { position: relative; margin: 2rem 0 0; max-width: 15rem; padding: .7rem .7rem 2.6rem; background: #f3eedc; color: #171713; transform: rotate(-2.5deg); box-shadow: .2rem .35rem 0 rgba(23, 23, 19, .18); }
+.polaroid::before { content: ''; position: absolute; left: 50%; top: -.55rem; width: 3rem; height: 1rem; margin-left: -1.5rem; background: rgba(209, 163, 38, .8); transform: rotate(-3deg); }
+.polaroid__photo { aspect-ratio: 1; background: #171713; }
+.polaroid--empty .polaroid__photo { background: repeating-linear-gradient(45deg, #e6e0cc 0 .4rem, #ede7d4 0 .8rem); outline: 1px dashed #171713; outline-offset: -.5rem; }
+.polaroid figcaption { position: absolute; left: .8rem; bottom: .7rem; font: 600 .62rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .1em; }
 
 /* Home: ASCII plates */
 .cover-ascii { display: flex; align-items: center; justify-content: center; top: 12%; }
