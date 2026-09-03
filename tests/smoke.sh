@@ -97,3 +97,4 @@ grep -q 'polaroid--empty' public/about/index.html
 ! test -f public/img/me.jpg
 grep -q 'Bell Labs' public/index.html
 grep -q 'denoising' public/js/ascii.*.js
+grep -q 'Asianometry' public/index.html
