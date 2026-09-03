@@ -1,30 +1,33 @@
 {{ $motif := .Params.cover_art.motif | default "grid" }}
 {{ if not (in (slice "orbit" "signal" "grid") $motif) }}{{ $motif = "grid" }}{{ end }}
-<svg class="cover-art cover-art--{{ $motif }}" data-cover-motif="{{ $motif }}" viewBox="0 0 720 520" role="img" aria-label="Abstract {{ $motif }} artwork for {{ .Title }}">
-  <title>{{ .Title }} cover artwork</title>
-  <rect width="720" height="520" fill="#171713"/>
+{{ $density := int (.Params.cover_art.density | default 6) }}
+{{ if lt $density 1 }}{{ $density = 1 }}{{ else if gt $density 12 }}{{ $density = 12 }}{{ end }}
+{{ $angle := div (int (.Params.cover_art.rotation | default 0)) 4 }}
+{{ $line := div 14.0 $density }}
+<svg class="cover-art cover-art--{{ $motif }}" data-cover-motif="{{ $motif }}" data-cover-density="{{ $density }}" data-cover-rotation="{{ $angle }}" viewBox="0 0 720 520" aria-hidden="true" focusable="false">
+  <rect width="720" height="520" fill="{{ if eq $motif "signal" }}#f3eedc{{ else if eq $motif "grid" }}#d1a326{{ else }}#171713{{ end }}"/>
+  <g transform="rotate({{ $angle }} 360 260)">
   {{ if eq $motif "orbit" }}
     <rect x="0" y="0" width="486" height="520" fill="#28559a"/>
     <circle cx="448" cy="214" r="190" fill="#f3eedc"/>
-    <circle cx="448" cy="214" r="121" fill="none" stroke="#171713" stroke-width="2"/>
+    <circle cx="448" cy="214" r="121" fill="none" stroke="#171713" stroke-width="{{ $line }}"/>
     <circle cx="448" cy="214" r="52" fill="#c83f2a"/>
     <path d="M55 460 654 46" stroke="#d1a326" stroke-width="20"/>
-    <path d="M55 484 654 70" stroke="#171713" stroke-width="2"/>
+    <path d="M55 484 654 70" stroke="#171713" stroke-width="{{ $line }}"/>
     <circle cx="126" cy="103" r="42" fill="#171713"/>
   {{ else if eq $motif "signal" }}
-    <rect width="720" height="520" fill="#f3eedc"/>
     <rect x="0" y="0" width="206" height="520" fill="#c83f2a"/>
     <path d="M110 330c70-210 140 210 210 0s140-210 210 0 140 210 210 0" fill="none" stroke="#28559a" stroke-width="28"/>
-    <path d="M110 367c70-210 140 210 210 0s140-210 210 0 140 210 210 0" fill="none" stroke="#171713" stroke-width="2"/>
+    <path d="M110 367c70-210 140 210 210 0s140-210 210 0 140 210 210 0" fill="none" stroke="#171713" stroke-width="{{ $line }}"/>
     <circle cx="548" cy="126" r="76" fill="#d1a326"/>
-    <path d="M0 94h720M0 134h720M0 174h720" stroke="#171713" stroke-width="2"/>
+    <path d="M0 94h720M0 134h720M0 174h720" stroke="#171713" stroke-width="{{ $line }}"/>
   {{ else }}
-    <rect width="720" height="520" fill="#d1a326"/>
-    <path d="M90 0v520M180 0v520M270 0v520M360 0v520M450 0v520M540 0v520M630 0v520M0 86h720M0 173h720M0 260h720M0 347h720M0 434h720" stroke="#171713" stroke-width="2"/>
+    <path d="M90 0v520M180 0v520M270 0v520M360 0v520M450 0v520M540 0v520M630 0v520M0 86h720M0 173h720M0 260h720M0 347h720M0 434h720" stroke="#171713" stroke-width="{{ $line }}"/>
     <rect x="180" y="86" width="360" height="261" fill="#28559a"/>
     <circle cx="540" cy="347" r="130" fill="#c83f2a"/>
     <circle cx="540" cy="347" r="66" fill="#f3eedc"/>
   {{ end }}
+  </g>
   <text x="28" y="44" fill="#f3eedc" font-family="ui-monospace,monospace" font-size="18" letter-spacing="3">{{ .Params.cover_art.label }}</text>
   <text x="692" y="492" fill="#f3eedc" text-anchor="end" font-family="ui-monospace,monospace" font-size="13">GENERATED / DETERMINISTIC</text>
 </svg>
