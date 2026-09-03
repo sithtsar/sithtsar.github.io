@@ -7,19 +7,19 @@ weight = 2
 number = "02"
 status = "AI Community · IIT Bombay"
 role = "Retrieval systems"
-period = "2024—2025"
-tags = ["RAG", "LoRA", "Gemini"]
+period = "2024 — ongoing"
+tags = ["RAG", "LoRA", "Inference routing"]
 question = "How can students query fragmented academic and campus information without sacrificing grounding?"
 hypothesis = "Retrieval, targeted fine-tuning, and cached context can reduce hallucination while keeping answers responsive."
 evaluation = "Test answers across academic and event queries, with attention to source relevance and hallucination behavior."
-result = "Built a RAG assistant for IIT Bombay and began integrating it with other student-built applications."
+result = "A campus assistant in real use, evaluated on reliability, cost, and user experience, with an in-house high-speed inference client and integrations into student-built apps."
 failure = "Campus information changes quickly; stale retrieval context can make a fluent answer confidently wrong."
 next_step = "Add source-level freshness signals and publish a grounded-answer evaluation set."
 
 source = "https://github.com/sithtsar/InstiGPT"
 
 [params]
-build = "A RAG pipeline with LoRA fine-tuning, context caching, and Gemini 2.5 Pro for answer generation."
+build = "A RAG pipeline with custom LoRA fine-tuning for Gemini and a locally fine-tuned phi-3 mini, prompt templates, context caching, and an in-house inference client that routes each request to the best model."
 
 [cover_art]
 motif = "retrieval"
@@ -44,4 +44,4 @@ InstiGPT is designed around a practical campus problem: useful information exist
                              grounded answer + sources
 ```
 
-The system uses retrieval-augmented generation, LoRA fine-tuning, and context caching to improve relevance and reduce hallucination. Work with IIT Bombay communities is expanding its reach into student-built applications.
+The system uses retrieval-augmented generation, LoRA fine-tuning, and context caching to improve relevance and reduce hallucination. An in-house client routes requests dynamically between Gemini and a locally fine-tuned phi-3 mini, and the assistant is evaluated on reliability, cost, and user experience as it integrates with student-built apps.

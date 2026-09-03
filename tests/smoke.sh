@@ -39,8 +39,11 @@ cat public/index.html "$css_path" "$js_path" | gzip -9 -c > /tmp/portfolio-criti
 test "$(wc -c < /tmp/portfolio-critical.gz)" -le 35840
 test "$(gzip -9 -c "$js_path" | wc -c)" -le 3072
 test "$(wc -c < "$font_path")" -le 51200
-grep -q 'Prof. Amol Subedar' public/work/lattice-boltzmann-flow/index.html
+grep -q 'Prof. Amol Subhedar' public/work/lattice-boltzmann-flow/index.html
 grep -q 'github.com/sithtsar/BTP' public/work/lattice-boltzmann-flow/index.html
 grep -q 'SaleBuddy' public/work/index.html
 grep -q 'Zwilling' public/about/index.html
 grep -q 'JEE Advanced' public/about/index.html
+grep -q 'Causal Security' public/about/index.html
+grep -q 'Causal Security' public/work/index.html
+grep -q 'BiDoRa' public/work/index.html
