@@ -7,7 +7,7 @@ A zero-runtime-by-default portfolio built with Hugo, semantic HTML, and CSS.
 Install Hugo `v0.164.0`, then run:
 
 ```sh
-hugo server --disableFastRender
+hugo server --renderToMemory --disableFastRender
 ```
 
 Build and verify:
