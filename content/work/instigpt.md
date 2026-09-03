@@ -30,4 +30,18 @@ label = "RAG / IITB"
 
 InstiGPT is designed around a practical campus problem: useful information exists, but it is distributed across documents, communities, and changing institutional sources.
 
+```
+ student query
+      │
+      ▼
+   embed ──▶ retrieve ──▶ rerank ──▶ context
+                                        │
+                        cache hit? ─────┤
+                                        ▼
+                    Gemini 2.5 Pro (LoRA-tuned)
+                                        │
+                                        ▼
+                             grounded answer + sources
+```
+
 The system uses retrieval-augmented generation, LoRA fine-tuning, and context caching to improve relevance and reduce hallucination. Work with IIT Bombay communities is expanding its reach into student-built applications.

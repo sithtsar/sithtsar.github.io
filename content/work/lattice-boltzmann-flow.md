@@ -32,6 +32,17 @@ label = "ELBM / D2Q9"
 
 This was my undergraduate bachelor thesis project (BTP-1) at IIT Bombay, guided by Prof. Amol Subedar. It grew out of an earlier CL469 course solver (Spring 2025, same guide) built around the BGK collision operator, and implements the entropic formulation of Hosseini et al. (2023) so that the discrete entropy H = Σ fᵢ ln(fᵢ / wᵢ) is never allowed to grow.
 
+```
+D2Q9 velocity set            two-step entropic collision
+
+    6     2     5            f*  = f + α (f_eq − f)
+      ╲   │   ╱                    with H(f*) = H(f)
+   3 ──── 0 ──── 1
+      ╱   │   ╲              f'  = (1 − β) f + β f*
+    7     4     8
+                             ν   = c_s² (1/αβ − 1/2) Δt
+```
+
 The collision runs in two steps: an α-relaxation solved by Newton–Raphson so entropy is conserved, then a β-dissipation that sets the viscosity. The same code paths drive the BGK comparison, the analytical and benchmark test suites, and an active-matter extension with run-and-tumble particles coupled bidirectionally to the flow.
 
 Source: [github.com/sithtsar/BTP](https://github.com/sithtsar/BTP).

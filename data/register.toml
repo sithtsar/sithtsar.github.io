@@ -47,3 +47,23 @@ title = "Financial Analysis"
 period = "Autumn 2022"
 context = "Acmegrade · IIM Bangalore"
 summary = "Market analysis training from industry experts and a Python web-scraping tool for mining financial news for investment decisions."
+
+[[experience]]
+title = "QNLP"
+period = "Oct 2024 — Feb 2025"
+context = "ML Intern · Dr. Darsh Shah, MIT · part time, remote"
+summary = "Scraped quarterly reports of 1,000+ NSE-listed organisations with Scrapy, built multithreaded PDF-processing pipelines, and ran sentiment analysis of equity derivatives with LLMs and traditional NLP."
+source = "work/qnlp-financial-intelligence/"
+source_label = "Case study"
+
+[[experience]]
+title = "Zwilling Labs — Digital Twin Platform"
+period = "May — July 2024"
+context = "Machine Learning Engineer, internship · on site, Mumbai"
+summary = "Outlier detection on IoT machine data with Isolation Forest, KANs, and kPCA; maintenance and anomaly forecasting on TimescaleDB; a PostgreSQL REST backend with row-level security and a SvelteKit dashboard deployed on AWS EC2."
+
+[[experience]]
+title = "Lechler India — Nozzle Software"
+period = "May — August 2024"
+context = "Computer Vision Engineer, internship · hybrid, Mumbai"
+summary = "OpenCV software that automates spray-pattern visualisation for pharmaceutical-grade equipment, ArUco markers for live proximity and scale, and a Tauri and Plotly GUI with a debug mode."

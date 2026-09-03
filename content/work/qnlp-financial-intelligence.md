@@ -30,4 +30,18 @@ label = "NSE / 1K+"
 
 This internship project focused on the unglamorous layer beneath financial NLP: acquiring quarterly reports reliably and converting heterogeneous PDFs into a corpus that analysis can trust.
 
+```
+ NSE-listed orgs (1,000+)
+      │  Scrapy
+      ▼
+ quarterly report PDFs ──▶ worker pool ×N
+                                │  regex extraction
+                                ▼
+                        normalised text corpus
+                          │             │
+                 classical NLP        LLM read
+                          │             │
+                          └──▶ sentiment ◀──┘
+```
+
 The pipeline combines Scrapy, multithreaded document processing, regular expressions, language models, and traditional NLP techniques to study sentiment across equity-related filings.

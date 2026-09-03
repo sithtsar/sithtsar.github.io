@@ -28,8 +28,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--ultramarine); o
 .social-nav { justify-self: end; }
 .site-footer { display: flex; justify-content: space-between; }
 .wordmark, .site-header nav a, .site-footer a, .section-head > a, .contact-link { min-height: 2.75rem; display: inline-flex; align-items: center; }
-.wordmark { text-decoration: none; font-weight: 800; }
-.wordmark span { color: var(--vermilion-text); }
+.wordmark { text-decoration: none; }
+.signature { display: block; height: 2.75rem; width: auto; }
+.signature__rule { stroke: var(--vermilion); }
+.wordmark:hover .signature { color: var(--ultramarine); }
 .eyebrow { font: 600 .72rem/1.2 var(--mono); text-transform: uppercase; letter-spacing: .12em; }
 h1, h2, h3, p { text-wrap: pretty; }
 .site-footer { border-top: 1px solid var(--carbon); border-bottom: 0; }
@@ -114,7 +116,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .report-meta dt { font: .64rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
 .report-meta dd { margin: .35rem 0 0; font-size: .85rem; }
 .report-body { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(2rem, 6vw, 8rem); padding-block: 5rem; }
-.report-prose { font: 500 clamp(1.15rem, 1.6vw, 1.45rem)/1.55 var(--serif); }
+.report-prose { min-width: 0; font: 500 clamp(1.15rem, 1.6vw, 1.45rem)/1.55 var(--serif); }
 .report-prose p:first-child { color: var(--vermilion-text); }
 .evidence > header { margin-bottom: 2rem; }
 .evidence h2 { margin: 0; font: 500 clamp(2.2rem, 4vw, 4.5rem)/.9 var(--serif); letter-spacing: -.04em; }
@@ -179,3 +181,5 @@ h1, h2, h3, p { text-wrap: pretty; }
 .entry-list--register > .section-index { padding-block: 2rem 1rem; margin: 0; }
 .entry-list--register h3 { margin: 0; font: 500 clamp(1.5rem, 2.6vw, 2.4rem)/1.05 var(--serif); letter-spacing: -.03em; }
 .entry-list--register article > p:last-child { max-width: 46ch; margin: 0; line-height: 1.5; }
+.report-prose pre { margin: 2rem 0; padding: 1rem; border: 1px solid var(--carbon); overflow-x: auto; font: 500 .72rem/1.3 var(--mono); color: var(--carbon); }
+.report-prose pre code { font: inherit; }
