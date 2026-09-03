@@ -233,3 +233,12 @@ h1, h2, h3, p { text-wrap: pretty; }
 .report-actions .copy-button { margin-left: 0; }
 .report-actions .copy-status { display: inline; margin: 0; }
 @media (max-width: 40rem) { .page-lead__year { font-size: 7rem; top: auto; bottom: -.1em; } }
+
+.stat { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: baseline; margin: 1.6rem 0; padding-top: .6rem; border-top: 1px solid var(--carbon); }
+.stat b { font: 500 clamp(2.4rem, 5vw, 4.2rem)/1 var(--serif); letter-spacing: -.03em; white-space: nowrap; }
+.stat small { margin-left: .4rem; font: 600 .66rem/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.stat span { font: 500 .9rem/1.4 var(--sans); }
+.plate-figure { margin: 2rem 0; }
+.plate-figure figcaption { margin-top: .6rem; font: 600 .66rem/1.5 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.margin-note { margin: 1.6rem 0; padding-left: 1rem; border-left: 3px solid var(--vermilion); font: 500 .95rem/1.5 var(--sans); }
+.margin-note p { margin: 0; }

@@ -1,0 +1,1 @@
+<figure class="plate-figure">{{ partial "cover-art.html" (dict "Params" (dict "cover_art" (dict "motif" (.Get "motif") "label" (.Get "label" | default "") "density" (.Get "density" | default 7) "rotation" (.Get "rotation" | default 0)))) }}{{ with .Inner }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}</figure>

@@ -26,6 +26,16 @@ sh tests/smoke.sh
 - One local 24 KB Newsreader WOFF2; system sans-serif and monospace fallbacks.
 - No npm, client framework, hydration, canvas loop, analytics, CMS, or service worker.
 
+## Shortcodes
+
+Tailored elements for Markdown, rendered to plain HTML and inline SVG at build time:
+
+```
+{{< stat value="250" unit="docs / s" label="one process per core" >}}
+{{< plate motif="flow" label="LBM / D2Q9" >}}optional caption{{< /plate >}}
+{{< aside >}}a margin note{{< /aside >}}
+```
+
 ## Repository structure
 
 ```text
@@ -44,6 +54,7 @@ content/
   studio.md                generative-art method
 layouts/
   _default/                shared list, page, and document shell
+  shortcodes/              stat, plate, aside
   notes/                    note article template
   work/                     evidence-led project report
   partials/                navigation, project cards, SVG art, evidence

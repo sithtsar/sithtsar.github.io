@@ -38,4 +38,4 @@ Locus is where a repository becomes a graph. Weave asks it to index a clone, and
                                    SQLite graph + Louvain communities ──▶ Cypher / MCP
 ```
 
-Credit where it belongs: the parsing pipeline is upstream open-source work. What is ours is the integration into Weave as a leased subprocess, the packaging, and the fixes that came out of running it against real customer repositories.
+{{< aside >}}Credit where it belongs: the parsing pipeline is upstream open-source work by the codebase-memory-mcp maintainers. What is ours is the integration into Weave as a leased subprocess, the packaging, and the fixes that came out of running it against real repositories.{{< /aside >}}

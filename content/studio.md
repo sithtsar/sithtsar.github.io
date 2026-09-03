@@ -22,3 +22,5 @@ The main site does not ship p5.brush. A future `/studio/` experiment may lazy-lo
 - Simple geometry that survives monochrome printing.
 - Text remains HTML; art never carries the only copy of meaning.
 - Unknown motif values fall back to the flow diagram instead of becoming executable markup.
+
+{{< plate motif="graph" label="STUDIO / PLATE" >}}A plate placed from Markdown with the `plate` shortcode: same grammar, same inks, no image file.{{< /plate >}}

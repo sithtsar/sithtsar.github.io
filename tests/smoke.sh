@@ -69,3 +69,6 @@ grep -q 'Copy for AI' public/work/atlas/index.html
 grep -q 'textPath' public/about/index.html
 grep -q 'page-lead__year' public/work/index.html
 grep -q 'annualreport.gallery' public/taste/index.html
+grep -q 'class=stat' public/work/lathe/index.html
+grep -q 'margin-note' public/work/locus/index.html
+grep -q 'plate-figure' public/studio/index.html

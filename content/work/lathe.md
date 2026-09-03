@@ -39,4 +39,7 @@ Lathe is the machine that feeds Weave. A document goes in, and normalised Markdo
                 normalised markdown ──▶ structural chunker ──▶ NDJSON (protocol 1)
 ```
 
+{{< stat value="250" unit="docs / s" label="with one Zig process per M2 performance core; 89 in a single process, about 8 ms median per PDF" >}}
+{{< stat value="$0.52" label="to process 85,780 documents (45 GB) on nine Lambda workers at 60.5 documents a second, 92.4% successful" >}}
+
 Removing the Bun-based wrapper around the PDF extractor saved 30 to 45 MB of resident memory per worker and cut latency three to ten times. The Rust branch exists so that two independent implementations must agree byte for byte before either is trusted.
