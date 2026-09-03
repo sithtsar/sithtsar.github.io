@@ -18,3 +18,37 @@ sh tests/smoke.sh
 ```
 
 All project copy is representative until replaced with verified work.
+
+## Exact stack
+
+- Hugo `v0.164.0`, pinned for reproducible static builds.
+- Go templates and Markdown/TOML content records.
+- Semantic HTML, one minified CSS resource, one optional vanilla ES module.
+- Deterministic inline SVG project art; no runtime drawing dependency.
+- One local 24 KB Newsreader WOFF2; system sans-serif and monospace fallbacks.
+- No npm, client framework, hydration, canvas loop, analytics, CMS, or service worker.
+
+## Repository structure
+
+```text
+assets/
+  css/site.css             complete visual system
+  fonts/                   local Newsreader subset + OFL
+  js/site.js               optional clipboard feedback
+content/
+  _index.md                homepage record
+  work/                    project report records
+  notes/                   field notes
+  about.md                 profile placeholder
+  studio.md                generative-art method
+layouts/
+  _default/                shared list, page, and document shell
+  notes/                    note article template
+  work/                     evidence-led project report
+  partials/                navigation, project cards, SVG art, evidence
+static/                     favicon and robots policy
+tests/smoke.sh              build output, routes, semantics, budgets
+hugo.toml                   site and output configuration
+```
+
+Deployment is intentionally deferred until the design and real content are approved.

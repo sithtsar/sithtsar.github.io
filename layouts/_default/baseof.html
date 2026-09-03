@@ -8,6 +8,7 @@
   <meta property="og:description" content="{{ .Description | default site.Title }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta name="theme-color" content="#f3eedc">
+  <link rel="icon" href="{{ "/favicon.svg" | relURL }}" type="image/svg+xml">
   <title>{{ block "title" . }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
   {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }} — {{ $.Title }}" href="{{ .RelPermalink }}">{{ end }}
   {{ with resources.Get "fonts/newsreader-latin.woff2" }}{{ $font := . | fingerprint }}<style>@font-face{font-family:Newsreader;src:url('{{ $font.RelPermalink }}') format('woff2');font-style:normal;font-weight:500;font-display:swap}</style>{{ end }}
@@ -18,6 +19,7 @@
   {{ partial "header.html" . }}
   <main id="content">{{ block "main" . }}{{ .Content }}{{ end }}</main>
   {{ partial "footer.html" . }}
+  {{ with resources.Get "js/site.js" }}{{ $script := . | minify | fingerprint }}<script type="module" src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>{{ end }}
   {{ block "scripts" . }}{{ end }}
 </body>
 </html>
