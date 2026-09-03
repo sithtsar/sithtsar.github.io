@@ -1,24 +1,24 @@
 +++
 title = "Locus"
-description = "Causal Security's code-intelligence engine: a hardened fork of the open-source codebase-memory-mcp, pure C with tree-sitter parsers for 158 languages, embedded as Weave's indexer."
-summary = "A native MCP server that parses a repository into a persistent graph of files, symbols, calls, and configuration in SQLite, with an openCypher read subset and a custom type-resolution layer, indexing the Linux kernel's 28 million lines in three minutes."
+description = "The code-intelligence engine: a hardened fork of an open-source project, pure C with parsers for 158 languages, embedded as Weave's indexer."
+summary = "A native engine that parses a repository into a persistent graph of files, symbols, and calls, queryable in a Cypher subset, indexing the Linux kernel's 28 million lines in about three minutes."
 date = 2026-09-02
 weight = 4
 number = "04"
-status = "Causal Security · fork of codebase-memory-mcp"
+status = "Causal Security · fork of an open-source engine"
 role = "Systems · C"
 period = "Feb 2026 — present"
 featured = true
 tags = ["C", "tree-sitter", "SQLite"]
 question = "What does an agent need to know about a codebase to answer structural questions without reading the files, and how cheap can building that be?"
-hypothesis = "A tree-sitter pass over every language plus a targeted type-resolution layer for the ten that matter yields call graphs good enough for security reasoning, at native speed and with no runtime to ship."
-evaluation = "Benchmarks across 63 languages and real repositories: Linux kernel (28M lines, 75K files) indexed in about 3 minutes into 4.81M nodes and 7.72M edges; Django in about 6 seconds into 49K nodes; Cypher queries under a millisecond."
-result = "Locus is the engine Weave shells out to for every ingest. The fork carries our integration commits and build hardening on top of the upstream project, whose pipeline, daemon, Louvain community detection, and hybrid LSP layer do the heavy lifting."
-failure = "This is a fork, not a from-scratch parser: the vast majority of the code is upstream work by the codebase-memory-mcp maintainers, and my commits are integration, packaging, and fixes. The Cypher subset also excludes writes, MERGE, CALL, and comprehensions, and many listed languages are unbenchmarked."
-next_step = "Upstream the integration fixes, pin the grammar set Weave actually needs, and add security-specific edge types (taint sources, sinks, auth boundaries) on top of the call graph."
+hypothesis = "A tree-sitter pass over every language plus a targeted type-resolution layer for the ones that matter yields call graphs good enough for security reasoning, at native speed and with no runtime to ship."
+evaluation = "Benchmarks across 63 languages and real repositories: the Linux kernel, 28 million lines, indexed in about three minutes into 4.8 million nodes and 7.7 million edges; Django in about six seconds; queries under a millisecond."
+result = "Locus is the engine behind every ingest. The fork carries our integration and build hardening on top of the upstream project, whose pipeline and analysis do the heavy lifting."
+failure = "This is a fork, not a from-scratch parser: most of the code is the upstream maintainers' work, and my commits are integration, packaging, and fixes. The query subset is read-only, and many listed languages are unbenchmarked."
+next_step = "Upstream the fixes, pin the grammar set we actually need, and add security-specific edges, sources, sinks, and auth boundaries, on top of the call graph."
 
 [params]
-build = "Pure C with vendored tree-sitter grammars for 158 languages, embedded SQLite, mimalloc, xxhash, yyjson, LZ4 for RAM-first indexing, 15 JSON-RPC MCP tools, an openCypher read-subset engine, a git-polling watcher, and a 3D graph UI."
+build = "Pure C with vendored tree-sitter grammars for 158 languages, embedded SQLite, a read-only Cypher subset, and an MCP surface."
 
 [cover_art]
 motif = "locus"
@@ -27,15 +27,10 @@ rotation = 0
 label = "LOCUS / CMM"
 +++
 
-Locus is where a repository becomes a graph. Weave asks it to index a clone, and it returns a SQLite database of symbols and relationships that the knowledge graph links into the organisation's brain.
+Locus is where a repository becomes a graph. Weave asks it to index a clone and gets back a database of symbols and relationships to link into the organisation's graph.
 
 ```
- repo ──▶ tree-sitter (158 grammars) ──▶ structure ──▶ definitions ──▶ calls
-                                                            │
-                                     hybrid LSP (10 languages) refines CALLS edges
-                                                            │
-                                                            ▼
-                                   SQLite graph + Louvain communities ──▶ Cypher / MCP
+ repo ──▶ parse (158 grammars) ──▶ symbols ──▶ calls ──▶ graph ──▶ queries
 ```
 
-{{< aside >}}Credit where it belongs: the parsing pipeline is upstream open-source work by the codebase-memory-mcp maintainers. What is ours is the integration into Weave as a leased subprocess, the packaging, and the fixes that came out of running it against real repositories.{{< /aside >}}
+{{< aside >}}Credit where it belongs: the parsing pipeline is upstream open-source work by the codebase-memory-mcp maintainers. What is ours is the integration as a leased subprocess, the packaging, and the fixes that came out of running it against real repositories.{{< /aside >}}

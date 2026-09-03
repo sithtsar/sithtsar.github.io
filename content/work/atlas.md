@@ -1,7 +1,7 @@
 +++
 title = "Atlas"
-description = "The core web platform behind Cipher, Causal Security's AI security engineer: connectors, findings, documents, and a knowledge-graph UI on a Go and Next.js stack."
-summary = "A multi-service security platform: Next.js 16 client, Go API and connector services, a Python AI service, Postgres with pgvector, and OAuth connectors to GitHub, GitLab, Jira, Confluence, Google Drive, and Slack."
+description = "The platform a security team lives in: where an AI security engineer's findings, documents, and organisational context come together on one screen."
+summary = "The core web platform at Causal Security: a typed web client over Go services and Postgres, connected to the tools engineering teams already use."
 date = 2026-08-11
 weight = 1
 number = "01"
@@ -10,15 +10,15 @@ role = "Platform engineering"
 period = "May 2025 — present"
 featured = true
 tags = ["Go", "Next.js", "Postgres"]
-question = "Can one platform ingest an organisation's engineering context, run AI pentest work over it, and hand security teams findings they can actually navigate and edit?"
-hypothesis = "Split the system by trust and workload: a thin Next.js client, a Go API that owns auth and data, a separate connector service for third-party OAuth and webhooks, and a Python service for the AI work, joined by delegation tokens rather than shared secrets."
-evaluation = "API and concurrent-load stress scripts, migration-based schema with per-package test databases, an OpenAPI-documented server, and runbooks for every deploy path."
-result = "The platform runs the product end to end: SSO via WorkOS, JWT plus CSRF sessions, six connector integrations, task execution through the Cipher backend, embeddings for retrieval, and a D3 knowledge graph and Milkdown editor over the results. I am the largest contributor across client and server."
-failure = "The deferred-work ledger is long. Per-finding timestamps wait on the execution backend, dashboards are not personalised server-side, test databases can pollute each other across packages, and the host CI does not yet run with the race detector."
-next_step = "Finish the execution-backend contract so findings carry their own timeline, and move the remaining cross-service calls onto the delegation-token path."
+question = "Can one platform hold an organisation's engineering context, run AI security work over it, and hand people findings they can actually navigate and edit?"
+hypothesis = "Split the system by trust and workload: a thin client, a service that owns identity and data, integrations kept in their own box, and the AI work at arm's length, so each part can fail and scale on its own."
+evaluation = "Load and concurrency scripts, a migration-based schema with isolated test databases, a documented API, and a runbook for every deploy path."
+result = "It runs the product end to end: single sign-on, a half-dozen integrations with the places engineering teams keep their work, findings flowing back from the analysis engine, and a graph view and editor over the results. I am the largest contributor across client and server."
+failure = "The ledger of deferred work is honest and long. Some timelines and personalisation still live client-side, and the test suite has cross-package hygiene left to fix."
+next_step = "Give every finding its own timeline, and finish moving all internal traffic onto the scoped-credential path."
 
 [params]
-build = "Next.js 16 with React 19 and TypeScript (Radix UI, AG Grid, D3, Milkdown, Tailwind); Go 1.25 with Chi for the API and connector services; a Python 3.13 AI service; PostgreSQL 16 with pgvector; Redis; S3, SES, SQS, and KMS; Docker Compose for local parity."
+build = "TypeScript and React on the client; Go services; PostgreSQL with vector search; Redis; the usual cloud building blocks; Docker for local parity."
 
 [cover_art]
 motif = "atlas"
@@ -27,14 +27,13 @@ rotation = 0
 label = "CIPHER / ATLAS"
 +++
 
-Atlas is the application security teams see when they use Cipher. Everything else in this register, the knowledge graph, the document engine, the code index, exists to feed it.
+Atlas is the application security teams see. Everything else in this register, the knowledge graph, the document engine, the code index, exists to feed it.
 
 ```
- browser ──▶ Next.js ──▶ Go API ──▶ Postgres + pgvector
-                          │  │
-                          │  └──▶ connector service ──▶ GitHub · GitLab · Jira
-                          │                              Confluence · Drive · Slack
-                          └──▶ Cipher backend (task execution) ──▶ findings
+ people ──▶ client ──▶ services ──▶ data
+                          │
+                          ├──▶ integrations
+                          └──▶ analysis engine ──▶ findings
 ```
 
-I built the frontend migration from Svelte 5 to Next.js 15 and then 16, the Go API's auth and delegation layer, the Postgres triggers that audit and enqueue work, and the Docker and GitHub Actions path that publishes images. The knowledge-graph view and the document editor are where the platform's data model becomes something a person can read.
+I built the client migration, the service layer that owns identity and data, the database-side audit and queueing, and the path that ships images. The graph view and the editor are where the data model becomes something a person can read.

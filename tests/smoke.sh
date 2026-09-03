@@ -72,3 +72,8 @@ grep -q 'annualreport.gallery' public/taste/index.html
 grep -q 'class=stat' public/work/lathe/index.html
 grep -q 'margin-note' public/work/locus/index.html
 grep -q 'plate-figure' public/studio/index.html
+# Work write-ups stay at conference altitude: no internal auth, schema, or vendor detail.
+for word in WorkOS CSRF pgvector 'brain.db' anydoc modernc 'delegation-token' 'delegation token'; do
+  if grep -rqi -- "$word" public/work public/taste public/about; then echo "leaked internal detail: $word"; exit 1; fi
+done
+grep -q 'fill="#171713"' public/favicon.svg

@@ -15,19 +15,19 @@ Taste is what you choose when nobody is making you. This page is what I choose, 
 
 ## Go, and the joy of one binary
 
-Gopher, unapologetically. Weave is a single Go binary that runs an HTTP API, an MCP endpoint, a job queue, a reaper, and a snapshot scheduler in one process, and it deploys as one file. Chi for routing, modernc SQLite so there is no CGO, the official MCP SDK, OpenTelemetry. Go's boredom is the feature: a year later the code still reads the same.
+Gopher, unapologetically. My favourite deployable is a single Go binary that is an API, a job queue, and a scheduler in one process, and ships as one file. Chi for routing, SQLite without CGO, OpenTelemetry. Go's boredom is the feature: a year later the code still reads the same.
 
 ## Zig over Rust, for now
 
-I wrote a lot of Rust, ten Cargo projects' worth. Lathe, the document engine, is Zig, with the Rust version kept as a reference implementation that has to agree byte for byte. The reason is not safety or ergonomics, it is the edit-compile-test loop: Zig's build cache and compile times keep me in flow on a large native codebase in a way Rust's did not. Rust still owns the HTML extractor, because the library was already there.
+I wrote a lot of Rust, ten Cargo projects' worth. The last large native thing I built is Zig, with a Rust version kept as a reference that has to agree byte for byte. The reason is not safety or ergonomics, it is the edit-compile-test loop: Zig's build cache and compile times keep me in flow on a large native codebase in a way Rust's did not. Rust still gets the job when the library is already there.
 
 ## C where it has to be
 
-Locus is C because tree-sitter is C and the index has to run anywhere with no runtime. I do not start projects in C. I do keep them there when the constraint is real.
+I do not start projects in C. I do keep them there when the constraint is real: tree-sitter is C, and an index that has to run anywhere with no runtime ends up C too.
 
 ## SQLite first
 
-Every repository in Weave is its own SQLite file. cricheros is SQLite. The habit: start with one file you can copy, back up, and diff. Reach for Postgres when there are tenants and concurrent writers (Atlas has both, plus pgvector), and DuckDB when the question is analytical.
+One SQLite file per unit of work, whether that is a repository or a cricket league. cricheros is SQLite. The habit: start with one file you can copy, back up, and diff. Reach for Postgres when there are tenants and concurrent writers, and DuckDB when the question is analytical.
 
 ## Elixir for swarms
 
@@ -35,16 +35,16 @@ When agents need supervision, mailboxes, and restart strategies, the BEAM alread
 
 ## Web, sparingly
 
-- Next.js when a product needs it, and Atlas does. Svelte remains the framework I like; Bun is the runtime I pick when I have a choice.
+- Next.js when a product needs it. Svelte remains the framework I like; Bun is the runtime I pick when I have a choice.
 - Plain HTML, CSS, and a static generator for anything that is a document. This site is Hugo with a 6.5 KB critical bundle and about 3 KB of JavaScript, and it runs the same on a potato phone and a workstation.
 
 ## Repositories that agents can read
 
-Eleven of my repositories carry a `CLAUDE.md` and six an `AGENTS.md`. Structured output goes through BAML schemas rather than prompt-and-pray. Code intelligence is an MCP server (Locus) rather than grep. I treat the repository as the interface an agent will use, and write it down the way I would for a new colleague.
+Eleven of my repositories carry a `CLAUDE.md` and six an `AGENTS.md`. Structured output goes through BAML schemas rather than prompt-and-pray. Code intelligence is a graph behind an MCP server rather than grep. I treat the repository as the interface an agent will use, and write it down the way I would for a new colleague.
 
 ## Ops that fail loudly
 
-Docker in thirteen projects, GitHub Actions in nearly all of them. The parts I am proudest of are the gates: mutation testing and cyclomatic ceilings on Weave, sha256 goldens and a hostile-file suite on Lathe, generated docs that fail CI when they drift. Tailscale for anything internal. If a check can be a tool instead of a review comment, it becomes a tool.
+Docker in thirteen projects, GitHub Actions in nearly all of them. The parts I am proudest of are the gates: mutation testing and cyclomatic ceilings, sha256 goldens and a hostile-file suite, generated docs that fail CI when they drift. Tailscale for anything internal. If a check can be a tool instead of a review comment, it becomes a tool.
 
 ## The desk
 

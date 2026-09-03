@@ -22,12 +22,12 @@ I currently build agentic AI infrastructure at Causal Security, and my thesis wo
 ### Causal Security
 Summer 2025 — present · Agentic AI platform and AWS ETL pipeline · remote
 
-- Built Atlas, the core platform: a Go API and connector service, a Next.js client migrated from Svelte 5, Postgres with pgvector, delegation-token auth, and six third-party connectors.
-- Wrote Weave, the per-tenant knowledge graph in Go that Cipher queries over MCP, with a leased job queue, SQLite graphs per repository, and 97% mutation-testing efficacy.
-- Wrote Lathe, a Zig document processor that turns PDFs, Office files, and HTML into chunked NDJSON at 250 documents a second, with byte-identical output enforced by goldens.
-- Integrated and hardened Locus, the C code-intelligence engine (a fork of codebase-memory-mcp) that indexes repositories into graphs for Weave.
-- Implemented PostgreSQL triggers for audit and job enqueuing, secured services with Tailscale, made them Docker-native, and set up GitHub Actions for CI/CD and image publishing.
-- Developed a Python ETL that converts PDFs, video, images, and audio into structured JSON/XML for SLM training, using Whisper Turbo transcription, V-JEPA2 video-token pruning, mixtral-ocr PDF to Markdown, hashing-based asset tracking, and checkpointed worker-thread parallelism.
+- Built Atlas, the core platform: a typed web client, Go services, Postgres with vector search, and integrations with the tools engineering teams already use.
+- Wrote Weave, the per-tenant knowledge graph in Go that the agent queries: one graph per repository, jobs under leases, 97% mutation-testing efficacy.
+- Wrote Lathe, a Zig document engine: PDFs, Office files, and HTML to Markdown chunks at 250 documents a second, byte-identical across runs.
+- Integrated and hardened Locus, the C code-intelligence engine that turns repositories into graphs: 158 languages, the Linux kernel in about three minutes.
+- Made the services Docker-native with CI/CD and image publishing, database-side audit and queueing, and a private network for internal traffic.
+- Built the Python ETL that turns PDFs, video, images, and audio into structured training data: transcription, video-token pruning, PDF OCR, hash-based asset tracking, and checkpointed parallel workers.
 
 ### QNLP
 Autumn 2024 · Intern under Dr. Darsh Shah, Massachusetts Institute of Technology · remote

@@ -2,7 +2,7 @@
 title = "Causal Security — Agentic AI platform"
 period = "Summer 2025 — present"
 context = "Software and AI engineering intern · remote"
-summary = "Built the core platform Atlas (Go API, Next.js client, connector service), Weave (the per-tenant knowledge graph in Go), Lathe (a Zig document processor), and integrated Locus (the C code-intelligence engine), plus the AWS ETL pipeline that turns PDFs, video, images, and audio into training data with Whisper Turbo, V-JEPA2 token pruning, and mixtral-ocr."
+summary = "Built the core platform Atlas, the knowledge graph Weave, and the Zig document engine Lathe, integrated the Locus code-intelligence engine, and built the ETL pipeline that turns PDFs, video, images, and audio into training data."
 source = "work/atlas/"
 source_label = "Case studies"
 
