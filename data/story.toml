@@ -12,7 +12,7 @@ text = "Chemical engineering by day, machine learning by night: a B.Tech in the 
 
 [[chapter]]
 scene = "ripples"
-period = "2025 — now"
+period = "2025 — 2026"
 title = "Fluids, but in code"
 text = "A lattice Boltzmann solver that grew entropic, then two-phase, as my bachelor thesis under Prof. Amol Subhedar. Vortices are prettier when you made them yourself."
 

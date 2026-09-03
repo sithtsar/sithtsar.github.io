@@ -2,6 +2,7 @@
 title = "A summer of quantum circuits"
 description = "Summer of Science 2023 with the Maths and Physics Club: quantum mechanics from the ground up, then gates, circuits, and algorithms simulated in Qiskit."
 date = 2023-07-15
+doodle = "atom"
 kicker = "Field note"
 +++
 

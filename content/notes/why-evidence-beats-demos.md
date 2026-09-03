@@ -2,6 +2,7 @@
 title = "Why evidence beats demos"
 description = "A demo proves that one path worked once. An evidence trail makes the result inspectable."
 date = 2026-08-21
+doodle = "magnifier"
 kicker = "Field note 001"
 +++
 

@@ -2,6 +2,7 @@
 title = "Reading Dell as a system"
 description = "A first-semester corporate case study for SOM101: Dell's structure, logistics, operations, income statement, and valuation, presented to 150+ classmates."
 date = 2022-11-20
+doodle = "box"
 kicker = "Field note"
 +++
 

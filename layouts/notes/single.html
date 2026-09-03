@@ -1,6 +1,7 @@
 {{ define "main" }}
 <article class="article shell">
   <header class="article-head">
+    {{ with .Params.doodle }}{{ partial "doodle.html" . }}{{ end }}
     <p class="section-index">Field note / {{ .Date.Format "02 Jan 2006" }}</p>
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>

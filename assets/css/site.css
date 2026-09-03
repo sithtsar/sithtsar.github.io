@@ -286,7 +286,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 }
 .polaroid { position: relative; margin: 2rem 0 0; max-width: 15rem; padding: .7rem .7rem 2.6rem; background: #f3eedc; color: #171713; transform: rotate(-2.5deg); box-shadow: .2rem .35rem 0 rgba(23, 23, 19, .18); }
 .polaroid::before { content: ''; position: absolute; left: 50%; top: -.55rem; width: 3rem; height: 1rem; margin-left: -1.5rem; background: rgba(209, 163, 38, .8); transform: rotate(-3deg); }
-.polaroid__photo { aspect-ratio: 1; background: #171713; }
+.polaroid__photo { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; background: #171713; filter: saturate(.85) contrast(1.05); }
 .polaroid--empty .polaroid__photo { background: repeating-linear-gradient(45deg, #e6e0cc 0 .4rem, #ede7d4 0 .8rem); outline: 1px dashed #171713; outline-offset: -.5rem; }
 .polaroid figcaption { position: absolute; left: .8rem; bottom: .7rem; font: 600 .62rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .1em; }
 
@@ -296,7 +296,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .ascii b { font-weight: inherit; color: var(--vermilion-text); }
 
 /* Taste: the scrapbook */
-.scrap { position: relative; aspect-ratio: 1 / var(--h, 1.3); width: min(92rem, 100vw - 2rem); margin: 1rem 0 3rem calc(50% - min(46rem, 50vw - 1rem)); border: 2px solid var(--carbon); border-radius: .4rem; background: color-mix(in srgb, var(--harvest) 26%, var(--paper)); overflow: hidden; }
+.scrap { position: relative; aspect-ratio: 1 / var(--h, 1.3); width: min(92rem, 100vw - 2rem); margin: 1rem 0 3rem calc(50% - min(46rem, 50vw - 1rem)); overflow: hidden; }
 .piece { position: absolute; transform: rotate(var(--r, 0deg)); isolation: isolate; }
 .is-sim .piece { left: 0 !important; top: 0 !important; will-change: transform; }
 .is-sim .piece:not(.piece--deco) { cursor: grab; touch-action: none; user-select: none; }
@@ -330,14 +330,16 @@ h1, h2, h3, p { text-wrap: pretty; }
 .card--polaroid figcaption { position: absolute; left: .7rem; bottom: .55rem; font: 600 .58rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
 .note-hi { font: 500 .76rem/1.45 var(--mono); }
 .note-hi .signature { display: inline; color: #c83f2a; font-size: 1.5rem; transform: none; padding: 0; }
-.pin::after { content: ''; position: absolute; left: 50%; top: -.5rem; width: .85rem; height: .85rem; margin-left: -.42rem; border-radius: 50%; background: #c83f2a; box-shadow: inset -.15rem -.15rem 0 rgba(0,0,0,.28), 0 .1rem .1rem rgba(0,0,0,.2); }
+.pin::after, .loose-pin { content: ''; position: absolute; left: 50%; top: -.5rem; width: .85rem; height: .85rem; margin-left: -.42rem; border-radius: 50%; background: #c83f2a; box-shadow: inset -.15rem -.15rem 0 rgba(0,0,0,.28), 0 .1rem .1rem rgba(0,0,0,.2); }
 .tape::before { content: ''; position: absolute; left: 50%; top: -.6rem; width: 3rem; height: 1.05rem; margin-left: -1.5rem; background: rgba(209, 163, 38, .82); transform: rotate(-4deg); z-index: 1; }
-.clip::before { content: ''; position: absolute; right: .9rem; top: -.7rem; width: .55rem; height: 1.9rem; border: 2px solid #28559a; border-radius: .3rem .3rem .35rem .35rem; }
+.clip::before, .loose-clip { content: ''; position: absolute; right: .9rem; top: -.7rem; width: .55rem; height: 1.9rem; border: 2px solid #28559a; border-radius: .3rem .3rem .35rem .35rem; }
 .stamp { position: absolute; right: .6rem; top: .6rem; padding: .15rem .45rem; border: 2px solid #c83f2a; border-radius: .2rem; font: 800 .6rem/1.3 var(--mono); letter-spacing: .18em; color: #c83f2a; transform: rotate(var(--sr, -12deg)); opacity: .75; mix-blend-mode: multiply; }
 .stamp--big { position: static; display: inline-block; padding: .3rem .7rem; border-width: 3px; font-size: 1.1rem; opacity: .55; }
 .doodle { display: block; width: 100%; height: auto; fill: none; stroke: #c83f2a; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; font: 700 14px/1 var(--mono); }
 .doodle text { fill: #c83f2a; stroke: none; }
+.note-doodle { float: right; width: 4.5rem; margin: 0 0 .6rem 1.2rem; stroke: currentColor; stroke-width: 2; transform: rotate(6deg); }
 .doodle--ink { stroke: #171713; } .doodle--ink text { fill: #171713; }
+.loose-pin, .loose-clip { position: relative; display: block; left: auto; top: auto; right: auto; margin: 0; } .loose-clip { transform: rotate(var(--r, 0deg)); filter: drop-shadow(.1rem .15rem 0 rgba(23, 23, 19, .35)); }
 .washi { display: block; height: 1.3rem; opacity: .85; }
 .washi--stripe { background: repeating-linear-gradient(-45deg, #d1a326 0 .4rem, #f3eedc 0 .8rem); }
 .washi--dot { background: radial-gradient(#f3eedc 30%, transparent 32%) 0 0 / .6rem .6rem, #28559a; }

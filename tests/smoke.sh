@@ -85,7 +85,12 @@ done
 grep -q 'fill="#171713"' public/favicon.svg
 grep -q 'bought a flight' public/about/index.html
 grep -q 'IntersectionObserver' public/js/paint.*.js
+grep -q 'chalk' public/js/paint.*.js
+grep -q 'note-doodle' public/notes/quantum-computing-summer/index.html
+! grep -q 'note-doodle' public/notes/index.html
 grep -q 'class=scrap' public/taste/index.html
+grep -q 'loose-pin' public/taste/index.html
+grep -q 'loose-clip' public/taste/index.html
 grep -q 'class=stamp' public/taste/index.html
 grep -q 'herdr' public/taste/index.html
 grep -q 'Hyprland' public/taste/index.html
@@ -93,7 +98,8 @@ grep -q 'marimo' public/taste/index.html
 grep -q 'tl-row' public/work/index.html
 ! grep -q 'map__land' public/index.html
 ! grep -qi 'mumbai' public/index.html
-grep -q 'polaroid--empty' public/about/index.html
+grep -q 'literally me' public/about/index.html
+test -f public/img/gh.jpg
 ! test -f public/img/me.jpg
 grep -q 'Bell Labs' public/index.html
 grep -q 'denoising' public/js/ascii.*.js

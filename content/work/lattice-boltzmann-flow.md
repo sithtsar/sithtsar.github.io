@@ -7,7 +7,7 @@ weight = 5
 number = "05"
 status = "Bachelor thesis project · IIT Bombay"
 role = "Scientific computing"
-period = "2025 — ongoing"
+period = "2025 — 2026"
 featured = true
 tags = ["C++17", "ELBM", "Two-phase"]
 question = "Can an entropic collision operator keep a lattice Boltzmann solver stable at Reynolds numbers where the standard BGK operator fails?"
@@ -22,7 +22,7 @@ source = "https://github.com/sithtsar/BTP"
 
 [timeline]
 start = 2025.0
-end = 2026.75
+end = 2026.4
 
 [params]
 build = "A header-only C++17 solver with BGK and entropic collision operators, D2Q9 and D3Q19 lattices, bounce-back and Zou–He boundaries, optional OpenMP, and Marimo notebooks that generate the validation figures."

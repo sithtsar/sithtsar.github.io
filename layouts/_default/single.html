@@ -4,7 +4,7 @@
     <p class="section-index">{{ .Params.kicker | default "Working record" }}</p>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p>{{ . }}</p>{{ end }}
-    {{ if .Params.portrait }}<figure class="polaroid polaroid--empty"><div class="polaroid__photo" role="img" aria-label="Photo of Sarthak, coming soon"></div><figcaption>Sarthak Mishra · photo to come</figcaption></figure>{{ end }}
+    {{ if .Params.portrait }}<figure class="polaroid"><img class="polaroid__photo" src="{{ "img/gh.jpg" | relURL }}" alt="Sarthak Mishra" width="460" height="460" loading="lazy"><figcaption>literally me</figcaption></figure>{{ end }}
   </header>
   {{ if .Params.story }}{{ partial "journey.html" . }}{{ end }}
   <div class="article-body">{{ .Content }}</div>
