@@ -1,7 +1,8 @@
 +++
 title = "Taste"
-description = "What I reach for, and what I put down. Drawn in the notebook, so you can tell at a glance."
-kicker = "Notebook / 2026"
+description = "What I reach for, and what I put down. Pinned up so you can tell at a glance."
+kicker = "Scrapbook / 2026"
+paint = true
 +++
 
-{{< diary >}}
+{{< scrap >}}

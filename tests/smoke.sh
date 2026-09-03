@@ -85,7 +85,8 @@ done
 grep -q 'fill="#171713"' public/favicon.svg
 grep -q 'bought a flight' public/about/index.html
 grep -q 'IntersectionObserver' public/js/paint.*.js
-grep -q 'class=diary' public/taste/index.html
+grep -q 'class=scrap' public/taste/index.html
+grep -q 'class=stamp' public/taste/index.html
 grep -q 'herdr' public/taste/index.html
 grep -q 'Hyprland' public/taste/index.html
 grep -q 'marimo' public/taste/index.html

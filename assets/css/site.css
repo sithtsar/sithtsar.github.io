@@ -277,7 +277,8 @@ h1, h2, h3, p { text-wrap: pretty; }
   .ascii { font-size: .42rem; }
   .hello__grid { grid-template-columns: 1fr; }
   .tl-row { grid-template-columns: 6rem 1fr; } .tl-axis { margin-left: 6.6rem; } .tl-label { font-size: .8rem; }
-  .diary { columns: 1; }
+  .scrap { grid-template-columns: 1fr 1fr; gap: 1.2rem .8rem; padding: 1.4rem .8rem 2rem; }
+  .card { padding: .7rem .7rem .8rem; }
 }
 .polaroid { position: relative; margin: 2rem 0 0; max-width: 15rem; padding: .7rem .7rem 2.6rem; background: #f3eedc; color: #171713; transform: rotate(-2.5deg); box-shadow: .2rem .35rem 0 rgba(23, 23, 19, .18); }
 .polaroid::before { content: ''; position: absolute; left: 50%; top: -.55rem; width: 3rem; height: 1rem; margin-left: -1.5rem; background: rgba(209, 163, 38, .8); transform: rotate(-3deg); }
@@ -290,17 +291,35 @@ h1, h2, h3, p { text-wrap: pretty; }
 .ascii { margin: 0; font: 500 clamp(.42rem, 1.02vw, .92rem)/1.12 var(--mono); letter-spacing: .04em; color: var(--carbon); white-space: pre; }
 .ascii b { font-weight: inherit; color: var(--vermilion-text); }
 
-/* Taste: the notebook */
-.diary { position: relative; columns: 3 15rem; column-gap: 2.5rem; margin: 1rem 0 3rem; padding: 1.5rem 1.5rem 1.5rem 3.2rem; border: 1px solid var(--carbon); background-image: repeating-linear-gradient(to bottom, transparent 0 calc(1.7rem - 1px), color-mix(in srgb, var(--carbon) 16%, transparent) calc(1.7rem - 1px) 1.7rem), linear-gradient(to right, transparent 2.4rem, var(--vermilion) 2.4rem, var(--vermilion) calc(2.4rem + 1px), transparent calc(2.4rem + 1px)); }
-.entry { display: block; break-inside: avoid; margin: 0 0 1.7rem; }
-.entry svg { display: block; width: 5.4rem; height: 5.4rem; margin-bottom: .3rem; fill: none; stroke: var(--carbon); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
-.entry svg path, .entry svg circle, .entry svg ellipse, .entry svg rect, .entry svg polyline { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.4s ease-out forwards; }
-.entry:nth-child(2) svg * { animation-delay: .15s } .entry:nth-child(3) svg * { animation-delay: .3s } .entry:nth-child(4) svg * { animation-delay: .45s } .entry:nth-child(5) svg * { animation-delay: .6s } .entry:nth-child(6) svg * { animation-delay: .75s } .entry:nth-child(7) svg * { animation-delay: .9s } .entry:nth-child(8) svg * { animation-delay: 1.05s } .entry:nth-child(9) svg * { animation-delay: 1.2s } .entry:nth-child(10) svg * { animation-delay: 1.35s } .entry:nth-child(11) svg * { animation-delay: 1.5s } .entry:nth-child(12) svg * { animation-delay: 1.65s } .entry:nth-child(13) svg * { animation-delay: 1.8s } .entry:nth-child(14) svg * { animation-delay: 1.95s }
+/* Taste: the scrapbook */
+.scrap { position: relative; display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1.6rem 1.1rem; align-items: start; margin: 1rem 0 3rem; padding: 2rem 1.4rem 2.6rem; border: 2px solid var(--carbon); border-radius: .4rem; background: color-mix(in srgb, var(--harvest) 26%, var(--paper)); overflow: hidden; }
+.card { position: relative; margin: 0; padding: .9rem 1rem 1rem; background: #f3eedc; color: #171713; box-shadow: .15rem .3rem 0 rgba(23, 23, 19, .18); transform: rotate(var(--r, 0deg)); transition: transform .35s cubic-bezier(.2,.7,.1,1); }
+.card:hover { transform: rotate(0) scale(1.03); z-index: 3; }
+.scrap > :nth-child(1) { --r: -4deg } .scrap > :nth-child(2) { --r: 2.5deg; margin-top: 1.2rem } .scrap > :nth-child(3) { --r: -1.5deg } .scrap > :nth-child(4) { --r: 3deg; margin-top: -.8rem } .scrap > :nth-child(5) { --r: -2deg; margin-top: .6rem } .scrap > :nth-child(6) { --r: 5deg } .scrap > :nth-child(7) { --r: -3deg; margin-top: 1.4rem } .scrap > :nth-child(8) { --r: 1.5deg } .scrap > :nth-child(9) { --r: -4.5deg; margin-top: -.6rem } .scrap > :nth-child(10) { --r: 2deg } .scrap > :nth-child(11) { --r: -1deg; margin-top: 1rem } .scrap > :nth-child(12) { --r: 3.5deg } .scrap > :nth-child(13) { --r: -2.5deg; margin-top: -.4rem } .scrap > :nth-child(14) { --r: 1deg } .scrap > :nth-child(15) { --r: -3.5deg; margin-top: .9rem } .scrap > :nth-child(16) { --r: 2deg } .scrap > :nth-child(17) { --r: -2deg; margin-top: 1.2rem } .scrap > :nth-child(18) { --r: 4deg }
+.card svg { display: block; width: 4.6rem; height: 4.6rem; margin-bottom: .2rem; fill: none; stroke: #171713; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.card svg * { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.4s ease-out forwards; }
+.scrap > :nth-child(odd) svg * { animation-delay: .4s } .scrap > :nth-child(3n) svg * { animation-delay: .8s }
 @keyframes draw { to { stroke-dashoffset: 0; } }
-@media (prefers-reduced-motion: reduce) { .entry svg * { animation: none; stroke-dashoffset: 0; } }
-.entry figcaption { font: 500 .82rem/1.7rem var(--mono); }
-.entry h3 { margin: 0; font: 500 1.05rem/1.7rem var(--serif); }
-.entry b { font-weight: 600; text-decoration: underline; text-decoration-color: var(--vermilion); text-decoration-thickness: 2px; text-underline-offset: .18em; }
-.entry b::before { content: '✓ '; color: var(--moss); }
-.entry s { display: block; color: color-mix(in srgb, var(--carbon) 70%, transparent); text-decoration-color: var(--vermilion); text-decoration-thickness: 2px; }
-.entry small { display: block; font-size: .74rem; line-height: 1.7rem; }
+@media (prefers-reduced-motion: reduce) { .card svg * { animation: none; stroke-dashoffset: 0; } }
+.card figcaption { font: 500 .78rem/1.55 var(--mono); }
+.card h3 { margin: 0 0 .2rem; font: 500 1.05rem/1.2 var(--serif); }
+.card b { font-weight: 600; text-decoration: underline; text-decoration-color: #c83f2a; text-decoration-thickness: 2px; text-underline-offset: .18em; }
+.card b::before { content: '✓ '; color: #5d7147; }
+.card s { display: block; color: rgba(23, 23, 19, .7); text-decoration-color: #c83f2a; text-decoration-thickness: 2px; }
+.card small { display: block; margin-top: .25rem; font-size: .7rem; line-height: 1.5; }
+.card--torn { clip-path: polygon(0 3%, 6% 0, 13% 4%, 22% 1%, 31% 4%, 40% 0, 50% 3%, 60% 1%, 70% 4%, 80% 0, 90% 3%, 100% 1%, 100% 97%, 94% 100%, 86% 96%, 76% 100%, 66% 97%, 56% 100%, 46% 96%, 36% 100%, 26% 97%, 16% 100%, 8% 96%, 0 100%); box-shadow: none; }
+.card--index { padding-top: 1.3rem; background: repeating-linear-gradient(to bottom, transparent 0 calc(1.55rem - 1px), rgba(40, 85, 154, .28) calc(1.55rem - 1px) 1.55rem) 0 1.3rem / 100% 100% no-repeat, linear-gradient(to bottom, transparent 1rem, #c83f2a 1rem, #c83f2a calc(1rem + 2px), transparent calc(1rem + 2px)), #f3eedc; }
+.card--typed { background: #ede6d0; font-family: var(--mono); }
+.card--typed h3 { font: 700 .82rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .12em; }
+.card--sticky { background: #d1a326; box-shadow: .1rem .2rem 0 rgba(23, 23, 19, .15); }
+.card--sticky b { text-decoration-color: #171713; }
+.card--ticket { padding: .8rem 1rem; font: 700 .66rem/1.6 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: #f3eedc; background: #28559a; border-left: .4rem dashed #f3eedc; }
+.card--polaroid { padding: .6rem .6rem 2.2rem; }
+.card--polaroid canvas { display: block; width: 100%; aspect-ratio: 1; background: #171713; }
+.card--polaroid figcaption { position: absolute; left: .7rem; bottom: .6rem; font: 600 .6rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.note-hi { font: 500 .8rem/1.5 var(--mono); }
+.note-hi .signature { display: inline; color: #c83f2a; font-size: 1.6rem; transform: none; padding: 0; }
+.pin::after { content: ''; position: absolute; left: 50%; top: -.5rem; width: .85rem; height: .85rem; margin-left: -.42rem; border-radius: 50%; background: #c83f2a; box-shadow: inset -.15rem -.15rem 0 rgba(0,0,0,.28), 0 .1rem .1rem rgba(0,0,0,.2); }
+.tape::before { content: ''; position: absolute; left: 50%; top: -.6rem; width: 3rem; height: 1.05rem; margin-left: -1.5rem; background: rgba(209, 163, 38, .82); transform: rotate(-4deg); z-index: 1; }
+.stamp { position: absolute; right: .6rem; top: .6rem; padding: .15rem .45rem; border: 2px solid #c83f2a; border-radius: .2rem; font: 800 .62rem/1.3 var(--mono); letter-spacing: .18em; color: #c83f2a; transform: rotate(-12deg); opacity: .75; mix-blend-mode: multiply; }
+.ring { display: block; width: 5.5rem; height: 5.5rem; margin: 1rem auto; border: .38rem solid rgba(23, 23, 19, .13); border-radius: 50%; }
