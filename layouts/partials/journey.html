@@ -1,0 +1,18 @@
+<section class="journey" aria-labelledby="journey-title">
+  <div class="journey__plate">
+    <canvas class="plate coin" data-paint="story" data-coin width="320" height="320" aria-hidden="true"></canvas>
+    <p class="story-caption" data-caption aria-live="polite"></p>
+  </div>
+  <div class="journey__copy">
+    <p class="section-index" id="journey-title">Journey / seven plates</p>
+    <ol class="chapters">
+      {{ range hugo.Data.story.chapter }}
+      <li data-scene="{{ .scene }}" data-text="{{ .text }}"><small>{{ .period }}</small><span><b>{{ .title }}</b><p>{{ .text }}</p></span></li>
+      {{ end }}
+    </ol>
+    <p class="degrees">
+      <a href="https://www.che.iitb.ac.in/"><svg class="seal" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/><text x="32" y="36" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" font-weight="700" fill="currentColor">CHE</text></svg>B.Tech, Chemical Engineering ’26 · IIT Bombay</a>
+      <a href="https://www.minds.iitb.ac.in/"><svg class="seal" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/><text x="32" y="36" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="currentColor">MInDS</text></svg>Minor, AI and Data Science · C-MInDS, IIT Bombay</a>
+    </p>
+  </div>
+</section>

@@ -5,6 +5,7 @@
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p>{{ . }}</p>{{ end }}
   </header>
+  {{ if .Params.story }}{{ partial "journey.html" . }}{{ end }}
   <div class="article-body">{{ .Content }}</div>
   {{ if .Params.show_motifs }}
     <section class="motif-lab" aria-labelledby="motif-title">

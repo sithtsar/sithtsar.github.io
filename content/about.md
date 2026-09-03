@@ -1,17 +1,18 @@
 +++
 title = "About"
-description = "B.Tech Chemical Engineering at IIT Bombay with a minor in Artificial Intelligence and Data Science, graduating 2026."
+description = "B.Tech Chemical Engineering, IIT Bombay ’26, with a minor in Artificial Intelligence and Data Science from C-MInDS."
 kicker = "Profile / 2026"
+story = true
 +++
 
-I am a final-year B.Tech student in Chemical Engineering at IIT Bombay, graduating in 2026, with a minor in Artificial Intelligence and Data Science from C-MInDS.
+I graduated from IIT Bombay in 2026 with a B.Tech in Chemical Engineering and a minor in Artificial Intelligence and Data Science from C-MInDS.
 
 I currently build agentic AI infrastructure at Causal Security, and my thesis work extends entropic lattice Boltzmann methods to two-phase and active-matter flows. I am most interested in problems where models must survive contact with physical systems or messy real-world information, and I am open to engineering and research roles where ambitious systems need rigorous implementation, clear evidence, and fast iteration.
 
 ## Education
 
 ### Indian Institute of Technology Bombay
-2022 — 2026 (expected) · B.Tech, Chemical Engineering · Minor, Artificial Intelligence and Data Science, C-MInDS
+2022 — 2026 · B.Tech, Chemical Engineering · Minor, Artificial Intelligence and Data Science, C-MInDS
 
 ### Krishna Public School, Bhilai
 2007 — 2022 · CBSE · 92.6% (Class X) · 95.2% (Class XII)

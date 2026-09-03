@@ -47,3 +47,10 @@ grep -q 'JEE Advanced' public/about/index.html
 grep -q 'Causal Security' public/about/index.html
 grep -q 'Causal Security' public/work/index.html
 grep -q 'BiDoRa' public/work/index.html
+grep -q 'che.iitb.ac.in' public/about/index.html
+grep -q 'minds.iitb.ac.in' public/about/index.html
+grep -q 'data-paint=story' public/about/index.html
+paint_url=$(grep -o '/js/paint\.min\.[a-f0-9]*\.js' public/about/index.html | head -n 1)
+test -f "public$paint_url"
+test "$(gzip -9 -c "public$paint_url" | wc -c)" -le 6144
+! grep -q 'paint.min' public/work/index.html

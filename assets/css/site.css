@@ -184,3 +184,30 @@ h1, h2, h3, p { text-wrap: pretty; }
 .entry-list--register article > p:last-child { max-width: 46ch; margin: 0; line-height: 1.5; }
 .report-prose pre { margin: 2rem 0; padding: 1rem; border: 1px solid var(--carbon); overflow-x: auto; font: 500 .72rem/1.3 var(--mono); color: var(--carbon); }
 .report-prose pre code { font: inherit; }
+
+.journey { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2rem, 5vw, 6rem); padding-block: 4rem; border-bottom: 1px solid var(--carbon); }
+.journey__plate { position: sticky; top: 2rem; align-self: start; }
+.coin { display: block; width: 100%; max-width: 30rem; aspect-ratio: 1; background: var(--carbon); }
+.story-caption { max-width: 30rem; min-height: 5.2em; margin: 1.4rem 0 0; font: 500 clamp(1.1rem, 1.6vw, 1.4rem)/1.35 var(--serif); }
+.story-caption::after { content: '▍'; color: var(--vermilion-text); }
+.chapters { margin: 0 0 2.5rem; padding: 0; list-style: none; }
+.chapters li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: .9rem 0; border-top: 1px solid var(--carbon); cursor: pointer; transition: opacity .3s; }
+.chapters li:last-child { border-bottom: 1px solid var(--carbon); }
+.chapters small { font: 600 .64rem/1.6 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.chapters b { display: block; font: 500 clamp(1.2rem, 1.8vw, 1.5rem)/1.2 var(--serif); }
+.chapters p { margin: .3rem 0 0; font-size: .92rem; line-height: 1.45; }
+.has-paint .chapters li { opacity: .5; }
+.has-paint .chapters li.is-active, .has-paint .chapters li:hover { opacity: 1; }
+.has-paint .chapters li.is-active b { color: var(--vermilion-text); }
+.has-paint .chapters p { display: none; }
+.degrees { display: grid; gap: .8rem; margin: 0; font: 600 .72rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.degrees a { display: inline-flex; align-items: center; gap: .8rem; min-height: 2.75rem; text-decoration: none; color: var(--vermilion-text); }
+.degrees a:hover { color: var(--ultramarine); }
+.seal { width: 2.75rem; height: 2.75rem; flex: none; }
+
+@media (max-width: 40rem) {
+  .journey { grid-template-columns: 1fr; gap: 2rem; }
+  .journey__plate { position: static; }
+  .chapters li { grid-template-columns: 1fr; gap: .2rem; }
+  .degrees a { align-items: flex-start; }
+}
