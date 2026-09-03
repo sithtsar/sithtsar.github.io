@@ -56,7 +56,7 @@
     <a href="{{ "work/" | relURL }}">View complete register <span aria-hidden="true">↗</span></a>
   </header>
   <div class="project-register">
-    {{ range $projects.ByWeight }}{{ partial "project-cover.html" . }}{{ end }}
+    {{ range first 6 $projects.ByWeight }}{{ partial "project-cover.html" . }}{{ end }}
   </div>
 </section>
 

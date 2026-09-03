@@ -1,12 +1,12 @@
 {{ $motif := .Params.cover_art.motif | default "flow" }}
-{{ if not (in (slice "flow" "retrieval" "filings") $motif) }}{{ $motif = "flow" }}{{ end }}
+{{ if not (in (slice "flow" "retrieval" "filings" "atlas" "graph" "lathe" "locus" "federated") $motif) }}{{ $motif = "flow" }}{{ end }}
 {{ $density := int (.Params.cover_art.density | default 6) }}
 {{ if lt $density 1 }}{{ $density = 1 }}{{ else if gt $density 12 }}{{ $density = 12 }}{{ end }}
 {{ $angle := div (int (.Params.cover_art.rotation | default 0)) 4 }}
 {{ $line := div 14.0 $density }}
-{{ $ink := "#f3eedc" }}{{ if eq $motif "retrieval" }}{{ $ink = "#171713" }}{{ end }}
+{{ $ink := "#f3eedc" }}{{ if in (slice "retrieval" "atlas" "lathe" "federated") $motif }}{{ $ink = "#171713" }}{{ end }}
 <svg class="cover-art cover-art--{{ $motif }}" data-cover-motif="{{ $motif }}" data-cover-density="{{ $density }}" data-cover-rotation="{{ $angle }}" viewBox="0 0 720 520" aria-hidden="true" focusable="false">
-  <rect width="720" height="520" fill="{{ if eq $motif "retrieval" }}#f3eedc{{ else if eq $motif "filings" }}#171713{{ else }}#28559a{{ end }}"/>
+  <rect width="720" height="520" fill="{{ if in (slice "retrieval" "atlas" "federated") $motif }}#f3eedc{{ else if in (slice "filings" "graph") $motif }}#171713{{ else if eq $motif "lathe" }}#d1a326{{ else }}#28559a{{ end }}"/>
   <g transform="rotate({{ $angle }} 360 260)">
   {{ if eq $motif "flow" }}
     <path d="M0 80h720M0 160h720M0 240h720M0 320h720M0 400h720M90 0v520M180 0v520M270 0v520M360 0v520M450 0v520M540 0v520M630 0v520" stroke="#f3eedc" stroke-width="{{ $line }}" opacity=".28"/>
@@ -25,6 +25,45 @@
     </g>
     <circle cx="282" cy="272" r="34" fill="#171713"/><circle cx="474" cy="150" r="48" fill="#28559a"/><circle cx="474" cy="272" r="48" fill="#c83f2a"/><circle cx="474" cy="394" r="48" fill="#d1a326"/>
     <path d="M522 272h72" stroke="#171713" stroke-width="10"/><rect x="594" y="188" width="96" height="168" fill="#28559a"/>
+  {{ else if eq $motif "atlas" }}
+    <rect x="40" y="70" width="640" height="410" fill="none" stroke="#171713" stroke-width="{{ $line }}"/>
+    <rect x="40" y="70" width="640" height="44" fill="#171713"/><circle cx="66" cy="92" r="7" fill="#c83f2a"/><circle cx="90" cy="92" r="7" fill="#d1a326"/><circle cx="114" cy="92" r="7" fill="#5d7147"/>
+    <rect x="40" y="114" width="150" height="366" fill="#28559a"/>
+    <g fill="#f3eedc"><rect x="62" y="146" width="106" height="10"/><rect x="62" y="176" width="80" height="10"/><rect x="62" y="206" width="96" height="10"/><rect x="62" y="236" width="70" height="10"/></g>
+    <rect x="216" y="140" width="260" height="136" fill="#c83f2a"/><rect x="500" y="140" width="154" height="136" fill="#d1a326"/>
+    <rect x="216" y="300" width="438" height="156" fill="none" stroke="#171713" stroke-width="{{ $line }}"/>
+    <path d="M236 428 300 362 360 390 420 334 480 372 540 316 634 344" fill="none" stroke="#28559a" stroke-width="8"/>
+    <g fill="#171713"><circle cx="300" cy="362" r="7"/><circle cx="420" cy="334" r="7"/><circle cx="540" cy="316" r="7"/></g>
+  {{ else if eq $motif "graph" }}
+    <g stroke="#f3eedc" stroke-width="{{ $line }}" opacity=".9"><path d="M360 250 150 120M360 250 210 400M360 250 560 110M360 250 590 300M360 250 480 430M150 120 210 400M560 110 590 300M590 300 480 430M150 120 360 90 560 110" fill="none"/></g>
+    <g stroke="#f3eedc" stroke-width="3" stroke-dasharray="8 8" fill="none"><path d="M210 400 480 430M150 120 90 300 210 400"/></g>
+    <circle cx="360" cy="250" r="58" fill="#c83f2a"/>
+    <circle cx="150" cy="120" r="34" fill="#28559a"/><circle cx="210" cy="400" r="30" fill="#d1a326"/><circle cx="560" cy="110" r="30" fill="#5d7147"/><circle cx="590" cy="300" r="38" fill="#28559a"/><circle cx="480" cy="430" r="26" fill="#d1a326"/><circle cx="360" cy="90" r="18" fill="#f3eedc"/><circle cx="90" cy="300" r="18" fill="#f3eedc"/>
+    <rect x="590" y="380" width="96" height="70" fill="#f3eedc"/><g stroke="#171713" stroke-width="4"><path d="M604 398h68M604 414h50M604 430h62"/></g>
+  {{ else if eq $motif "lathe" }}
+    <rect x="60" y="120" width="200" height="280" fill="#f3eedc" stroke="#171713" stroke-width="{{ $line }}"/>
+    <g stroke="#171713" stroke-width="6"><path d="M90 160h140M90 200h110M90 240h140M90 280h96M90 320h140M90 360h120"/></g>
+    <path d="M260 260h90" stroke="#171713" stroke-width="{{ $line }}"/><path d="M330 240 372 260 330 280Z" fill="#171713"/>
+    <g fill="#171713"><rect x="392" y="120" width="42" height="42"/><rect x="452" y="120" width="42" height="42"/><rect x="512" y="120" width="42" height="42"/><rect x="392" y="190" width="42" height="42"/><rect x="452" y="190" width="42" height="42"/><rect x="392" y="330" width="42" height="42"/><rect x="452" y="330" width="42" height="42"/><rect x="512" y="330" width="42" height="42"/><rect x="572" y="330" width="42" height="42"/></g>
+    <g fill="#c83f2a"><rect x="512" y="190" width="42" height="42"/><rect x="392" y="260" width="42" height="42"/><rect x="572" y="120" width="42" height="42"/></g>
+    <g fill="#28559a"><rect x="452" y="260" width="42" height="42"/><rect x="512" y="260" width="42" height="42"/><rect x="572" y="190" width="42" height="42"/><rect x="632" y="260" width="42" height="42"/></g>
+    <g fill="#f3eedc"><rect x="572" y="260" width="42" height="42"/><rect x="632" y="120" width="42" height="42"/><rect x="632" y="330" width="42" height="42"/></g>
+  {{ else if eq $motif "locus" }}
+    <path d="M0 130h720M0 260h720M0 390h720" stroke="#f3eedc" stroke-width="{{ $line }}" opacity=".25"/>
+    <g stroke="#f3eedc" stroke-width="{{ $line }}" fill="none"><path d="M360 96v60M360 156 200 226M360 156 360 226M360 156 520 226M200 226 120 336M200 226 260 336M520 226 460 336M520 226 600 336M120 336 90 440M120 336 170 440M600 336 640 440"/></g>
+    <rect x="300" y="60" width="120" height="48" fill="#c83f2a"/>
+    <g fill="#d1a326"><rect x="160" y="204" width="80" height="44"/><rect x="320" y="204" width="80" height="44"/><rect x="480" y="204" width="80" height="44"/></g>
+    <g fill="#f3eedc"><rect x="90" y="316" width="60" height="40"/><rect x="230" y="316" width="60" height="40"/><rect x="430" y="316" width="60" height="40"/><rect x="570" y="316" width="60" height="40"/></g>
+    <g fill="#171713"><circle cx="90" cy="450" r="14"/><circle cx="170" cy="450" r="14"/><circle cx="640" cy="450" r="14"/></g>
+    <text x="620" y="110" fill="#f3eedc" font-family="ui-monospace,monospace" font-size="54" font-weight="700">{ }</text>
+  {{ else if eq $motif "federated" }}
+    <g stroke="#171713" stroke-width="4" stroke-dasharray="10 8" fill="none"><path d="M360 260 140 120M360 260 580 120M360 260 110 300M360 260 610 300M360 260 220 440M360 260 500 440"/></g>
+    <rect x="300" y="200" width="120" height="120" fill="#171713"/>
+    <g fill="#f3eedc"><rect x="322" y="228" width="76" height="10"/><rect x="322" y="254" width="52" height="10"/><rect x="322" y="280" width="66" height="10"/></g>
+    <g fill="#28559a"><circle cx="140" cy="120" r="48"/><circle cx="610" cy="300" r="48"/></g>
+    <g fill="#c83f2a"><circle cx="580" cy="120" r="48"/><circle cx="220" cy="440" r="48"/></g>
+    <g fill="#5d7147"><circle cx="110" cy="300" r="48"/><circle cx="500" cy="440" r="48"/></g>
+    <g fill="#f3eedc"><rect x="120" y="100" width="12" height="40"/><rect x="140" y="112" width="12" height="28"/><rect x="160" y="90" width="12" height="50"/><rect x="560" y="106" width="12" height="34"/><rect x="580" y="94" width="12" height="46"/><rect x="600" y="118" width="12" height="22"/><rect x="90" y="286" width="12" height="34"/><rect x="110" y="272" width="12" height="48"/><rect x="130" y="296" width="12" height="24"/><rect x="590" y="282" width="12" height="38"/><rect x="610" y="266" width="12" height="54"/><rect x="630" y="294" width="12" height="26"/><rect x="200" y="426" width="12" height="34"/><rect x="220" y="410" width="12" height="50"/><rect x="240" y="434" width="12" height="26"/><rect x="480" y="418" width="12" height="42"/><rect x="500" y="430" width="12" height="30"/><rect x="520" y="404" width="12" height="56"/></g>
   {{ else }}
     <g stroke="#f3eedc" stroke-width="{{ $line }}"><rect x="42" y="126" width="230" height="300" fill="#f3eedc"/><rect x="66" y="100" width="230" height="300" fill="#d1a326"/><rect x="90" y="74" width="230" height="300" fill="#f3eedc"/></g>
     <g stroke="#171713" stroke-width="6"><path d="M126 130h158M126 174h132M126 218h158M126 262h116M126 306h158"/></g>
@@ -33,5 +72,5 @@
   {{ end }}
   </g>
   <text x="28" y="44" fill="{{ $ink }}" font-family="ui-monospace,monospace" font-size="18" letter-spacing="3">{{ .Params.cover_art.label }}</text>
-  <text x="692" y="492" fill="{{ $ink }}" text-anchor="end" font-family="ui-monospace,monospace" font-size="13">{{ if eq $motif "flow" }}D2Q9 / VELOCITY FIELD{{ else if eq $motif "retrieval" }}RAG / CONTEXT GRAPH{{ else }}PDF / NLP PIPELINE{{ end }}</text>
+  <text x="692" y="492" fill="{{ $ink }}" text-anchor="end" font-family="ui-monospace,monospace" font-size="13">{{ index (dict "flow" "D2Q9 / VELOCITY FIELD" "retrieval" "RAG / CONTEXT GRAPH" "filings" "PDF / NLP PIPELINE" "atlas" "GO / PYTHON / NEXT.JS" "graph" "KNOWLEDGE GRAPH / WIKI" "lathe" "ZIG / DOCUMENT PIPELINE" "locus" "C PARSERS / CODE GRAPH" "federated" "FEDICU / BIDORA") $motif }}</text>
 </svg>

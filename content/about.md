@@ -22,9 +22,10 @@ I currently build agentic AI infrastructure at Causal Security, and my thesis wo
 ### Causal Security
 Summer 2025 — present · Agentic AI platform and AWS ETL pipeline · remote
 
-- Built a microservice architecture, Go API plus Python LLM service, for tool calling and agentic workflows.
-- Designed a knowledge graph and interlinked wiki as structured memory for AI agents.
-- Migrated the frontend from Svelte 5 to Next.js 15 with shadcn UI, ag-grid, lucide icons, and Milkdown WYSIWYG.
+- Built Atlas, the core platform: a Go API and connector service, a Next.js client migrated from Svelte 5, Postgres with pgvector, delegation-token auth, and six third-party connectors.
+- Wrote Weave, the per-tenant knowledge graph in Go that Cipher queries over MCP, with a leased job queue, SQLite graphs per repository, and 97% mutation-testing efficacy.
+- Wrote Lathe, a Zig document processor that turns PDFs, Office files, and HTML into chunked NDJSON at 250 documents a second, with byte-identical output enforced by goldens.
+- Integrated and hardened Locus, the C code-intelligence engine (a fork of codebase-memory-mcp) that indexes repositories into graphs for Weave.
 - Implemented PostgreSQL triggers for audit and job enqueuing, secured services with Tailscale, made them Docker-native, and set up GitHub Actions for CI/CD and image publishing.
 - Developed a Python ETL that converts PDFs, video, images, and audio into structured JSON/XML for SLM training, using Whisper Turbo transcription, V-JEPA2 video-token pruning, mixtral-ocr PDF to Markdown, hashing-based asset tracking, and checkpointed worker-thread parallelism.
 

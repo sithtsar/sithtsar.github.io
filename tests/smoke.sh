@@ -6,10 +6,10 @@ grep -q '<meta name=viewport' public/index.html
 grep -q 'Skip to content' public/index.html
 grep -q 'Sarthak Mishra' public/index.html
 grep -q 'Selected work' public/index.html
-grep -Eq 'data-cover-motif="?flow"?' public/index.html
+grep -Eq 'data-cover-motif="?atlas"?' public/index.html
 grep -q 'Lattice Boltzmann Flow' public/index.html
-grep -q 'InstiGPT' public/index.html
-grep -q 'QNLP Financial Intelligence' public/index.html
+grep -q 'InstiGPT' public/work/index.html
+grep -q 'QNLP Financial Intelligence' public/work/index.html
 grep -q 'Anywhere you need me' public/index.html
 grep -q 'mishrasarthak1520@gmail.com' public/index.html
 grep -q 'github.com/sithtsar' public/index.html
@@ -46,7 +46,7 @@ grep -q 'Zwilling' public/about/index.html
 grep -q 'JEE Advanced' public/about/index.html
 grep -q 'Causal Security' public/about/index.html
 grep -q 'Causal Security' public/work/index.html
-grep -q 'BiDoRa' public/work/index.html
+grep -q 'FedICU' public/work/index.html
 grep -q 'che.iitb.ac.in' public/about/index.html
 grep -q 'minds.iitb.ac.in' public/about/index.html
 grep -q 'data-paint=story' public/about/index.html
@@ -54,3 +54,8 @@ paint_url=$(grep -o '/js/paint\.min\.[a-f0-9]*\.js' public/about/index.html | he
 test -f "public$paint_url"
 test "$(gzip -9 -c "public$paint_url" | wc -c)" -le 6144
 ! grep -q 'paint.min' public/work/index.html
+for page in public/work/atlas/index.html public/work/weave/index.html public/work/lathe/index.html public/work/locus/index.html public/work/federated-lora/index.html public/notes/quantum-computing-summer/index.html public/notes/dell-case-study/index.html; do
+  test -f "$page"
+done
+! grep -q 'Financial Analysis' public/work/index.html
+grep -q 'piexie' public/work/index.html

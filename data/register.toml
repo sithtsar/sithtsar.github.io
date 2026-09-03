@@ -2,7 +2,9 @@
 title = "Causal Security — Agentic AI platform"
 period = "Summer 2025 — present"
 context = "Software and AI engineering intern · remote"
-summary = "Go API and Python LLM microservices for tool calling and agentic workflows; a knowledge graph and interlinked wiki as structured memory for agents; frontend migrated from Svelte 5 to Next.js 15 with shadcn, ag-grid, and Milkdown; PostgreSQL triggers for audit and job enqueuing, Tailscale, Docker-native services, and GitHub Actions CI/CD. Also an AWS ETL pipeline turning PDFs, video, images, and audio into structured JSON/XML for SLM training with Whisper Turbo, V-JEPA2 token pruning, mixtral-ocr, and checkpointed worker-thread parallelism."
+summary = "Built the core platform Atlas (Go API, Next.js client, connector service), Weave (the per-tenant knowledge graph in Go), Lathe (a Zig document processor), and integrated Locus (the C code-intelligence engine), plus the AWS ETL pipeline that turns PDFs, video, images, and audio into training data with Whisper Turbo, V-JEPA2 token pruning, and mixtral-ocr."
+source = "work/atlas/"
+source_label = "Case studies"
 
 [[experience]]
 title = "QNLP"
@@ -25,16 +27,45 @@ context = "Computer Vision Engineer · Prospace, IIT Bombay"
 summary = "OpenCV software that automates 3D visualisation of a nozzle's water-level geometry and spray pattern, ArUco markers for proximity and scale on live video, and a Tauri and Plotly GUI with a debug mode."
 
 [[project]]
-title = "Federated Learning — BiDoRa integration"
-period = "Autumn 2025"
-context = "Research project · MeDAL Lab · Prof. Amit Sethi · IIT Bombay"
-summary = "Replaced LoRA adapters in FedICU with BiDoRa for decoupled magnitude and direction fine-tuning, integrated its bi-level client optimisation into importance-aware aggregation, and benchmarked against LoRA on convergence, personalisation, communication cost, and robustness across non-IID clinical data."
+title = "Supervised agent swarms on the BEAM"
+period = "2026 — ongoing"
+context = "Self-directed research · piexie and worldswarm"
+summary = "Erlang/OTP supervision trees as the coordination layer for LLM agent swarms, not a kernel metaphor. piexie is a working Elixir orchestrator: a manager plans, workers execute in parallel, a critic and finaliser follow, with one_for_one, rest_for_one, and one_for_all restart strategies, BAML-validated structured output, and a disk ledger that resumes runs across VM death. worldswarm is the companion design for millions of passivated agent cells with lease and epoch-fenced ownership instead of a global scheduler."
 
 [[project]]
-title = "Multi-Agent Collaboration Framework with LLM Kernel Abstraction"
-period = "Ongoing"
-context = "AI Community · IIT Bombay"
-summary = "Models an LLM as an operating-system kernel coordinating swarms of lightweight agents, with protocols for spawning, communication, and shared memory, scheduling via ant-colony optimisation, and evaluation of scalability and emergent behaviour on coordination problems."
+title = "Foundry-Lite"
+period = "July 2026"
+context = "EPAM Being AI-Native Hackathon 2026 · BIA track"
+summary = "A Palantir-Foundry-inspired ops board: an LLM agent drafts an ontology over uploaded CSVs, a human approves each commitment, questions run as governed SQL with visible lineage, and insights become approved Jira tickets. FastAPI and DuckDB, a Bun and Vite frontend, SSE for live state, 97 backend tests, and a published Docker image."
+source = "https://github.com/sithtsar/HackBIA"
+
+[[project]]
+title = "Client selection by genetic algorithm"
+period = "Autumn 2025"
+context = "Course project · Prof. Avishek Ghosh · IIT Bombay"
+summary = "Reimplements two published genetic-algorithm client-selection methods for federated learning, FedCSGA and GenFed, against random selection on a Dirichlet-split MNIST with 10 clients over 50 rounds, with tests and CI."
+source = "https://github.com/sithtsar/FedGA"
+
+[[project]]
+title = "cricheros"
+period = "Sep 2026"
+context = "Side project"
+summary = "A resumable CLI scraper and ETL for cricket player and match data: raw responses cached the moment they arrive, failed lookups marked with sentinel files instead of retried forever, 12 parallel workers, and four normalised SQLite tables rebuildable from the cache."
+source = "https://github.com/sithtsar/cricheros"
+
+[[project]]
+title = "moodli"
+period = "April 2026"
+context = "Side project · Go"
+summary = "A Go CLI and Bubble Tea terminal UI for pulling course content out of IIT Bombay's Moodle: pooled concurrent fetching, redirect resolution to Drive links, lazy metadata through partial GETs, and a JSON mode for agents."
+source = "https://github.com/sithtsar/moodli"
+
+[[project]]
+title = "Stochastic and turbulent transport"
+period = "Spring 2026"
+context = "CL677 · Prof. Jason Picardo · IIT Bombay"
+summary = "Marimo notebooks on random walks and Brownian motion via Euler–Maruyama with diffusive-scaling checks, and a project reproducing figures from Filip, Javeed, and Trefethen on smooth random functions, verifying convergence to the Stratonovich limit."
+source = "https://github.com/sithtsar/CL677"
 
 [[project]]
 title = "Fine-Tuned Local Quantised LLM"
@@ -44,10 +75,10 @@ summary = "Fine-tuned phi-3 mini 4k instruct with unsloth on curated data, using
 source = "https://github.com/sithtsar/LLM_FineTuning"
 
 [[project]]
-title = "Advanced Data Analysis"
+title = "Sensor, image, and market data: the DS203 exercises"
 period = "Summer 2024"
 context = "DS203 · Prof. Vinay Kulkarni · IIT Bombay"
-summary = "EDA and unsupervised clustering over 1,183 unlabelled bitmap images for duplicates and outliers, CNN and ViT classification workflows, a stock portfolio optimised with PySpark logistic regression on legacy NSE data on Azure, and time-series analysis for audio feature extraction."
+summary = "Seven graded exercises across the applied data-science pipeline: regression with polynomial features, outlier and missing-data treatment with PCA and t-SNE on transformer-current and chemical-plant sensor series, a group project clustering 1,183 unlabelled bitmap images with OpenCV shape features and VGG16 embeddings, and a PySpark and logistic-regression pipeline over legacy NSE data on a Hadoop cluster for next-day movement prediction."
 source = "https://github.com/sithtsar/DS203"
 
 [[project]]
@@ -63,25 +94,7 @@ context = "CL208 · Prof. Sanjay Mahajani · IIT Bombay"
 summary = "A pH probe on an ESP32 streaming readings over WiFi into Google Sheets through Apps Script for live feedback during long-running experiments."
 
 [[project]]
-title = "Quantum Computing"
-period = "Summer 2023"
-context = "Summer of Science · Maths and Physics Club · IIT Bombay"
-summary = "Studied quantum mechanics and current research, then simulated quantum logic gates, circuits, and algorithms in Qiskit."
-
-[[project]]
 title = "RouteRover Bot"
 period = "Spring 2023"
 context = "MS101 · Prof. Ankit Jain & Prof. Dinesh Sharma · IIT Bombay"
 summary = "A line-following cargo robot for slope climbing built on Arduino, IR sensors, load sensors, and a motor driver, with control tuning."
-
-[[project]]
-title = "Corporate Case Study: Dell"
-period = "Autumn 2022"
-context = "SOM101 · Prof. Mayank Pareek · IIT Bombay"
-summary = "Analysis of Dell's corporate structure, logistics, operations, income statement, and market valuation, presented to a class of 150+."
-
-[[project]]
-title = "Financial Analysis"
-period = "Autumn 2022"
-context = "Acmegrade · IIM Bangalore"
-summary = "Market analysis training from industry experts and a Python web-scraping tool for mining financial news for investment decisions."
