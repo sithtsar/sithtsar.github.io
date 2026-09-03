@@ -33,6 +33,8 @@ assets/
   css/site.css             complete visual system
   fonts/                   local Newsreader subset + OFL
   js/site.js               optional clipboard feedback
+data/
+  register.toml            further projects from the CV
 content/
   _index.md                homepage record
   work/                    project report records

@@ -8,6 +8,16 @@
   <section class="shell project-register project-register--all" aria-label="{{ .Title }} index">
     {{ range .RegularPages.ByWeight }}{{ partial "project-cover.html" . }}{{ end }}
   </section>
+  <section class="shell entry-list entry-list--register" aria-labelledby="register-title">
+    <p id="register-title" class="section-index">Register / further projects</p>
+    {{ range hugo.Data.register.project }}
+      <article>
+        <p class="entry-list__meta">{{ .period }}<br>{{ .context }}</p>
+        <h3>{{ .title }}</h3>
+        <p>{{ .summary }}{{ with .source }} <a href="{{ . }}">Source ↗</a>{{ end }}</p>
+      </article>
+    {{ end }}
+  </section>
 {{ else }}
   <section class="shell entry-list" aria-label="{{ .Title }} index">
     {{ range .RegularPages.ByDate.Reverse }}

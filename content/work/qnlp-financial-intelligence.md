@@ -16,6 +16,8 @@ result = "Built scraping and multithreaded PDF-processing pipelines for reports 
 failure = "Inconsistent document structures make extraction quality a prerequisite for any credible downstream sentiment signal."
 next_step = "Publish corpus-quality diagnostics and validate sentiment outputs against a hand-labelled sample."
 
+source = "https://github.com/sithtsar/QNLP"
+
 [params]
 build = "A Scrapy collection layer, multithreaded PDF processing with regular expressions, and combined LLM and traditional NLP analysis."
 

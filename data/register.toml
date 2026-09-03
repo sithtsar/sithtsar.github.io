@@ -1,0 +1,49 @@
+[[project]]
+title = "Fine-Tuned Local Quantised LLM"
+period = "Winter 2024"
+context = "Self project"
+summary = "Fine-tuned phi-3 mini 4k instruct with unsloth on curated data, using an instruction/input/response template to limit hallucination, and experimented with routing between local and server-side models for load and cost."
+source = "https://github.com/sithtsar/LLM_FineTuning"
+
+[[project]]
+title = "Advanced Data Analysis"
+period = "Summer 2024"
+context = "DS203 · Prof. Vinay Kulkarni · IIT Bombay"
+summary = "EDA over 1,183 bitmap images with CNN and ViT workflows for unsupervised classification, a stock portfolio optimised with PySpark and logistic regression on legacy NSE data on an Azure VM, and time-series analysis for audio feature extraction."
+source = "https://github.com/sithtsar/DS203"
+
+[[project]]
+title = "SaleBuddy: ML-Based Sales Product"
+period = "Autumn 2023"
+context = "ME781 · Prof. Asim Tewari · IIT Bombay"
+summary = "Sales prediction on public datasets with t-statistic, p-value, F-test, and R² analysis, delivered through a Gradio interface."
+
+[[project]]
+title = "IoT pH Monitoring Device"
+period = "Spring 2024"
+context = "CL208 · Prof. Sanjay Mahajani · IIT Bombay"
+summary = "A pH probe on an ESP32 streaming readings over WiFi into Google Sheets through Apps Script for live feedback during long-running experiments."
+
+[[project]]
+title = "Quantum Computing"
+period = "Summer 2023"
+context = "Summer of Science · Maths and Physics Club · IIT Bombay"
+summary = "Studied quantum mechanics and current research, then simulated quantum logic gates, circuits, and algorithms in Qiskit."
+
+[[project]]
+title = "RouteRover Bot"
+period = "Spring 2023"
+context = "MS101 · Prof. Ankit Jain & Prof. Dinesh Sharma · IIT Bombay"
+summary = "A line-following cargo robot for slope climbing built on Arduino, IR sensors, load sensors, and a motor driver, with control tuning."
+
+[[project]]
+title = "Corporate Case Study: Dell"
+period = "Autumn 2022"
+context = "SOM101 · Prof. Mayank Pareek · IIT Bombay"
+summary = "Analysis of Dell's corporate structure, logistics, operations, income statement, and market valuation, presented to a class of 150+."
+
+[[project]]
+title = "Financial Analysis"
+period = "Autumn 2022"
+context = "Acmegrade · IIM Bangalore"
+summary = "Market analysis training from industry experts and a Python web-scraping tool for mining financial news for investment decisions."

@@ -17,6 +17,9 @@ result = "The solver reproduced the thesis figures comparing BGK and ELBM stabil
 failure = "Stability is not free: every entropic collision solves a Newton–Raphson problem for α in each cell, and BGK runs at high Reynolds number diverge before a like-for-like comparison is even possible."
 next_step = "Extend the two-phase and active-nematic branches and publish the BGK-versus-ELBM stability and scaling comparison."
 
+guide = "Prof. Amol Subedar"
+source = "https://github.com/sithtsar/BTP"
+
 [params]
 build = "A header-only C++17 solver with BGK and entropic collision operators, D2Q9 and D3Q19 lattices, bounce-back and Zou–He boundaries, optional OpenMP, and Marimo notebooks that generate the validation figures."
 
@@ -27,7 +30,7 @@ rotation = 0
 label = "ELBM / D2Q9"
 +++
 
-This was my undergraduate bachelor thesis project (BTP-1) at IIT Bombay. It grew out of an earlier CL469 course solver built around the BGK collision operator, and implements the entropic formulation of Hosseini et al. (2023) so that the discrete entropy H = Σ fᵢ ln(fᵢ / wᵢ) is never allowed to grow.
+This was my undergraduate bachelor thesis project (BTP-1) at IIT Bombay, guided by Prof. Amol Subedar. It grew out of an earlier CL469 course solver (Spring 2025, same guide) built around the BGK collision operator, and implements the entropic formulation of Hosseini et al. (2023) so that the discrete entropy H = Σ fᵢ ln(fᵢ / wᵢ) is never allowed to grow.
 
 The collision runs in two steps: an α-relaxation solved by Newton–Raphson so entropy is conserved, then a β-dissipation that sets the viscosity. The same code paths drive the BGK comparison, the analytical and benchmark test suites, and an active-matter extension with run-and-tumble particles coupled bidirectionally to the flow.
 

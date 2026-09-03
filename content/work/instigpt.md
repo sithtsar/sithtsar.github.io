@@ -16,6 +16,8 @@ result = "Built a RAG assistant for IIT Bombay and began integrating it with oth
 failure = "Campus information changes quickly; stale retrieval context can make a fluent answer confidently wrong."
 next_step = "Add source-level freshness signals and publish a grounded-answer evaluation set."
 
+source = "https://github.com/sithtsar/InstiGPT"
+
 [params]
 build = "A RAG pipeline with LoRA fine-tuning, context caching, and Gemini 2.5 Pro for answer generation."
 

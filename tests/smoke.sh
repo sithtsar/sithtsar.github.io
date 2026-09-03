@@ -21,7 +21,7 @@ test -f public/index.xml
 for page in public/work/lattice-boltzmann-flow/index.html public/work/instigpt/index.html public/work/qnlp-financial-intelligence/index.html public/notes/index.html public/notes/why-evidence-beats-demos/index.html public/about/index.html public/studio/index.html; do
   test -f "$page"
 done
-grep -q '<details' public/work/lattice-boltzmann-flow/index.html
+grep -q 'evidence-row' public/work/lattice-boltzmann-flow/index.html
 grep -q 'p5.brush' public/studio/index.html
 grep -q 'Bachelor thesis project' public/work/index.html
 test -f public/favicon.svg
@@ -39,3 +39,8 @@ cat public/index.html "$css_path" "$js_path" | gzip -9 -c > /tmp/portfolio-criti
 test "$(wc -c < /tmp/portfolio-critical.gz)" -le 35840
 test "$(gzip -9 -c "$js_path" | wc -c)" -le 3072
 test "$(wc -c < "$font_path")" -le 51200
+grep -q 'Prof. Amol Subedar' public/work/lattice-boltzmann-flow/index.html
+grep -q 'github.com/sithtsar/BTP' public/work/lattice-boltzmann-flow/index.html
+grep -q 'SaleBuddy' public/work/index.html
+grep -q 'Zwilling' public/about/index.html
+grep -q 'JEE Advanced' public/about/index.html

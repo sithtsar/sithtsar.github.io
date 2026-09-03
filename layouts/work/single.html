@@ -8,6 +8,8 @@
       <dl class="report-meta">
         <div><dt>Status</dt><dd>{{ .Params.status }}</dd></div>
         <div><dt>Practice</dt><dd>{{ .Params.role }}</dd></div>
+        {{ with .Params.guide }}<div><dt>Guide</dt><dd>{{ . }}</dd></div>{{ end }}
+        {{ with .Params.source }}<div><dt>Source</dt><dd><a href="{{ . }}">{{ replaceRE "^https?://(www\\.)?" "" . }}</a></dd></div>{{ end }}
       </dl>
     </div>
     <div class="report-head__art" style="view-transition-name:cover-{{ .File.ContentBaseName }}">{{ partial "cover-art.html" . }}</div>
