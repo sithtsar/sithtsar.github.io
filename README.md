@@ -70,3 +70,7 @@ When deployment is approved, pass the final absolute site URL explicitly so cano
 ```sh
 hugo --minify --panicOnWarning --baseURL https://example.com/portfolio/
 ```
+
+## Deploy
+
+Every push to `main` runs `.github/workflows/deploy.yml`: it installs Hugo 0.164.0 (checksum verified), builds with `--panicOnWarning`, runs `tests/smoke.sh`, and publishes `public/` to GitHub Pages at https://sithtsar.github.io/. A failing smoke test blocks the deploy.

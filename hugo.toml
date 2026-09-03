@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://sithtsar.github.io/"
 locale = "en"
 title = "Sarthak Mishra"
 disableKinds = ["taxonomy", "term", "sitemap"]
