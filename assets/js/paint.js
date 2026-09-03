@@ -206,6 +206,8 @@ if (canvas) {
     : canvas.dataset.paint.split(',').map((scene) => ({ scene }));
   const caption = document.querySelector('[data-caption]');
   const hold = 4500;
+  // Story plates advance with the reader's scroll; other plates cycle on a timer.
+  const scrolly = canvas.dataset.paint === 'story' && 'IntersectionObserver' in window;
   let run = 0;
   let typing;
 
@@ -227,14 +229,15 @@ if (canvas) {
     const steps = scenes[item.scene]();
     let i = 0;
     const next = () => fade(() => show((k + 1) % list.length));
+    canvas.style.setProperty('--k', k);
     const tick = (t0) => {
       if (me !== run) return;
       if (still) { while (i < steps.length) steps[i++](); if (steps.loop) steps.loop(); return; }
       if (i < steps.length) { steps[i++](); requestAnimationFrame(() => tick(performance.now())); return; }
       if (steps.loop) {
-        const go = (t) => { if (me !== run) return; steps.loop(); t - t0 < hold * 1.6 ? requestAnimationFrame(go) : next(); };
+        const go = (t) => { if (me !== run) return; steps.loop(); t - t0 < hold * 1.6 || scrolly ? requestAnimationFrame(go) : next(); };
         requestAnimationFrame(go);
-      } else setTimeout(() => me === run && next(), hold);
+      } else if (!scrolly) setTimeout(() => me === run && next(), hold);
     };
     const fade = (then) => {
       let n = 0;
@@ -245,6 +248,14 @@ if (canvas) {
   };
 
   list.forEach((it, i) => it.li && it.li.addEventListener('click', () => show(i)));
+  if (scrolly) {
+    let cur = 0;
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      const k = list.findIndex((it) => it.li === e.target);
+      if (e.isIntersecting && k !== cur) show((cur = k));
+    }), { rootMargin: '-45% 0px -45% 0px' });
+    list.forEach((it) => it.li && io.observe(it.li));
+  }
   canvas.closest('section')?.classList.add('has-paint');
   show(0);
 }

@@ -23,3 +23,30 @@ toggle?.addEventListener('click', () => {
   try { localStorage.theme = root.dataset.theme; } catch {}
   label();
 });
+
+// The archive year: its last digit dissolves to the year of whatever is in view.
+const digit = document.querySelector('[data-digit]');
+if (digit && 'IntersectionObserver' in window) {
+  let cur = digit.textContent;
+  let timer;
+  const io = new IntersectionObserver((entries) => {
+    const hit = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+    if (!hit) return;
+    const next = hit.target.dataset.year.slice(-1);
+    if (next === cur) return;
+    cur = next;
+    digit.classList.add('is-out');
+    clearTimeout(timer);
+    timer = setTimeout(() => { digit.textContent = next; digit.classList.remove('is-out'); }, 450);
+  }, { rootMargin: '-30% 0px -50% 0px' });
+  document.querySelectorAll('[data-year]').forEach((el) => io.observe(el));
+}
+
+// Local time at the home base, refreshed once a minute.
+const clock = document.querySelector('[data-clock]');
+if (clock) {
+  const fmt = new Intl.DateTimeFormat('en-GB', { timeZone: clock.dataset.tz, hour: '2-digit', minute: '2-digit' });
+  const tick = () => { clock.textContent = fmt.format(new Date()); };
+  tick();
+  setInterval(tick, 30000);
+}

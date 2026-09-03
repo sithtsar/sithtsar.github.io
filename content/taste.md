@@ -2,9 +2,12 @@
 title = "Taste"
 description = "The opinionated stack I reach for, and the evidence for it across sixty-odd repositories."
 kicker = "Preferences / 2026"
+paint = true
 +++
 
 Taste is what you choose when nobody is making you. This page is what I choose, checked against what is actually in my repositories rather than what I would like to claim.
+
+{{< board >}}
 
 ## Python: uv, ruff, ty, marimo
 
@@ -48,7 +51,12 @@ Docker in thirteen projects, GitHub Actions in nearly all of them. The parts I a
 
 ## The desk
 
-Arch Linux, Hyprland on Wayland, rofi for launching, alacritty or ghostty for the terminal, tmux, lazygit, Neovim (with Helix and Zed on standby), fish with a zsh fallback, btop, fastfetch for vanity. The config lives in [sithtsar/dotfiles](https://github.com/sithtsar/dotfiles), which the README honestly describes as "may or may not work". On the Mac I run the same terminal stack and pretend.
+Arch Linux, Hyprland on Wayland, rofi for launching. The config lives in [sithtsar/dotfiles](https://github.com/sithtsar/dotfiles), which the README honestly describes as "may or may not work". On the Mac I run the same terminal stack and pretend.
+
+- **Ghostty** is the terminal: ayu theme, JetBrains Mono with ligatures off, generous padding, a bar cursor, and the pointer hidden while typing. GPU-rendered and it stays out of the way.
+- **herdr** is where the agents live: a terminal workspace manager built for AI coding agents, one pane per agent with its label on the border, sessions I can attach to over SSH. tmux still runs underneath for everything that is not an agent.
+- **Neovim** on LazyVim, with Helix and Zed on standby. The editor should open in the time it takes to think of the file name.
+- lazygit, btop, fish with a zsh fallback, and fastfetch for vanity.
 
 ## Annual reports
 

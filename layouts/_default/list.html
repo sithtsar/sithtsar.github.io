@@ -1,6 +1,6 @@
 {{ define "main" }}
 <header class="page-lead shell">
-  <span class="page-lead__year" aria-hidden="true">{{ now.Format "06" }}</span>
+  <span class="page-lead__year" aria-hidden="true">{{ substr (now.Format "06") 0 1 }}<span class="year-digit" data-digit>{{ substr (now.Format "06") 1 1 }}</span></span>
   <p class="section-index">Archive / {{ now.Year }}</p>
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p>{{ . }}</p>{{ end }}
@@ -13,7 +13,7 @@
   <section class="shell entry-list entry-list--register" aria-labelledby="register-{{ $key }}">
     <p id="register-{{ $key }}" class="section-index">{{ $label }}</p>
     {{ range index hugo.Data.register $key }}{{ $item := . }}
-      <article>
+      <article data-year="{{ substr (index (findRE "[0-9]{4}" .period) 0 | default "2026") 2 2 }}">
         <p class="entry-list__meta">{{ .period }}<br>{{ .context }}</p>
         <h3>{{ .title }}</h3>
         <p>{{ .summary }}{{ with .source }} <a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}{{ . | relURL }}{{ end }}">{{ $item.source_label | default "Source" }} ↗</a>{{ end }}</p>
@@ -24,7 +24,7 @@
 {{ else }}
   <section class="shell entry-list" aria-label="{{ .Title }} index">
     {{ range .RegularPages.ByDate.Reverse }}
-      <article>
+      <article data-year="{{ .Date.Format "06" }}">
         <p class="entry-list__meta">{{ .Date.Format "02 Jan 2006" }} · {{ .ReadingTime }} min</p>
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         <p>{{ .Description }}</p>

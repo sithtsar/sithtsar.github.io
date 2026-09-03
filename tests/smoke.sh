@@ -10,7 +10,12 @@ grep -Eq 'data-cover-motif="?atlas"?' public/index.html
 grep -q 'Lattice Boltzmann Flow' public/index.html
 grep -q 'InstiGPT' public/work/index.html
 grep -q 'QNLP Financial Intelligence' public/work/index.html
-grep -q 'Anywhere you need me' public/index.html
+grep -q 'Remote or on site' public/index.html
+grep -q 'AI engineer · researcher' public/index.html
+grep -q 'HAND-SOLDERED' public/index.html
+! grep -q 'SM—26' public/index.html
+! grep -q 'Selected systems and inquiries' public/index.html
+grep -q 'herdr' public/taste/index.html
 grep -q 'mishrasarthak1520@gmail.com' public/index.html
 grep -q 'github.com/sithtsar' public/index.html
 grep -q 'linkedin.com/in/sarthakm15' public/index.html
@@ -77,3 +82,10 @@ for word in WorkOS CSRF pgvector 'brain.db' anydoc modernc 'delegation-token' 'd
   if grep -rqi -- "$word" public/work public/taste public/about; then echo "leaked internal detail: $word"; exit 1; fi
 done
 grep -q 'fill="#171713"' public/favicon.svg
+grep -q 'class=board' public/taste/index.html
+grep -q 'paint' public/taste/index.html
+grep -q 'bought a flight' public/about/index.html
+grep -q 'IntersectionObserver' public/js/paint.*.js
+grep -q 'data-year=24' public/work/index.html
+grep -q 'data-digit' public/work/index.html
+grep -q 'data-clock' public/index.html

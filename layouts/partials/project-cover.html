@@ -1,4 +1,4 @@
-<article class="project-card project-card--{{ if .Params.featured }}featured{{ else }}compact{{ end }}">
+<article class="project-card project-card--{{ if .Params.featured }}featured{{ else }}compact{{ end }}" data-year="{{ substr (index (findRE "[0-9]{4}" (.Params.period | default "")) 0 | default (.Date.Format "2006")) 2 2 }}">
   <a class="project-art-link" href="{{ .RelPermalink }}" style="view-transition-name:cover-{{ .File.ContentBaseName }}" aria-label="Read {{ .Title }} case study">
     {{ partial "cover-art.html" . }}
   </a>
