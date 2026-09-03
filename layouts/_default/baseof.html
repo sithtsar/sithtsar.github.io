@@ -12,6 +12,7 @@
   <title>{{ block "title" . }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
   {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }} — {{ $.Title }}" href="{{ .RelPermalink }}">{{ end }}
   {{ with resources.Get "fonts/newsreader-latin.woff2" }}{{ $font := . | fingerprint }}<style>@font-face{font-family:Newsreader;src:url('{{ $font.RelPermalink }}') format('woff2');font-style:normal;font-weight:500;font-display:swap}</style>{{ end }}
+  {{ with resources.Get "fonts/homemade-apple-sig.woff2" }}{{ $sig := . | fingerprint }}<style>@font-face{font-family:Signature;src:url('{{ $sig.RelPermalink }}') format('woff2');font-weight:400;font-display:swap;unicode-range:U+20,U+4d,U+53,U+61,U+68-69,U+6b,U+72-74}</style>{{ end }}
   {{ with resources.Get "css/site.css" }}{{ $style := . | minify | fingerprint }}<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">{{ end }}
 </head>
 <body>

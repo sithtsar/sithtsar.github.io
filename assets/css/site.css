@@ -29,8 +29,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--ultramarine); o
 .site-footer { display: flex; justify-content: space-between; }
 .wordmark, .site-header nav a, .site-footer a, .section-head > a, .contact-link { min-height: 2.75rem; display: inline-flex; align-items: center; }
 .wordmark { text-decoration: none; }
-.signature { display: block; height: 2.75rem; width: auto; }
-.signature__rule { stroke: var(--vermilion); }
+.wordmark { flex-direction: column; align-items: flex-start; }
+.signature { display: block; font: 400 1.55rem/1 Signature, 'Bradley Hand', 'Segoe Script', cursive; letter-spacing: -.01em; text-transform: none; padding-top: .75rem; transform: rotate(-3deg); transform-origin: left bottom; }
+.signature__rule { display: block; width: 6.2rem; height: .55rem; margin-top: -.15rem; fill: none; stroke: var(--vermilion); stroke-width: 2.2; stroke-linecap: round; }
 .wordmark:hover .signature { color: var(--ultramarine); }
 .eyebrow { font: 600 .72rem/1.2 var(--mono); text-transform: uppercase; letter-spacing: .12em; }
 h1, h2, h3, p { text-wrap: pretty; }
@@ -140,6 +141,9 @@ h1, h2, h3, p { text-wrap: pretty; }
   .site-header { grid-template-columns: auto 1fr; align-items: start; }
   .site-header nav { gap: .7rem; }
   .site-header .social-nav { grid-row: 1; grid-column: 2; justify-self: end; font-size: .62rem; }
+  .site-header .social-nav { gap: .5rem; }
+  .signature { font-size: 1.3rem; }
+  .signature__rule { width: 5.2rem; }
   .site-header .site-nav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; border-top: 1px solid var(--carbon); }
   .site-header .site-nav a { justify-content: center; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 0; }
