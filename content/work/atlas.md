@@ -17,6 +17,10 @@ result = "It runs the product end to end: single sign-on, a half-dozen integrati
 failure = "The ledger of deferred work is honest and long. Some timelines and personalisation still live client-side, and the test suite has cross-package hygiene left to fix."
 next_step = "Give every finding its own timeline, and finish moving all internal traffic onto the scoped-credential path."
 
+[timeline]
+start = 2025.35
+end = 2026.75
+
 [params]
 build = "TypeScript and React on the client; Go services; PostgreSQL with vector search; Redis; the usual cloud building blocks; Docker for local parity."
 

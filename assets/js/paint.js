@@ -1,7 +1,7 @@
 // ponytail: one small painting engine. Scenes are lists of steps painted one per frame, then held,
 // then washed out. Nothing runs during a hold. Reduced motion paints instantly and never auto-advances.
-const canvas = document.querySelector('canvas[data-paint]');
-if (canvas) {
+const all = [...document.querySelectorAll('canvas[data-paint]')];
+for (const canvas of all) {
   const dpr = Math.min(devicePixelRatio || 1, 2);
   const size = canvas.clientWidth || 320;
   canvas.width = canvas.height = size * dpr;
@@ -9,7 +9,7 @@ if (canvas) {
   c.scale(dpr, dpr);
   c.lineCap = 'round';
 
-  let seed = 1520;
+  let seed = 1520 + all.indexOf(canvas) * 977;
   const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
   const tone = (name) => getComputedStyle(canvas).getPropertyValue(name).trim();
   const [paper, carbon, moss, vermilion, harvest, ultramarine] = ['--paper', '--carbon', '--moss', '--vermilion', '--harvest', '--ultramarine'].map(tone);

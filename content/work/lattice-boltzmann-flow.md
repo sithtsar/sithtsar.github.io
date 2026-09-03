@@ -20,6 +20,10 @@ next_step = "Validate the H-theorem for two-phase immiscible flows with a colour
 guide = "Prof. Amol Subhedar"
 source = "https://github.com/sithtsar/BTP"
 
+[timeline]
+start = 2025.0
+end = 2026.75
+
 [params]
 build = "A header-only C++17 solver with BGK and entropic collision operators, D2Q9 and D3Q19 lattices, bounce-back and Zou–He boundaries, optional OpenMP, and Marimo notebooks that generate the validation figures."
 

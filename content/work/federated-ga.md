@@ -19,6 +19,10 @@ result = "GenFed averaged 49.1% accuracy over the last ten rounds against 40.1% 
 failure = "The GA selection collapsed onto the clients with the highest local accuracy, which under Dirichlet skew are the clients with the narrowest label distributions, so the global model saw fewer classes each round. The fitness function rewarded exactly the wrong thing for a non-IID setting."
 next_step = "Replace local accuracy with a fitness that scores label coverage of the selected set, then re-run the sweep and add CIFAR-10, where the papers' gains were reported."
 
+[timeline]
+start = 2025.6
+end = 2025.95
+
 [params]
 build = "Python with PyTorch, uv, pytest, ruff, and GitHub Actions CI. Modules for non-IID partitioning, the MLP, local training and FedAvg and GenFed aggregation, the GA in ga_selection.py (population 90, ten generations, tournament size 3, chromosome repair), and a logging main loop that writes per-round CSV and plots."
 

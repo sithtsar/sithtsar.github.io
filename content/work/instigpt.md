@@ -18,6 +18,10 @@ next_step = "Add source-level freshness signals and publish a grounded-answer ev
 
 source = "https://github.com/sithtsar/InstiGPT"
 
+[timeline]
+start = 2024.0
+end = 2026.75
+
 [params]
 build = "A RAG pipeline with custom LoRA fine-tuning for Gemini and a locally fine-tuned phi-3 mini, prompt templates, context caching, and an in-house inference client that routes each request to the best model."
 

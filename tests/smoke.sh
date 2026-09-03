@@ -14,10 +14,8 @@ grep -q 'InstiGPT' public/work/index.html
 grep -q 'QNLP Financial Intelligence' public/work/index.html
 grep -q 'Remote or on site' public/index.html
 grep -q 'AI engineer · researcher' public/index.html
-grep -q 'HAND-SOLDERED' public/index.html
 ! grep -q 'SM—26' public/index.html
 ! grep -q 'Selected systems and inquiries' public/index.html
-grep -q 'herdr' public/taste/index.html
 grep -q 'mishrasarthak1520@gmail.com' public/index.html
 grep -q 'github.com/sithtsar' public/index.html
 grep -q 'linkedin.com/in/sarthakm15' public/index.html
@@ -67,8 +65,6 @@ done
 ! grep -q 'Financial Analysis' public/work/index.html
 grep -q 'piexie' public/work/index.html
 test -f public/taste/index.html
-grep -q 'marimo' public/taste/index.html
-grep -q 'sithtsar/dotfiles' public/taste/index.html
 grep -q 'taste/' public/index.html
 grep -q 'data-theme-toggle' public/index.html
 grep -q 'say hi.' public/index.html
@@ -79,7 +75,6 @@ test "$(gzip -c public/js/portrait.*.js | wc -c)" -le 2048
 grep -q 'Copy for AI' public/work/atlas/index.html
 grep -q 'textPath' public/about/index.html
 grep -q 'page-lead__year' public/work/index.html
-grep -q 'annualreport.gallery' public/taste/index.html
 grep -q 'class=stat' public/work/lathe/index.html
 grep -q 'margin-note' public/work/locus/index.html
 grep -q 'plate-figure' public/studio/index.html
@@ -88,10 +83,13 @@ for word in WorkOS CSRF pgvector 'brain.db' anydoc modernc 'delegation-token' 'd
   if grep -rqi -- "$word" public/work public/taste public/about; then echo "leaked internal detail: $word"; exit 1; fi
 done
 grep -q 'fill="#171713"' public/favicon.svg
-grep -q 'class=board' public/taste/index.html
 grep -q 'paint' public/taste/index.html
 grep -q 'bought a flight' public/about/index.html
 grep -q 'IntersectionObserver' public/js/paint.*.js
-grep -q 'data-year=24' public/work/index.html
-grep -q 'data-digit' public/work/index.html
-grep -q 'data-clock' public/index.html
+grep -q 'class=mood' public/taste/index.html
+test "$(grep -o '<canvas' public/taste/index.html | wc -l)" -ge 8
+grep -q 'tl-row' public/work/index.html
+grep -q 'map__land' public/index.html
+grep -q 'rings' public/index.html
+grep -q 'data-style=nobel' public/about/index.html
+grep -q 'Bell Labs' public/index.html

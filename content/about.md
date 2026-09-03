@@ -3,6 +3,7 @@ title = "About"
 description = "B.Tech Chemical Engineering, IIT Bombay ’26, with a minor in Artificial Intelligence and Data Science from C-MInDS."
 kicker = "About / 2026"
 story = true
+portrait = true
 +++
 
 I’m Sarthak. I grew up in Bhilai, studied chemical engineering at IIT Bombay (class of ’26, with a minor in AI and data science from C-MInDS), and somewhere in there fell for software that has to survive contact with the real world.

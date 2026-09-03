@@ -17,6 +17,10 @@ result = "Locus is the engine behind every ingest. The fork carries our integrat
 failure = "This is a fork, not a from-scratch parser: most of the code is the upstream maintainers' work, and my commits are integration, packaging, and fixes. The query subset is read-only, and many listed languages are unbenchmarked."
 next_step = "Upstream the fixes, pin the grammar set we actually need, and add security-specific edges, sources, sinks, and auth boundaries, on top of the call graph."
 
+[timeline]
+start = 2026.08
+end = 2026.75
+
 [params]
 build = "Pure C with vendored tree-sitter grammars for 158 languages, embedded SQLite, a read-only Cypher subset, and an MCP surface."
 

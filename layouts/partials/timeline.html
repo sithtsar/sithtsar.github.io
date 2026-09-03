@@ -1,0 +1,8 @@
+{{ $x0 := 2022.5 }}{{ $span := 4.25 }}
+<section class="shell timeline" aria-label="Timeline of the work">
+  <p class="section-index">When</p>
+  <div class="tl-axis" aria-hidden="true">{{ range $y := seq 2023 2026 }}<span style="left:{{ printf "%.1f" (mul (div (sub (float $y) $x0) $span) 100) }}%">{{ $y }}</span>{{ end }}<span class="tl-now" style="left:100%">now</span></div>
+  {{ range $p := .RegularPages.ByWeight }}{{ with $p.Params.timeline }}{{ $l := mul (div (sub .start $x0) $span) 100 }}{{ $w := mul (div (sub .end .start) $span) 100 }}
+  <a class="tl-row" href="{{ $p.RelPermalink }}"><span class="tl-label">{{ $p.Title }}</span><span class="tl-track"><i style="left:{{ printf "%.1f" $l }}%;width:{{ printf "%.1f" $w }}%" data-kind="{{ if in $p.Params.status "Causal" }}job{{ else if or (in $p.Params.status "thesis") (in $p.Params.status "Course") }}research{{ else }}other{{ end }}"></i></span></a>
+  {{ end }}{{ end }}
+</section>

@@ -55,7 +55,7 @@
     <g fill="#d1a326"><rect x="160" y="204" width="80" height="44"/><rect x="320" y="204" width="80" height="44"/><rect x="480" y="204" width="80" height="44"/></g>
     <g fill="#f3eedc"><rect x="90" y="316" width="60" height="40"/><rect x="230" y="316" width="60" height="40"/><rect x="430" y="316" width="60" height="40"/><rect x="570" y="316" width="60" height="40"/></g>
     <g fill="#171713"><circle cx="90" cy="450" r="14"/><circle cx="170" cy="450" r="14"/><circle cx="640" cy="450" r="14"/></g>
-    <text x="620" y="110" fill="#f3eedc" font-family="ui-monospace,monospace" font-size="54" font-weight="700">{ }</text>
+    {{ if not .Params.cover_art.mute }}<text x="620" y="110" fill="#f3eedc" font-family="ui-monospace,monospace" font-size="54" font-weight="700">{ }</text>{{ end }}
   {{ else if eq $motif "federated" }}
     <g stroke="#171713" stroke-width="4" stroke-dasharray="10 8" fill="none"><path d="M360 260 140 120M360 260 580 120M360 260 110 300M360 260 610 300M360 260 220 440M360 260 500 440"/></g>
     <rect x="300" y="200" width="120" height="120" fill="#171713"/>
@@ -71,6 +71,6 @@
     <rect x="500" y="98" width="174" height="80" fill="#28559a"/><rect x="500" y="220" width="126" height="80" fill="#c83f2a"/><rect x="500" y="342" width="82" height="80" fill="#5d7147"/>
   {{ end }}
   </g>
-  <text x="28" y="44" fill="{{ $ink }}" font-family="ui-monospace,monospace" font-size="18" letter-spacing="3">{{ .Params.cover_art.label }}</text>
-  <text x="692" y="492" fill="{{ $ink }}" text-anchor="end" font-family="ui-monospace,monospace" font-size="13">{{ index (dict "flow" "D2Q9 / VELOCITY FIELD" "retrieval" "RAG / CONTEXT GRAPH" "filings" "PDF / NLP PIPELINE" "atlas" "GO / PYTHON / NEXT.JS" "graph" "KNOWLEDGE GRAPH / WIKI" "lathe" "ZIG / DOCUMENT PIPELINE" "locus" "C PARSERS / CODE GRAPH" "federated" "FEDICU / BIDORA") $motif }}</text>
+  {{ if not .Params.cover_art.mute }}<text x="28" y="44" fill="{{ $ink }}" font-family="ui-monospace,monospace" font-size="18" letter-spacing="3">{{ .Params.cover_art.label }}</text>{{ end }}
+  {{ if not .Params.cover_art.mute }}<text x="692" y="492" fill="{{ $ink }}" text-anchor="end" font-family="ui-monospace,monospace" font-size="13">{{ index (dict "flow" "D2Q9 / VELOCITY FIELD" "retrieval" "RAG / CONTEXT GRAPH" "filings" "PDF / NLP PIPELINE" "atlas" "GO / PYTHON / NEXT.JS" "graph" "KNOWLEDGE GRAPH / WIKI" "lathe" "ZIG / DOCUMENT PIPELINE" "locus" "C PARSERS / CODE GRAPH" "federated" "FEDICU / BIDORA") $motif }}</text>{{ end }}
 </svg>

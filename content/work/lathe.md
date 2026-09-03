@@ -17,6 +17,10 @@ result = "89 documents per second in one process, 250 per second with a process 
 failure = "Parsers are external on purpose, so the engine is only as robust as the extractors it wraps, and OCR is opt-in, so scanned PDFs pass through empty unless asked for."
 next_step = "Bundle the HTML extractor statically, and make the cloud run a scheduled re-index so corpora never drift from the extractor version."
 
+[timeline]
+start = 2026.58
+end = 2026.75
+
 [params]
 build = "Zig with no runtime; a Rust reference engine that must agree byte for byte; external extractors behind a line-delimited protocol; a structural chunker; goldens, fuzzers, and mutation testing."
 

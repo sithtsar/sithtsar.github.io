@@ -16,11 +16,14 @@ if (cv) {
     o.drawImage(img, 0, 0, n, n);
     const px = o.getImageData(0, 0, n, n).data;
     const ink = ['#171713', '#28559a', '#5d7147', '#c83f2a', '#d1a326', '#f3eedc'];
+    // nobel: the Elmehed look, black brush and gold foil on cream.
+    const nobel = cv.dataset.style === 'nobel';
     const pick = (r, g, b) => {
       const l = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
       const mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn;
       const s = mx ? d / mx : 0;
       const h = !d ? 0 : mx === r ? ((g - b) / d + 6) % 6 * 60 : mx === g ? ((b - r) / d + 2) * 60 : ((r - g) / d + 4) * 60;
+      if (nobel) return l < 0.3 ? ink[0] : l < 0.56 ? ink[4] : ink[5];
       if (l < 0.34) return ink[0];
       if (s < 0.16) return l < 0.55 ? ink[1] : ink[5];
       if (h > 180 && h < 300) return ink[1];
@@ -38,13 +41,13 @@ if (cv) {
       const x = i % n, y = (i / n) | 0, q = i * 4;
       c.fillStyle = pick(px[q], px[q + 1], px[q + 2]);
       c.beginPath();
-      c.ellipse(x * cell + cell / 2 + (Math.random() - 0.5) * cell * 0.5, y * cell + cell / 2 + (Math.random() - 0.5) * cell * 0.5, cell * 0.95, cell * 0.7, Math.random() * Math.PI, 0, Math.PI * 2);
+      c.ellipse(x * cell + cell / 2 + (Math.random() - 0.5) * cell * 0.5, y * cell + cell / 2 + (Math.random() - 0.5) * cell * 0.5, cell * (nobel ? 1.6 : 0.95), cell * (nobel ? 0.45 : 0.7), nobel ? -0.6 + (Math.random() - 0.5) * 0.4 : Math.random() * Math.PI, 0, Math.PI * 2);
       c.fill();
     };
     const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let k = 0;
     const step = () => {
-      const end = Math.min(k + (still ? order.length : 70), order.length);
+      const end = Math.min(k + (still ? order.length : 160), order.length);
       while (k < end) dab(order[k++]);
       if (k < order.length) requestAnimationFrame(step);
     };

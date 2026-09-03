@@ -18,6 +18,10 @@ next_step = "Publish corpus-quality diagnostics and validate sentiment outputs a
 
 source = "https://github.com/sithtsar/QNLP"
 
+[timeline]
+start = 2024.6
+end = 2024.95
+
 [params]
 build = "A Scrapy listener that collects quarterly reports as they land, OCR experiments including mixtral-ocr for PDF to Markdown, multithreaded regex extraction, and parallel Gemini API runs combined with traditional NLP."
 

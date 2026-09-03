@@ -17,6 +17,10 @@ result = "In production. Jobs run under leases so nothing is processed twice, ev
 failure = "Two API generations coexist while clients migrate, and the remote-procedure path was deliberately deferred. Both are on the ledger, and neither is free."
 next_step = "Retire the legacy surface, and push the coverage signal into the agent's planning loop so it asks for ingestion instead of guessing."
 
+[timeline]
+start = 2026.0
+end = 2026.75
+
 [params]
 build = "Go; embedded SQLite, one database per repository; an MCP endpoint for agents; object storage for snapshots; OpenTelemetry throughout."
 
