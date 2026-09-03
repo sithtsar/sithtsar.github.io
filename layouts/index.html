@@ -17,10 +17,10 @@
 {{ $projects := where site.RegularPages "Section" "work" }}
 <section class="shell manifesto" aria-labelledby="manifesto-title">
   <p class="section-index">00 / Hello</p>
-  <h2 id="manifesto-title">Build the thing.<br>Break it. Write down what happened.</h2>
+  <h2 id="manifesto-title">Me build thing.<br>Thing break. Me write down why.</h2>
   <canvas class="plate" data-paint="tree,whirl,meadow" width="320" height="320" aria-hidden="true"></canvas>
   <div class="manifesto-copy">
-    <p>Most days I’m somewhere between a terminal, a graph database, and a fluid solver. I get unreasonably happy about a test suite that catches its own bugs, a build that finishes before I look up, and a plot that finally matches the textbook.</p>
+    <p>Most days: terminal, graph database, fluid solver. Test suite catch own bug? Happy. Build finish before me look up? Very happy. Plot finally match textbook? Me cry a little.</p>
     <p>{{ .Params.availability }}</p>
   </div>
 </section>
@@ -46,6 +46,7 @@
         <label>you<input name="name" placeholder="name, or a handle" autocomplete="name" required></label>
         <label>what’s up<textarea name="msg" rows="4" placeholder="two lines is plenty" required></textarea></label>
         <div class="hello__actions"><button class="copy-button copy-button--solid" type="submit">send it ↗</button><button class="copy-button" type="button" data-copy="mishrasarthak1520@gmail.com">copy email</button><span class="copy-status" data-copy-status aria-live="polite"></span></div>
+        <small class="hello__hint">send opens your own mail app. nothing is stored here.</small>
       </form>
       <p class="hello__links"><a href="https://github.com/sithtsar">github</a> · <a href="https://x.com/sarthakant">x</a> · <a href="https://www.linkedin.com/in/sarthakm15">linkedin</a> · <a href="mailto:mishrasarthak1520@gmail.com">mishrasarthak1520@gmail.com</a></p>
       <p class="letter__sign"><span class="signature">Sarthak</span></p>

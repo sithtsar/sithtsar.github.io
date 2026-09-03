@@ -61,7 +61,7 @@ if (el) {
   const thr = Array.from({ length: H }, () => Array.from({ length: W }, rnd));
   const STEPS = 48;
   const diffuse = (g, a, t) => {
-    const s = Math.min(1, (t % 12) / 8.5);
+    const s = Math.min(1, (t % 6) / 2.6);
     const block = s < 0.3 ? 4 : s < 0.6 ? 2 : 1;
     for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
       if (thr[y][x] < s) { const ch = target[(y / block | 0) * block][(x / block | 0) * block]; g[y][x] = ch; if (block === 1 && ch === '@') a[y][x] = 1; }
@@ -82,6 +82,6 @@ if (el) {
   if (still) render(0, 1);
   else {
     const t0 = performance.now();
-    setInterval(() => { const t = (performance.now() - t0) / 1000; render(Math.floor(t / 12) % plates.length, t); }, 85);
+    setInterval(() => { const t = (performance.now() - t0) / 1000; render(Math.floor(t / 6) % plates.length, t); }, 85);
   }
 }

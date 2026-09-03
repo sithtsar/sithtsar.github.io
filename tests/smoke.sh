@@ -98,3 +98,6 @@ grep -q 'polaroid--empty' public/about/index.html
 grep -q 'Bell Labs' public/index.html
 grep -q 'denoising' public/js/ascii.*.js
 grep -q 'Asianometry' public/index.html
+grep -q 'data-scrap' public/taste/index.html
+test "$(gzip -c public/js/scrap.*.js | wc -c)" -le 2048
+grep -q 'Me build thing' public/index.html
