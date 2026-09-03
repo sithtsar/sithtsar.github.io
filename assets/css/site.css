@@ -212,7 +212,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 
 .journey { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2rem, 5vw, 6rem); padding-block: 4rem; border-bottom: 1px solid var(--carbon); }
 .journey__plate { position: sticky; top: 2rem; align-self: start; }
-.coin { display: block; width: 100%; max-width: 30rem; aspect-ratio: 1; background: var(--carbon); transform: rotate(calc(var(--k, 0) * 2deg - 6deg)); transition: transform .9s cubic-bezier(.2,.7,.1,1); }
+.coin { display: block; width: 100%; max-width: 30rem; aspect-ratio: 1; background: var(--carbon); transform: rotate(calc(var(--k, 0) * 1.5deg - 3deg)); transition: transform .9s cubic-bezier(.2,.7,.1,1); }
 .story-caption { max-width: 30rem; min-height: 5.2em; margin: 1.4rem 0 0; font: 500 clamp(1.1rem, 1.6vw, 1.4rem)/1.35 var(--serif); }
 .story-caption::after { content: '▍'; color: var(--vermilion-text); }
 .chapters { margin: 0 0 2.5rem; padding: 0; list-style: none; }

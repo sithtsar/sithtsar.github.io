@@ -1,4 +1,4 @@
 +++
 title = "Notes"
-description = "Short working papers on reliable agents, research infrastructure, and making technical judgment visible."
+description = "Short pieces on agents, research plumbing, and things I got wrong the first time."
 +++

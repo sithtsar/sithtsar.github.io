@@ -1,13 +1,13 @@
 <section class="evidence" aria-labelledby="evidence-title">
   <header>
-    <p class="section-index">Evidence chain</p>
-    <h2 id="evidence-title">From question to next move</h2>
+    <p class="section-index">How it went</p>
+    <h2 id="evidence-title">Question to next move, nothing skipped</h2>
   </header>
   <div class="evidence-row"><span>01</span><strong>Question</strong><p>{{ .Params.question }}</p></div>
-  <div class="evidence-row"><span>02</span><strong>Hypothesis</strong><p>{{ .Params.hypothesis }}</p></div>
+  <div class="evidence-row"><span>02</span><strong>Hunch</strong><p>{{ .Params.hypothesis }}</p></div>
   <div class="evidence-row"><span>03</span><strong>Build</strong><p>{{ .Params.build }}</p></div>
-  <div class="evidence-row"><span>04</span><strong>Evaluation</strong><p>{{ .Params.evaluation }}</p></div>
+  <div class="evidence-row"><span>04</span><strong>Test</strong><p>{{ .Params.evaluation }}</p></div>
   <div class="evidence-row"><span>05</span><strong>Result</strong><p>{{ .Params.result }}</p></div>
-  <div class="evidence-row"><span>06</span><strong>Failure</strong><p>{{ .Params.failure }}</p></div>
-  <div class="evidence-row"><span>07</span><strong>Next step</strong><p>{{ .Params.next_step }}</p></div>
+  <div class="evidence-row"><span>06</span><strong>What broke</strong><p>{{ .Params.failure }}</p></div>
+  <div class="evidence-row"><span>07</span><strong>Next</strong><p>{{ .Params.next_step }}</p></div>
 </section>

@@ -1,13 +1,13 @@
 +++
 title = "Cover Studio"
-description = "How the portfolio turns constrained data into lightweight annual-report graphics."
-kicker = "System / visual grammar"
+description = "The covers on this site are a few numbers in a text file. Here is how they become pictures."
+kicker = "How the covers work"
 show_motifs = true
 +++
 
-The covers are data, not uploaded illustrations. Each project chooses an allowlisted motif, label, density, and rotation in its front matter. Hugo converts those fields into a deterministic inline SVG at build time.
+The covers are not images. Each project picks a motif, a label, a density, and a rotation in its front matter, and Hugo turns those four values into an inline SVG at build time.
 
-This keeps the public website unusually cheap: no canvas runtime, no animation loop, no hydration, and no image request for the main project art. The same content record can appear on an index, a project report, or a future social card without drifting into a different visual language.
+That keeps the site cheap: no image requests for the main art, no animation loop, nothing to hydrate. The same record can show up on the index, a case page, or a social card and still look like it belongs.
 
 ## Agent-painted source material
 

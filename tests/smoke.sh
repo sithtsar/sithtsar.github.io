@@ -5,7 +5,9 @@ test -f public/index.html
 grep -q '<meta name=viewport' public/index.html
 grep -q 'Skip to content' public/index.html
 grep -q 'Sarthak Mishra' public/index.html
-grep -q 'Selected work' public/index.html
+grep -q 'Things I’ve built' public/index.html
+! grep -q 'Proof before theatre' public/index.html
+! grep -q 'Personal report' public/index.html
 grep -Eq 'data-cover-motif="?atlas"?' public/index.html
 grep -q 'Lattice Boltzmann Flow' public/index.html
 grep -q 'InstiGPT' public/work/index.html

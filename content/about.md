@@ -1,13 +1,13 @@
 +++
 title = "About"
 description = "B.Tech Chemical Engineering, IIT Bombay ’26, with a minor in Artificial Intelligence and Data Science from C-MInDS."
-kicker = "Profile / 2026"
+kicker = "About / 2026"
 story = true
 +++
 
-I graduated from IIT Bombay in 2026 with a B.Tech in Chemical Engineering and a minor in Artificial Intelligence and Data Science from C-MInDS.
+I’m Sarthak. I grew up in Bhilai, studied chemical engineering at IIT Bombay (class of ’26, with a minor in AI and data science from C-MInDS), and somewhere in there fell for software that has to survive contact with the real world.
 
-I currently build agentic AI infrastructure at Causal Security, and my thesis work extends entropic lattice Boltzmann methods to two-phase and active-matter flows. I am most interested in problems where models must survive contact with physical systems or messy real-world information, and I am open to engineering and research roles where ambitious systems need rigorous implementation, clear evidence, and fast iteration.
+Right now I build agentic AI infrastructure at Causal Security. My thesis was on lattice Boltzmann methods, which is a long way of saying I spent a year convincing fluids to behave inside a computer. I like problems where the model has to face physics or a messy pile of documents, and I’m open to engineering and research roles where the work is hard and the team cares whether it actually works.
 
 ## Education
 
@@ -129,10 +129,10 @@ March 2023 — March 2024 · Institute Technical Council, IIT Bombay
 - Organised Techfest, Asia's largest technical festival, December 2022.
 - 80+ hours with the NSS Educational Outreach Programme, teaching basic sciences to underprivileged children through two NGOs, 2022–23.
 
-## Working principles
+## Things I believe, as of today
 
-**Make the evidence inspectable.** A confident claim without a route back to its source is decoration.
+**Show the receipts.** A confident claim with no link back to its source is decoration.
 
-**Prefer small systems with clear seams.** Performance, accessibility, and maintainability are design materials, not cleanup tasks.
+**Small systems, clear seams.** Fast, accessible, and maintainable are materials you build with, not cleanup for later.
 
-**Write down the failure.** The limits of an approach often reveal more judgment than the polished result.
+**Write down what broke.** The failures teach more than the polished demo ever will.

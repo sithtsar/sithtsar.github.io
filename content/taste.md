@@ -5,7 +5,7 @@ kicker = "Preferences / 2026"
 paint = true
 +++
 
-Taste is what you choose when nobody is making you. This page is what I choose, checked against what is actually in my repositories rather than what I would like to claim.
+Taste is what you pick when nobody’s making you. This is mine, checked against my actual repos instead of what I’d like to claim. Strong opinions, loosely held. Okay, mostly held.
 
 {{< board >}}
 
@@ -74,7 +74,7 @@ What the good ones do:
 
 The archive itself is well made: one static page, no framework, a fixed rail instead of a header, CSS multi-column masonry with real cover aspect ratios, a Fisher-Yates shuffle so every visit is fresh, and a Copy-for-AI button on every cover. It also exposes a free MCP server, which is how an archive should behave in 2026. The Copy-for-AI button on my case studies is borrowed from there.
 
-## Things I avoid
+## Things I refuse to do
 
 - Jupyter notebooks committed to a repository.
 - A framework for a site that is a document.

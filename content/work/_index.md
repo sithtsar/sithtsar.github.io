@@ -1,4 +1,4 @@
 +++
 title = "Work"
-description = "A register of selected systems and research work."
+description = "Everything I’ve built that I’d stand behind. Job work first, then research, then the side quests."
 +++
