@@ -12,9 +12,9 @@ grep -q 'InstiGPT' public/index.html
 grep -q 'QNLP Financial Intelligence' public/index.html
 grep -q 'Anywhere you need me' public/index.html
 grep -q 'mishrasarthak1520@gmail.com' public/index.html
-grep -q 'github.com/Sarthak-1520' public/index.html
+grep -q 'github.com/sithtsar' public/index.html
 grep -q 'linkedin.com/in/sarthakm15' public/index.html
-grep -q 'x.com/your-handle' public/index.html
+grep -q 'x.com/sarthakant' public/index.html
 ! grep -Eqi 'candidate|representative|replace before publishing' public/index.html
 test -f public/work/index.html
 test -f public/index.xml
@@ -23,7 +23,7 @@ for page in public/work/lattice-boltzmann-flow/index.html public/work/instigpt/i
 done
 grep -q '<details' public/work/lattice-boltzmann-flow/index.html
 grep -q 'p5.brush' public/studio/index.html
-grep -q 'Course project' public/work/index.html
+grep -q 'Bachelor thesis project' public/work/index.html
 test -f public/favicon.svg
 test -f public/robots.txt
 css_url=$(grep -o '/css/site\.min\.[a-f0-9]*\.css' public/index.html | head -n 1)
