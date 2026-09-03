@@ -10,7 +10,7 @@
     <p class="kicker">AI engineer · researcher</p>
     <h1>Sarthak<br>Mishra</h1>
   </div>
-  <div class="cover-atlas cover-ascii" aria-hidden="true"><pre class="ascii" data-ascii></pre></div>
+  <div class="cover-atlas cover-ascii" aria-hidden="true"><pre class="ascii" data-ascii{{ if fileExists "static/img/face.png" }} data-face="{{ "img/face.png" | relURL }}"{{ end }}></pre></div>
   <p class="cover-statement">{{ .Params.statement }}</p>
 </section>
 

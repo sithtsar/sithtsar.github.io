@@ -45,7 +45,34 @@ if (el) {
     }
     if (n > 4) { const y = Math.round((H - 3) - series[n - 1] * (H - 5)); g[y][n - 1] = 'O'; a[y][n - 1] = 1; }
   };
-  const plates = [globe, rings, chart];
+  // Diffusion: noise resolves into a target, coarse blocks first, then detail, like a sampler mid-inference.
+  const target = Array.from({ length: H }, () => Array(W).fill(' '));
+  { const a = Array.from({ length: H }, () => Array(W).fill(0)); globe(target, a, 1); }
+  if (el.dataset.face) {
+    const im = new Image();
+    im.src = el.dataset.face;
+    im.decode().then(() => {
+      const c = document.createElement('canvas'); c.width = W; c.height = H;
+      const x = c.getContext('2d'); x.drawImage(im, 0, 0, W, H);
+      const d = x.getImageData(0, 0, W, H).data;
+      for (let i = 0; i < W * H; i++) target[(i / W) | 0][i % W] = shade[Math.round((1 - (0.299 * d[i * 4] + 0.587 * d[i * 4 + 1] + 0.114 * d[i * 4 + 2]) / 255) * 9)];
+    }).catch(() => {});
+  }
+  const thr = Array.from({ length: H }, () => Array.from({ length: W }, rnd));
+  const STEPS = 48;
+  const diffuse = (g, a, t) => {
+    const s = Math.min(1, (t % 12) / 8.5);
+    const block = s < 0.3 ? 4 : s < 0.6 ? 2 : 1;
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+      if (thr[y][x] < s) { const ch = target[(y / block | 0) * block][(x / block | 0) * block]; g[y][x] = ch; if (block === 1 && ch === '@') a[y][x] = 1; }
+      else g[y][x] = shade[1 + ((Math.random() * 8) | 0)];
+    }
+    const step = Math.round(s * STEPS), loss = ((1 - s) * (1 - s) + Math.random() * 0.01).toFixed(3);
+    const line = `denoising  step ${String(step).padStart(2, ' ')}/${STEPS}  loss ${loss}`;
+    g[H - 1].fill(' ');
+    for (let i = 0; i < line.length; i++) { g[H - 1][i + 2] = line[i]; a[H - 1][i + 2] = 1; }
+  };
+  const plates = [diffuse, globe, rings, chart];
   const render = (k, t) => {
     const g = Array.from({ length: H }, () => Array(W).fill(' '));
     const a = Array.from({ length: H }, () => Array(W).fill(0));
@@ -55,6 +82,6 @@ if (el) {
   if (still) render(0, 1);
   else {
     const t0 = performance.now();
-    setInterval(() => { const t = (performance.now() - t0) / 1000; render(Math.floor(t / 10) % plates.length, t); }, 85);
+    setInterval(() => { const t = (performance.now() - t0) / 1000; render(Math.floor(t / 12) % plates.length, t); }, 85);
   }
 }
