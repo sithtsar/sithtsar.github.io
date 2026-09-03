@@ -1,0 +1,14 @@
+baseURL = "http://localhost:1313/"
+locale = "en"
+title = "Sarthak Mishra"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+enableRobotsTXT = true
+
+[build]
+  writeStats = false
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[minify]
+  minifyOutput = true

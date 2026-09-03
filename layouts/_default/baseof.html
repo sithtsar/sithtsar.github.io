@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ .Description | default site.Title }}">
+  <meta name="theme-color" content="#f3eedc">
+  <title>{{ block "title" . }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  {{ with resources.Get "css/site.css" }}{{ $style := . | minify | fingerprint }}<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">{{ end }}
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  {{ partial "header.html" . }}
+  <main id="content">{{ block "main" . }}{{ .Content }}{{ end }}</main>
+  {{ partial "footer.html" . }}
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>
