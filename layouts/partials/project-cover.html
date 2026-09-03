@@ -1,0 +1,11 @@
+<article class="project-card project-card--{{ if .Params.featured }}featured{{ else }}compact{{ end }}">
+  <a class="project-art-link" href="{{ .RelPermalink }}" style="view-transition-name:cover-{{ .File.ContentBaseName }}" aria-label="Read {{ .Title }} case study">
+    {{ partial "cover-art.html" . }}
+  </a>
+  <div class="project-card__copy">
+    <p class="project-card__meta"><span>{{ .Params.number }}</span> {{ .Params.role }} · {{ .Params.period }}</p>
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    <p>{{ .Params.summary }}</p>
+    <ul class="tag-list" aria-label="Topics">{{ range .Params.tags }}<li>{{ . }}</li>{{ end }}</ul>
+  </div>
+</article>

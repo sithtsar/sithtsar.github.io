@@ -6,6 +6,7 @@
   <meta name="description" content="{{ .Description | default site.Title }}">
   <meta name="theme-color" content="#f3eedc">
   <title>{{ block "title" . }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  {{ with resources.Get "fonts/newsreader-latin.woff2" }}{{ $font := . | fingerprint }}<style>@font-face{font-family:Newsreader;src:url('{{ $font.RelPermalink }}') format('woff2');font-style:normal;font-weight:500;font-display:swap}</style>{{ end }}
   {{ with resources.Get "css/site.css" }}{{ $style := . | minify | fingerprint }}<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">{{ end }}
 </head>
 <body>

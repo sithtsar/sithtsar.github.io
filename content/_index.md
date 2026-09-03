@@ -1,4 +1,6 @@
 +++
 title = "Sarthak Mishra"
-description = "A candidate portfolio for systems, research, and useful AI."
+description = "Independent engineer working on reliable AI systems, research infrastructure, and tools that explain themselves."
+statement = "I build AI systems that can show their work."
+availability = "Open to high-agency engineering and research collaborations."
 +++

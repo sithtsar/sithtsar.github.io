@@ -1,0 +1,10 @@
+{{ define "main" }}
+<header class="page-lead shell">
+  <p class="section-index">Archive / {{ now.Year }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p>{{ . }}</p>{{ end }}
+</header>
+<section class="shell project-register project-register--all" aria-label="{{ .Title }} index">
+  {{ range .RegularPages.ByWeight }}{{ partial "project-cover.html" . }}{{ end }}
+</section>
+{{ end }}

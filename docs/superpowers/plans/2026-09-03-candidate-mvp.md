@@ -86,6 +86,7 @@ git commit -m "build: add minimal Hugo site shell"
 - Create: `content/work/research-runtime.md`
 - Modify: `layouts/index.html`
 - Create: `layouts/_default/list.html`
+- Create: `layouts/_default/single.html`
 - Create: `layouts/partials/project-cover.html`
 - Create: `layouts/partials/cover-art.html`
 - Create: `assets/fonts/newsreader-latin.woff2`
@@ -142,7 +143,7 @@ git commit -m "feat: add annual report homepage and covers"
 ### Task 3: Project report, notes, about, and studio routes
 
 **Files:**
-- Create: `layouts/_default/single.html`
+- Modify: `layouts/_default/single.html`
 - Create: `layouts/work/single.html`
 - Create: `layouts/notes/single.html`
 - Create: `layouts/partials/evidence-chain.html`

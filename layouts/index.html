@@ -1,8 +1,68 @@
 {{ define "title" }}Sarthak Mishra · Portfolio{{ end }}
 {{ define "main" }}
-<section class="shell intro">
-  <p class="eyebrow">Candidate portfolio · 2026</p>
-  <h1>Sarthak Mishra</h1>
-  <p>Systems, research, and useful AI.</p>
+<section class="cover shell">
+  <div class="cover-meta">
+    <p>Personal report <span>№ 01</span></p>
+    <p>Engineering × research</p>
+    <p>New Delhi / Remote</p>
+  </div>
+  <div class="cover-title">
+    <p class="kicker">Independent engineer</p>
+    <h1>Sarthak<br>Mishra</h1>
+  </div>
+  <div class="cover-mark" aria-hidden="true">
+    <span class="cover-mark__disc"></span>
+    <span class="cover-mark__axis"></span>
+    <span class="cover-mark__stamp">SM<br>26</span>
+  </div>
+  <p class="cover-statement">{{ .Params.statement }}</p>
+  <p class="cover-folio">Selected systems and inquiries<br><span>2024—2026</span></p>
+</section>
+
+<aside class="prototype-note">
+  <div class="shell prototype-note__inner">
+    <strong>Candidate MVP</strong>
+    <span>Representative content — names, claims, links, and contact details are placeholders until verified.</span>
+  </div>
+</aside>
+
+{{ $projects := where site.RegularPages "Section" "work" }}
+<section class="shell manifesto" aria-labelledby="manifesto-title">
+  <p class="section-index">00 / Position</p>
+  <h2 id="manifesto-title">Proof before theatre.<br>Systems before slogans.</h2>
+  <div class="manifesto-copy">
+    <p>I care about the seam where ambitious models meet unforgiving reality: evaluation, observability, interfaces, and the quiet infrastructure that makes a useful result repeatable.</p>
+    <p>{{ .Params.availability }}</p>
+  </div>
+</section>
+
+<section class="work shell" aria-labelledby="work-title">
+  <header class="section-head">
+    <p class="section-index">01 / Register</p>
+    <h2 id="work-title">Selected work</h2>
+    <a href="{{ "/work/" | relURL }}">View complete register <span aria-hidden="true">↗</span></a>
+  </header>
+  <div class="project-register">
+    {{ range $projects.ByWeight }}{{ partial "project-cover.html" . }}{{ end }}
+  </div>
+</section>
+
+<section class="dispatch shell" aria-labelledby="dispatch-title">
+  <p class="section-index">02 / Dispatch</p>
+  <div>
+    <p class="kicker">Field note · issue 001</p>
+    <h2 id="dispatch-title">Why evidence beats demos</h2>
+    <p>A working demo proves a path existed once. Evidence explains why it worked, where it failed, and whether another person can trust it.</p>
+    <span class="soon">Full note in the next build</span>
+  </div>
+</section>
+
+<section class="contact shell" id="contact" aria-labelledby="contact-title">
+  <p class="section-index">03 / Contact</p>
+  <div>
+    <h2 id="contact-title">Have a hard system<br>worth making clear?</h2>
+    <a class="contact-link" href="mailto:your-email@example.com">Start a conversation <span aria-hidden="true">↗</span></a>
+    <p class="contact-caveat">Replace with your real address before publishing.</p>
+  </div>
 </section>
 {{ end }}
