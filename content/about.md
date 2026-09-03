@@ -1,6 +1,6 @@
 +++
 title = "About"
-description = "B.Tech Chemical Engineering, IIT Bombay ’26, with a minor in Artificial Intelligence and Data Science from C-MInDS."
+description = "IIT Bombay ’26. Chemical engineering, with a minor in AI and data science."
 kicker = "About / 2026"
 story = true
 portrait = true
@@ -74,7 +74,7 @@ Autumn 2025 · Research project · MeDAL Lab · Prof. Amit Sethi
 
 ## Positions of responsibility
 
-### Community Manager, AI Community
+### Community Manager, [AI Community](https://ai.tech-iitb.org/)
 April 2024 — April 2025 · Institute Technical Council, IIT Bombay
 
 - Managed and mentored a team of 7 junior engineers through hackathons and AI product development.
@@ -93,11 +93,6 @@ July — November 2024 · Prof. Avishek Ghosh · IIT Bombay
 
 - Sole undergraduate TA, selected on a top AA-grade performance in the previous iteration.
 - Graded assignments and exams and supported a cohort of 50+ students.
-
-### Convener, Design Team
-March 2023 — March 2024 · Institute Technical Council, IIT Bombay
-
-- Led templates, posters, graphics, and merchandise for multiple teams and events in Figma, Canva, Photoshop, and Illustrator.
 
 ## Scholastic achievements
 

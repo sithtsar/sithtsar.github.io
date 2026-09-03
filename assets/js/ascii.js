@@ -1,5 +1,5 @@
-// ponytail: three ASCII plates adapted from mid-century annual-report covers, redrawn twelve times a second.
-// Globe (Canadian Overseas Telecommunication, 1951), signal rings (Bell Telephone, 1964), rising line (Tandy, 1964).
+// ponytail: ASCII plates redrawn twelve times a second. Three from mid-century annual-report covers (globe, Bell rings,
+// Tandy rising line) and three from screens I grew up on: a Mr. Robot terminal, a DedSec skull glitch, a Pantheon upload scan.
 const el = document.querySelector('[data-ascii]');
 if (el) {
   const W = 64, H = 30, AX = 2.05;
@@ -35,7 +35,7 @@ if (el) {
     }
   };
   const chart = (g, a, t) => {
-    const n = Math.min(W, Math.floor(((t % 9) / 6.5) * W));
+    const n = Math.min(W, Math.floor(((t % 6) / 4.2) * W));
     for (let y = 0; y < H; y++) { g[y][2] = '|'; if (y % 6 === 3) for (let x = 3; x < W; x += 2) g[y][x] = '.'; }
     for (let x = 2; x < W; x++) g[H - 2][x] = '_';
     for (let x = 4; x < n; x++) {
@@ -61,10 +61,10 @@ if (el) {
   const thr = Array.from({ length: H }, () => Array.from({ length: W }, rnd));
   const STEPS = 48;
   const diffuse = (g, a, t) => {
-    const s = Math.min(1, (t % 6) / 2.6);
+    const s = Math.min(1, (t % 6) / 2.6), tgt = targets[Math.floor(t / 6 / plates.length) % targets.length];
     const block = s < 0.3 ? 4 : s < 0.6 ? 2 : 1;
     for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
-      if (thr[y][x] < s) { const ch = target[(y / block | 0) * block][(x / block | 0) * block]; g[y][x] = ch; if (block === 1 && ch === '@') a[y][x] = 1; }
+      if (thr[y][x] < s) { const ch = tgt[(y / block | 0) * block][(x / block | 0) * block]; g[y][x] = ch; if (block === 1 && ch === '@') a[y][x] = 1; }
       else g[y][x] = shade[1 + ((Math.random() * 8) | 0)];
     }
     const step = Math.round(s * STEPS), loss = ((1 - s) * (1 - s) + Math.random() * 0.01).toFixed(3);
@@ -72,7 +72,49 @@ if (el) {
     g[H - 1].fill(' ');
     for (let i = 0; i < line.length; i++) { g[H - 1][i + 2] = line[i]; a[H - 1][i + 2] = 1; }
   };
-  const plates = [diffuse, globe, rings, chart];
+  const SKULL = ['......########......', '....############....', '...##############...', '..################..', '..###..######..###..', '..##....####....##..', '..###..######..###..', '..################..', '...######..######...', '....####....####....', '.....##########.....', '......##.##.##......', '......########......', '.......##..##.......'];
+  const skull = (g, a, t, tear) => {
+    const x0 = (W - 40) / 2 | 0, y0 = (H - SKULL.length) / 2 | 0;
+    SKULL.forEach((row, j) => {
+      const dx = tear && Math.random() < 0.18 ? ((Math.random() * 7) | 0) - 3 : 0;
+      for (let i = 0; i < 40; i++) if (row[i >> 1] === '#') { const x = x0 + i + dx; if (x >= 0 && x < W) g[y0 + j][x] = tear && Math.random() < 0.06 ? '%' : '#'; }
+    });
+  };
+  const skullT = Array.from({ length: H }, () => Array(W).fill(' '));
+  skull(skullT, 0, 0, false);
+  const targets = [target, skullT];
+  const glitch = (g, a, t) => {
+    skull(g, a, t, true);
+    if (((t * 3) | 0) % 5 === 0) { const y = (Math.random() * H) | 0; for (let x = 0; x < W; x++) g[y][x] = '=-'[x & 1]; }
+    const msg = '> ACCESS GRANTED' + (((t * 2) | 0) % 2 ? ' _' : '');
+    for (let i = 0; i < msg.length; i++) { g[H - 2][i + 3] = msg[i]; a[H - 2][i + 3] = 1; }
+    for (let k = 0; k < 3; k++) { const y = (Math.random() * H) | 0, x0 = (Math.random() * W) | 0; for (let x = x0; x < Math.min(W, x0 + 14); x++) if (g[y][x] === ' ') g[y][x] = '01'[(x * 7 + y) & 1]; }
+  };
+  const LINES = ['$ ssh sarthak@anywhere', 'hello friend.', '$ cat /proc/self/dreams', '  agents online ....... 7', '  deterministic ....... yes', '  tests that lie ...... 0', '$ ./ship --by friday', '  half break, half ship.', '$ █'];
+  const term = (g, a, t) => {
+    const n = ((t % 6) * 70) | 0;
+    let left = n;
+    LINES.forEach((line, j) => {
+      if (left <= 0) return;
+      const k = Math.min(line.length, left); left -= line.length + 4;
+      for (let i = 0; i < k; i++) { g[2 + j * 3] [3 + i] = line[i]; if (j === 1 || j === 7) a[2 + j * 3][3 + i] = 1; }
+      if (left <= 0 && k === line.length && ((t * 2) | 0) % 2) g[2 + j * 3][3 + k] = '_';
+    });
+  };
+  const upload = (g, a, t) => {
+    const p = Math.min(1, (t % 6) / 5), cx = W / 2, cy = H / 2 - 1, sy = 2 + p * (H - 6);
+    for (let y = 1; y < H - 3; y++) for (let x = 0; x < W; x++) {
+      const solid = skullT[y][x] === '#';
+      if (y < sy) { if (solid) g[y][x] = shade[3 + ((Math.sin(x * 0.9 + y * 1.7 + t * 3) * 3 + 3) | 0)]; else if (((x * 3 + y * 5) % 11) === 0) g[y][x] = '.'; }
+      else if (solid) g[y][x] = ':';
+      if (Math.abs(y - sy) < 0.6) { g[y][x] = '='; a[y][x] = 1; }
+    }
+    const bar = `upload  [${'#'.repeat(p * 24 | 0).padEnd(24, '.')}] ${String(p * 100 | 0).padStart(3, ' ')}%   UI status: ${p < 1 ? 'scanning' : 'integrated'}`;
+    for (let i = 0; i < bar.length; i++) { g[H - 1][i + 2] = bar[i]; if (i > 7 && i < 34) a[H - 1][i + 2] = 1; }
+  };
+  const rest = [globe, rings, chart, term, glitch, upload];
+  for (let i = rest.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [rest[i], rest[j]] = [rest[j], rest[i]]; }
+  const plates = [diffuse, ...rest];
   const render = (k, t) => {
     const g = Array.from({ length: H }, () => Array(W).fill(' '));
     const a = Array.from({ length: H }, () => Array(W).fill(0));

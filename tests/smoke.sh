@@ -71,7 +71,10 @@ grep -q 'say hi.' public/index.html
 grep -q 'data-ascii' public/index.html
 ! grep -q 'Dispatch' public/index.html
 ! grep -q 'Why evidence beats demos' public/index.html
-test "$(gzip -c public/js/ascii.*.js | wc -c)" -le 2048
+test "$(gzip -c public/js/ascii.*.js | wc -c)" -le 3072
+grep -q "hello friend" public/js/ascii.*.js
+grep -q "ACCESS GRANTED" public/js/ascii.*.js
+! grep -q "repeating-linear-gradient(to bottom, transparent 0 calc(2rem" public/css/*.css
 grep -q 'Copy for AI' public/work/atlas/index.html
 grep -q 'textPath' public/about/index.html
 grep -q 'page-lead__year' public/work/index.html
@@ -99,6 +102,7 @@ grep -q 'tl-row' public/work/index.html
 ! grep -q 'map__land' public/index.html
 ! grep -qi 'mumbai' public/index.html
 grep -q 'literally me' public/about/index.html
+grep -q 'saber__blade' public/about/index.html
 test -f public/img/gh.jpg
 ! test -f public/img/me.jpg
 grep -q 'Bell Labs' public/index.html
@@ -108,5 +112,8 @@ grep -q 'data-scrap' public/taste/index.html
 test "$(gzip -c public/js/scrap.*.js | wc -c)" -le 2048
 grep -q 'Me build thing' public/index.html
 grep -q 'scroll X' public/index.html
-grep -q 'professional agent orchestrator' public/index.html
+grep -q 'cloud agents run on' public/index.html
+grep -q 'sandboxes they act in' public/index.html
+! grep -q 'IITB26' public/index.html
+grep -q 'whole point' public/index.html
 ! grep -q 'fluid solver' public/index.html

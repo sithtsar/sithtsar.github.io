@@ -7,7 +7,7 @@
     <p class="section-index" id="journey-title">Journey / seven plates</p>
     <ol class="chapters">
       {{ range hugo.Data.story.chapter }}
-      <li data-scene="{{ .scene }}" data-text="{{ .text }}"><small>{{ .period }}</small><span><b>{{ .title }}</b><p>{{ .text }}</p></span></li>
+      <li data-scene="{{ .scene }}" data-text="{{ .text }}"><small>{{ .period }}</small><span><b>{{ $t := .title }}{{ with .link }}<a href="{{ . }}" rel="noopener">{{ $t }} ↗</a>{{ else }}{{ $t }}{{ end }}</b><p>{{ .text }}</p></span></li>
       {{ end }}
     </ol>
     <p class="degrees">

@@ -20,13 +20,14 @@ text = "A lattice Boltzmann solver that grew entropic, then two-phase, as my bac
 scene = "whirl"
 period = "Autumn 2024"
 title = "Teaching, fifty at a time"
-text = "The only undergraduate TA for large-scale machine-learning optimisation under Prof. Avishek Ghosh. Fifty-plus students, one me."
+text = "The only undergraduate TA for large-scale machine-learning optimisation under Prof. Avishek Ghosh, picked for topping the previous run of the course. Fifty-plus students, one me."
 
 [[chapter]]
 scene = "swatches"
 period = "2023 — 2025"
 title = "The AI Community"
-text = "Design team convener, then Community Manager: InstiGPT, Et.al, seven engineers, and more inference demand than GPUs."
+link = "https://ai.tech-iitb.org/"
+text = "Community Manager: InstiGPT, Et.al, seven engineers, and more inference demand than GPUs."
 
 [[chapter]]
 scene = "meadow"
