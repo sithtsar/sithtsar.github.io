@@ -144,7 +144,7 @@ h1, h2, h3, p { text-wrap: pretty; }
   .site-header .social-nav { gap: .5rem; }
   .signature { font-size: 1.3rem; }
   .signature__rule { width: 5.2rem; }
-  .site-header .site-nav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; border-top: 1px solid var(--carbon); }
+  .site-header .site-nav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; border-top: 1px solid var(--carbon); }
   .site-header .site-nav a { justify-content: center; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 0; }
   .cover { min-height: 46rem; }

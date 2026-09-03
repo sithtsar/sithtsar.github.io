@@ -40,6 +40,7 @@ content/
   work/                    project report records
   notes/                   field notes
   about.md                 profile
+  taste.md                 opinionated stack
   studio.md                generative-art method
 layouts/
   _default/                shared list, page, and document shell

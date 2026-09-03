@@ -59,3 +59,7 @@ for page in public/work/atlas/index.html public/work/weave/index.html public/wor
 done
 ! grep -q 'Financial Analysis' public/work/index.html
 grep -q 'piexie' public/work/index.html
+test -f public/taste/index.html
+grep -q 'marimo' public/taste/index.html
+grep -q 'sithtsar/dotfiles' public/taste/index.html
+grep -q 'taste/' public/index.html
