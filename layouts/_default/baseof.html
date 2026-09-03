@@ -4,8 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ .Description | default site.Title }}">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Description | default site.Title }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta name="theme-color" content="#f3eedc">
   <title>{{ block "title" . }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }} — {{ $.Title }}" href="{{ .RelPermalink }}">{{ end }}
   {{ with resources.Get "fonts/newsreader-latin.woff2" }}{{ $font := . | fingerprint }}<style>@font-face{font-family:Newsreader;src:url('{{ $font.RelPermalink }}') format('woff2');font-style:normal;font-weight:500;font-display:swap}</style>{{ end }}
   {{ with resources.Get "css/site.css" }}{{ $style := . | minify | fingerprint }}<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">{{ end }}
 </head>

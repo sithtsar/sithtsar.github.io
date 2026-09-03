@@ -9,6 +9,15 @@ status = "Representative concept"
 role = "Knowledge systems"
 period = "2026"
 tags = ["Code intelligence", "Graphs"]
+question = "How can an agent retain architectural context without repeatedly rereading an entire repository?"
+hypothesis = "A small symbol graph can narrow discovery while source remains the final authority."
+evaluation = "Compare cold-start discovery paths against direct repository search on representative maintenance tasks."
+result = "Representative concept only; performance and retrieval claims are intentionally withheld."
+failure = "An index can become stale or encourage false certainty, so every retrieved relationship must resolve back to current source."
+next_step = "Insert a verified implementation, benchmark, and failure analysis."
+
+[params]
+build = "A representative index of symbols, files, relationships, and execution paths with targeted source retrieval."
 
 [cover_art]
 motif = "signal"

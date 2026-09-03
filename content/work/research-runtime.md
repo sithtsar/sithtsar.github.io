@@ -9,6 +9,15 @@ status = "Representative concept"
 role = "Research engineering"
 period = "2026"
 tags = ["Research", "Tooling"]
+question = "What is the smallest research loop that still leaves an auditable trail?"
+hypothesis = "Claims, sources, experiments, and decisions can share one plain-text record without a platform layer."
+evaluation = "Reproduce one research conclusion from a clean environment using only the recorded artifacts."
+result = "Representative concept only; no reproducibility result is claimed."
+failure = "Process can become paperwork. Each record must earn its maintenance cost by shortening review or reproduction."
+next_step = "Replace the concept with one real inquiry and its complete artifact trail."
+
+[params]
+build = "A representative file-based workflow with explicit evidence and decision checkpoints."
 
 [cover_art]
 motif = "grid"

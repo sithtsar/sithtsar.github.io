@@ -4,7 +4,19 @@
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p>{{ . }}</p>{{ end }}
 </header>
-<section class="shell project-register project-register--all" aria-label="{{ .Title }} index">
-  {{ range .RegularPages.ByWeight }}{{ partial "project-cover.html" . }}{{ end }}
-</section>
+{{ if eq .Section "work" }}
+  <section class="shell project-register project-register--all" aria-label="{{ .Title }} index">
+    {{ range .RegularPages.ByWeight }}{{ partial "project-cover.html" . }}{{ end }}
+  </section>
+{{ else }}
+  <section class="shell entry-list" aria-label="{{ .Title }} index">
+    {{ range .RegularPages.ByDate.Reverse }}
+      <article>
+        <p class="entry-list__meta">{{ .Date.Format "02 Jan 2006" }} · {{ .ReadingTime }} min</p>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Description }}</p>
+      </article>
+    {{ end }}
+  </section>
+{{ end }}
 {{ end }}

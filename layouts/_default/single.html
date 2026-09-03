@@ -1,7 +1,16 @@
 {{ define "main" }}
-<article class="page-lead shell">
-  <p class="section-index">Working record</p>
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
+<article class="article shell">
+  <header class="article-head">
+    <p class="section-index">{{ .Params.kicker | default "Working record" }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </header>
+  <div class="article-body">{{ .Content }}</div>
+  {{ if .Params.show_motifs }}
+    <section class="motif-lab" aria-labelledby="motif-title">
+      <h2 id="motif-title">Current cover grammar</h2>
+      <div class="motif-grid">{{ range first 3 (where site.RegularPages "Section" "work").ByWeight }}{{ partial "cover-art.html" . }}{{ end }}</div>
+    </section>
+  {{ end }}
 </article>
 {{ end }}

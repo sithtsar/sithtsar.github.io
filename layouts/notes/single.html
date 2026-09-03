@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article class="article shell">
+  <header class="article-head">
+    <p class="section-index">Field note / {{ .Date.Format "02 Jan 2006" }}</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </header>
+  <div class="article-body">{{ .Content }}</div>
+</article>
+{{ end }}

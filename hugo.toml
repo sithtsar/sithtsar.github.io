@@ -1,7 +1,7 @@
 baseURL = "http://localhost:1313/"
 locale = "en"
 title = "Sarthak Mishra"
-disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+disableKinds = ["taxonomy", "term", "sitemap"]
 enableRobotsTXT = true
 
 [build]
@@ -12,3 +12,8 @@ enableRobotsTXT = true
 
 [minify]
   minifyOutput = true
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]

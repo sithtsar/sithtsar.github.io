@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="report shell">
+  <header class="report-head">
+    <div class="report-head__copy">
+      <p class="section-index">Case {{ .Params.number }} / {{ .Params.period }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="report-deck">{{ .Description }}</p>
+      <dl class="report-meta">
+        <div><dt>Status</dt><dd>{{ .Params.status }}</dd></div>
+        <div><dt>Practice</dt><dd>{{ .Params.role }}</dd></div>
+      </dl>
+    </div>
+    <div class="report-head__art" style="view-transition-name:cover-{{ .File.ContentBaseName }}">{{ partial "cover-art.html" . }}</div>
+  </header>
+  <section class="report-body">
+    <div class="report-prose">{{ .Content }}</div>
+    {{ partial "evidence-chain.html" . }}
+  </section>
+  <nav class="report-nav" aria-label="Adjacent projects">
+    {{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>Previous</span>{{ .Title }}</a>{{ end }}
+    {{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span>Next</span>{{ .Title }}</a>{{ end }}
+  </nav>
+</article>
+{{ end }}

@@ -1,0 +1,13 @@
+<section class="evidence" aria-labelledby="evidence-title">
+  <header>
+    <p class="section-index">Evidence chain</p>
+    <h2 id="evidence-title">From question to next move</h2>
+  </header>
+  <details open><summary><span>01</span>Question</summary><p>{{ .Params.question }}</p></details>
+  <details><summary><span>02</span>Hypothesis</summary><p>{{ .Params.hypothesis }}</p></details>
+  <details><summary><span>03</span>Build</summary><p>{{ .Params.build }}</p></details>
+  <details><summary><span>04</span>Evaluation</summary><p>{{ .Params.evaluation }}</p></details>
+  <details><summary><span>05</span>Result</summary><p>{{ .Params.result }}</p></details>
+  <details><summary><span>06</span>Failure</summary><p>{{ .Params.failure }}</p></details>
+  <details><summary><span>07</span>Next step</summary><p>{{ .Params.next_step }}</p></details>
+</section>
