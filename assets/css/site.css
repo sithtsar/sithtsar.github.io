@@ -159,7 +159,6 @@ h1, h2, h3, p { text-wrap: pretty; }
   .article-head > .section-index, .article-head h1, .article-head > p:last-child { grid-column: 1; }
   .entry-list article > p:last-child { margin-top: 1rem; }
   .report { padding-top: 3rem; }
-  .report-head__copy { display: contents; }
   .report-head__art { order: -1; }
   .report-meta { margin: 1rem 0 2rem; }
   .motif-grid { grid-template-columns: 1fr; }
