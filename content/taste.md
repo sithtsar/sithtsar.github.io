@@ -50,6 +50,22 @@ Docker in thirteen projects, GitHub Actions in nearly all of them. The parts I a
 
 Arch Linux, Hyprland on Wayland, rofi for launching, alacritty or ghostty for the terminal, tmux, lazygit, Neovim (with Helix and Zed on standby), fish with a zsh fallback, btop, fastfetch for vanity. The config lives in [sithtsar/dotfiles](https://github.com/sithtsar/dotfiles), which the README honestly describes as "may or may not work". On the Mac I run the same terminal stack and pretend.
 
+## Annual reports
+
+The visual language of this site comes from mid-century corporate annual reports, and specifically from the [Annual Report Archive](https://annualreport.gallery/): 3,002 scanned covers from 1945 to 2023, most of them 1950s to 1980s, with Paul Rand, Chermayeff and Geismar, Lester Beall, Saul Bass, and George Tscherny among the credited designers. I crawled it properly, cover by cover, before deciding what to keep.
+
+What the good ones do:
+
+- **The year is the hero.** Eddy Paper 1949, Cummins 1976, Intermetco 1980: numerals so large they leave the page. The outlined "26" on my Work and Notes indexes is that.
+- **A letter, signed.** IBM 2001 is a plain "Dear fellow investor" letter with an inked signature and nothing else. The homepage closes with a letter for the same reason.
+- **Two inks, one mark.** Alberta Opportunity Company ran an orange and green pinwheel for years. The six-ink palette here, ivory, carbon, vermilion, ultramarine, harvest, moss, is a limit I keep on purpose.
+- **Charts as art.** Tandy 1964 set a rising line graph as the cover. Every case study here carries its mechanism as a diagram rather than a stock image.
+- **Gold on black.** GE 1984, Goodyear 1946, John Labatt 1982. The ink theme (toggle in the header) is the closest a screen gets to that paper.
+- **Type on a circle.** La Sauvegarde 1973 ran its title around a mark. The department seals on About do the same with an SVG text path.
+- **Restraint by era.** 1950s gouache and serifs, 1960s geometry, 1970s die-cuts and giant letterforms, 1980s metallic monograms, 2000s a single confident sentence. I borrow the discipline, not any one decade.
+
+The archive itself is well made: one static page, no framework, a fixed rail instead of a header, CSS multi-column masonry with real cover aspect ratios, a Fisher-Yates shuffle so every visit is fresh, and a Copy-for-AI button on every cover. It also exposes a free MCP server, which is how an archive should behave in 2026. The Copy-for-AI button on my case studies is borrowed from there.
+
 ## Things I avoid
 
 - Jupyter notebooks committed to a repository.

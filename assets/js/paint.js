@@ -159,12 +159,12 @@ if (canvas) {
       const flies = [];
       for (let k = 0; k < 34; k++) flies.push([size * 0.08 + rnd() * size * 0.84, size * 0.12 + rnd() * size * 0.62]);
       return [
-        () => { wash(carbon, 0.9); blob(size / 2, size * 0.55, size * 0.3, ultramarine, 0.06, 4); },
+        () => { wash('#171713', 0.9); blob(size / 2, size * 0.55, size * 0.3, '#28559a', 0.06, 4); },
         ...chunk(grass, 10, ([x, y, dx, dy]) => {
           c.strokeStyle = moss; c.globalAlpha = 0.6; c.lineWidth = 1.2;
           c.beginPath(); c.moveTo(x, y); c.quadraticCurveTo(x + dx * 0.3, y + dy * 0.6, x + dx, y + dy); c.stroke();
         }),
-        ...chunk(flies, 3, ([x, y]) => { blob(x, y, 14, harvest, 0.05, 4); blob(x, y, 3, paper, 0.9, 1); }),
+        ...chunk(flies, 3, ([x, y]) => { blob(x, y, 14, '#d1a326', 0.05, 4); blob(x, y, 3, '#f3eedc', 0.9, 1); }),
       ];
     },
     lanterns() {
@@ -173,10 +173,10 @@ if (canvas) {
       const village = [];
       for (let x = 0; x < size; x += 10 + rnd() * 16) village.push([x, 8 + rnd() * 18, rnd() < 0.5]);
       const scene = () => {
-        wash(carbon, 0.95);
-        c.globalAlpha = 1; c.fillStyle = paper;
+        wash('#171713', 0.95);
+        c.globalAlpha = 1; c.fillStyle = '#f3eedc';
         c.beginPath(); c.arc(size * 0.8, size * 0.16, size * 0.05, 0, 7); c.fill();
-        c.fillStyle = carbon; c.beginPath(); c.arc(size * 0.815, size * 0.145, size * 0.045, 0, 7); c.fill();
+        c.fillStyle = '#171713'; c.beginPath(); c.arc(size * 0.815, size * 0.145, size * 0.045, 0, 7); c.fill();
         village.forEach(([x, h, roof]) => {
           c.globalAlpha = 1; c.fillStyle = '#0d0d0b';
           c.beginPath();
@@ -194,7 +194,7 @@ if (canvas) {
           blob(x, y, r * 2.4, col, 0.06, 2);
           c.globalAlpha = 0.85; c.fillStyle = col;
           c.beginPath(); c.roundRect(x - r / 2, y - r * 0.7, r, r * 1.4, r / 4); c.fill();
-          c.globalAlpha = 0.9; c.fillStyle = paper; c.fillRect(x - 1, y - 2, 2, 4);
+          c.globalAlpha = 0.9; c.fillStyle = '#f3eedc'; c.fillRect(x - 1, y - 2, 2, 4);
         });
       };
       return Object.assign(steps, { loop });

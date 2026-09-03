@@ -12,6 +12,13 @@
   --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="paper"]) { --paper: #141312; --carbon: #edeae4; --vermilion: #d9553f; --vermilion-text: #e8826f; --ultramarine: #7ea0dc; --harvest: #d8ad3a; --rule: color-mix(in srgb, var(--carbon) 35%, transparent); }
+}
+:root[data-theme="ink"] { --paper: #141312; --carbon: #edeae4; --vermilion: #d9553f; --vermilion-text: #e8826f; --ultramarine: #7ea0dc; --harvest: #d8ad3a; --rule: color-mix(in srgb, var(--carbon) 35%, transparent); }
+.theme-toggle { min-height: 2.75rem; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; font: inherit; text-transform: inherit; letter-spacing: inherit; text-decoration: underline; text-underline-offset: .2em; }
+.coin { background: #171713; }
+
 * { box-sizing: border-box; }
 html { background: var(--paper); color: var(--carbon); scroll-behavior: smooth; }
 body { margin: 0; overflow-x: hidden; font-family: var(--sans); }
@@ -92,7 +99,9 @@ h1, h2, h3, p { text-wrap: pretty; }
 .copy-button { min-height: 2.75rem; margin-left: 1rem; border: 1px solid var(--carbon); border-radius: 100vmax; padding: .55rem .8rem; background: transparent; color: inherit; cursor: pointer; font: 650 .65rem/1 var(--mono); text-transform: uppercase; }
 .copy-button:hover { background: var(--carbon); color: var(--paper); }
 .copy-status { display: block; min-height: 1.4em; margin-top: .8rem; font: .65rem/1.4 var(--mono); }
-.page-lead { padding-block: clamp(5rem, 12vw, 10rem) 3rem; border-bottom: 1px solid var(--carbon); }
+.page-lead { position: relative; overflow: hidden; padding-block: clamp(5rem, 12vw, 10rem) 3rem; border-bottom: 1px solid var(--carbon); }
+.page-lead__year { position: absolute; right: -.06em; top: .1em; z-index: 0; font: 500 clamp(9rem, 24vw, 20rem)/1 var(--serif); letter-spacing: -.06em; color: transparent; -webkit-text-stroke: 1.5px var(--carbon); opacity: .3; pointer-events: none; }
+.page-lead > :not(.page-lead__year) { position: relative; z-index: 1; }
 .page-lead > p:last-child { max-width: 40ch; margin: 2rem 0 0 auto; font-size: 1.2rem; line-height: 1.45; }
 .article { padding-bottom: 8rem; }
 .article-head { display: grid; grid-template-columns: 3fr 9fr; gap: 1rem; padding-block: clamp(5rem, 12vw, 10rem) 4rem; border-bottom: 1px solid var(--carbon); }
@@ -141,7 +150,7 @@ h1, h2, h3, p { text-wrap: pretty; }
   .site-header { grid-template-columns: auto 1fr; align-items: start; }
   .site-header nav { gap: .7rem; }
   .site-header .social-nav { grid-row: 1; grid-column: 2; justify-self: end; font-size: .62rem; }
-  .site-header .social-nav { gap: .5rem; }
+  .site-header .social-nav { gap: 0 .5rem; flex-wrap: wrap; justify-content: flex-end; max-width: 13rem; }
   .signature { font-size: 1.3rem; }
   .signature__rule { width: 5.2rem; }
   .site-header .site-nav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; border-top: 1px solid var(--carbon); }
@@ -207,7 +216,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .degrees { display: grid; gap: .8rem; margin: 0; font: 600 .72rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
 .degrees a { display: inline-flex; align-items: center; gap: .8rem; min-height: 2.75rem; text-decoration: none; color: var(--vermilion-text); }
 .degrees a:hover { color: var(--ultramarine); }
-.seal { width: 2.75rem; height: 2.75rem; flex: none; }
+.seal { width: 3.6rem; height: 3.6rem; flex: none; }
 
 @media (max-width: 40rem) {
   .journey { grid-template-columns: 1fr; gap: 2rem; }
@@ -215,3 +224,12 @@ h1, h2, h3, p { text-wrap: pretty; }
   .chapters li { grid-template-columns: 1fr; gap: .2rem; }
   .degrees a { align-items: flex-start; }
 }
+
+.letter__salutation { margin: 0 0 1.2rem; font: 600 .68rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--vermilion-text); }
+.letter h2 { max-width: 24ch; font: 500 clamp(1.7rem, 3.4vw, 3.2rem)/1.12 var(--serif); letter-spacing: -.03em; }
+.letter__sign { margin: 2.5rem 0 0; }
+.letter__sign .signature { display: inline-block; padding-top: 1rem; font-size: 2.6rem; }
+.report-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1.6rem; }
+.report-actions .copy-button { margin-left: 0; }
+.report-actions .copy-status { display: inline; margin: 0; }
+@media (max-width: 40rem) { .page-lead__year { font-size: 7rem; top: auto; bottom: -.1em; } }

@@ -8,6 +8,7 @@
   <meta property="og:description" content="{{ .Description | default site.Title }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta name="theme-color" content="#f3eedc">
+  <script>try{var t=localStorage.theme;if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
   <title>{{ block "title" . }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
   {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }} — {{ $.Title }}" href="{{ .RelPermalink }}">{{ end }}

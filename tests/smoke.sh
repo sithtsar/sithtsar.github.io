@@ -63,3 +63,9 @@ test -f public/taste/index.html
 grep -q 'marimo' public/taste/index.html
 grep -q 'sithtsar/dotfiles' public/taste/index.html
 grep -q 'taste/' public/index.html
+grep -q 'data-theme-toggle' public/index.html
+grep -q 'Dear reader' public/index.html
+grep -q 'Copy for AI' public/work/atlas/index.html
+grep -q 'textPath' public/about/index.html
+grep -q 'page-lead__year' public/work/index.html
+grep -q 'annualreport.gallery' public/taste/index.html

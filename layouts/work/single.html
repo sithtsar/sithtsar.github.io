@@ -11,6 +11,8 @@
         {{ with .Params.guide }}<div><dt>Guide</dt><dd>{{ . }}</dd></div>{{ end }}
         {{ with .Params.source }}<div><dt>Source</dt><dd><a href="{{ . }}">{{ replaceRE "^https?://(www\\.)?" "" . }}</a></dd></div>{{ end }}
       </dl>
+      {{ $ai := printf "# %s\n%s\n\nQuestion: %s\nHypothesis: %s\nBuild: %s\nEvaluation: %s\nResult: %s\nFailure: %s\nNext step: %s\nSource: %s\nURL: %s" .Title .Description .Params.question .Params.hypothesis .Params.build .Params.evaluation .Params.result .Params.failure .Params.next_step (.Params.source | default "none") .Permalink }}
+      <div class="report-actions"><button class="copy-button" type="button" data-copy="{{ $ai }}">Copy for AI</button><span class="copy-status" data-copy-status aria-live="polite"></span></div>
     </div>
     <div class="report-head__art" style="view-transition-name:cover-{{ .File.ContentBaseName }}">{{ partial "cover-art.html" . }}</div>
   </header>

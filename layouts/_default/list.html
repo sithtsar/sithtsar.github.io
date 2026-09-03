@@ -1,5 +1,6 @@
 {{ define "main" }}
 <header class="page-lead shell">
+  <span class="page-lead__year" aria-hidden="true">{{ now.Format "06" }}</span>
   <p class="section-index">Archive / {{ now.Year }}</p>
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p>{{ . }}</p>{{ end }}
