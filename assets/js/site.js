@@ -50,3 +50,11 @@ if (clock) {
   tick();
   setInterval(tick, 30000);
 }
+
+// The say-hi box composes an email in the reader's own client. No backend, nothing stored.
+const form = document.querySelector('form[data-mail]');
+if (form) form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const f = new FormData(form);
+  location.href = `mailto:${form.dataset.mail}?subject=${encodeURIComponent('hi from ' + f.get('name'))}&body=${encodeURIComponent(String(f.get('msg')))}`;
+});

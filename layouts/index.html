@@ -79,25 +79,24 @@
   </div>
 </section>
 
-<section class="dispatch shell" aria-labelledby="dispatch-title">
-  <p class="section-index">02 / Dispatch</p>
-  <div>
-    <p class="kicker">Field note · issue 001</p>
-    <h2 id="dispatch-title">Why evidence beats demos</h2>
-    <p>A working demo proves a path existed once. Evidence explains why it worked, where it failed, and whether another person can trust it.</p>
-    <a class="contact-link" href="{{ "notes/why-evidence-beats-demos/" | relURL }}">Read the note <span aria-hidden="true">↗</span></a>
-  </div>
-</section>
-
-<section class="contact shell letter" id="contact" aria-labelledby="contact-title">
-  <p class="section-index">03 / Letter</p>
-  <div>
-    <p class="letter__salutation">Dear reader,</p>
-    <h2 id="contact-title">If you have a hard system worth making clear, I would like to hear about it. Write to me and you will get a reply the same day.</h2>
-    <a class="contact-link" href="mailto:mishrasarthak1520@gmail.com">mishrasarthak1520@gmail.com <span aria-hidden="true">↗</span></a>
-    <button class="copy-button" type="button" data-copy="mishrasarthak1520@gmail.com">Copy email</button>
-    <span class="copy-status" data-copy-status aria-live="polite"></span>
-    <p class="letter__sign"><span class="signature">Sarthak</span></p>
+<section class="contact shell hello" id="contact" aria-labelledby="contact-title">
+  <p class="section-index">03 / Say hi</p>
+  <div class="hello__grid">
+    <figure class="portrait">
+      <canvas data-portrait data-src="{{ "img/me.jpg" | relURL }}" width="320" height="320" role="img" aria-label="A portrait of Sarthak, painted in six inks"></canvas>
+      <figcaption>painted live, one dab per pixel, from one photo</figcaption>
+    </figure>
+    <div class="hello__box">
+      <h2 id="contact-title">say hi.</h2>
+      <p>hard problem, half-built idea, or you want to argue about Zig at 2am. i read everything and reply the same day.</p>
+      <form class="hello__form" data-mail="mishrasarthak1520@gmail.com">
+        <label>you<input name="name" placeholder="name, or a handle" autocomplete="name" required></label>
+        <label>what’s up<textarea name="msg" rows="4" placeholder="two lines is plenty" required></textarea></label>
+        <div class="hello__actions"><button class="copy-button copy-button--solid" type="submit">send it ↗</button><button class="copy-button" type="button" data-copy="mishrasarthak1520@gmail.com">copy email</button><span class="copy-status" data-copy-status aria-live="polite"></span></div>
+      </form>
+      <p class="hello__links"><a href="https://github.com/sithtsar">github</a> · <a href="https://x.com/sarthakant">x</a> · <a href="https://www.linkedin.com/in/sarthakm15">linkedin</a> · <a href="mailto:mishrasarthak1520@gmail.com">mishrasarthak1520@gmail.com</a></p>
+      <p class="letter__sign"><span class="signature">Sarthak</span></p>
+    </div>
   </div>
 </section>
 {{ end }}

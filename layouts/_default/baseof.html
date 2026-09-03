@@ -22,6 +22,7 @@
   <main id="content">{{ block "main" . }}{{ .Content }}{{ end }}</main>
   {{ partial "footer.html" . }}
   {{ with resources.Get "js/site.js" }}{{ $script := . | minify | fingerprint }}<script type="module" src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>{{ end }}
+  {{ if .IsHome }}{{ with resources.Get "js/portrait.js" }}{{ $pt := . | minify | fingerprint }}<script type="module" src="{{ $pt.RelPermalink }}" integrity="{{ $pt.Data.Integrity }}"></script>{{ end }}{{ end }}
   {{ if or .IsHome .Params.story .Params.paint }}{{ with resources.Get "js/paint.js" }}{{ $paint := . | minify | fingerprint }}<script type="module" src="{{ $paint.RelPermalink }}" integrity="{{ $paint.Data.Integrity }}"></script>{{ end }}{{ end }}
   {{ block "scripts" . }}{{ end }}
 </body>

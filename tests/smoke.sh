@@ -69,7 +69,11 @@ grep -q 'marimo' public/taste/index.html
 grep -q 'sithtsar/dotfiles' public/taste/index.html
 grep -q 'taste/' public/index.html
 grep -q 'data-theme-toggle' public/index.html
-grep -q 'Dear reader' public/index.html
+grep -q 'say hi.' public/index.html
+grep -q 'data-portrait' public/index.html
+! grep -q 'Dispatch' public/index.html
+! grep -q 'Why evidence beats demos' public/index.html
+test "$(gzip -c public/js/portrait.*.js | wc -c)" -le 2048
 grep -q 'Copy for AI' public/work/atlas/index.html
 grep -q 'textPath' public/about/index.html
 grep -q 'page-lead__year' public/work/index.html
