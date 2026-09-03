@@ -72,6 +72,7 @@ A return visit should be justified by useful material: a technical note, reprodu
 | `/notes/` | Reverse-chronological technical notes |
 | `/notes/<slug>/` | Individual technical note |
 | `/about/` | Biography, working principles, selected timeline, contact |
+| `/studio/` | Optional generative-print demonstration with a static fallback |
 
 There is no separate contact page. Contact details remain visible in the site header/footer and on the homepage.
 
@@ -188,6 +189,17 @@ Question -> Hypothesis -> Build -> Evaluation -> Result -> Failure -> Next step
 
 The summary remains useful without expansion. JavaScript is not required.
 
+### Agent-painted cover system
+
+The MVP uses two complementary paths:
+
+1. **Annual Report Cover Grammar:** project front matter supplies a small allowlist of geometric primitives and palette tokens. A Hugo partial renders these values directly as accessible inline SVG. Agents may author the data, but no generated JavaScript is executed.
+2. **Organic painting workflow:** `p5.brush` `v2.2.2` may be used to author watercolor, charcoal, hatching, or pigment-based artwork. Finished pieces are rendered ahead of time and shipped as responsive static images.
+
+The standalone `p5.brush` build is approximately 77 KB raw and 29 KB gzip and requires WebGL2. It is therefore excluded from the homepage and all ordinary project pages. A later `/studio/` experiment may lazy-load it only after deliberate navigation, with a static image fallback when JavaScript or WebGL2 is unavailable.
+
+The MVP proves the cover grammar and static artwork pipeline. A live painting runtime is not required for MVP acceptance.
+
 ### Small JavaScript enhancements
 
 One deferred ES module may provide:
@@ -208,6 +220,7 @@ No client-side routing, filtering, scroll animation, theme system, or component 
 - **Configuration:** `hugo.toml`.
 - **Styles:** one handwritten modern CSS file processed by Hugo Pipes for fingerprinting and minification.
 - **Scripts:** one optional handwritten ES module, fingerprinted and minified by Hugo Pipes.
+- **Generative cover data:** allowlisted TOML values rendered to SVG by a Hugo partial; no arbitrary markup or script injection.
 - **Images:** Hugo image resources generate explicit dimensions and responsive WebP derivatives from checked-in originals. Original format remains the fallback when needed.
 - **Local server:** `hugo server`.
 - **Production build:** `hugo --minify --panicOnWarning`.
@@ -224,6 +237,7 @@ No client-side routing, filtering, scroll animation, theme system, or component 
 - React, Vue, Svelte, Astro, Tailwind, component libraries, npm, bundlers, and CSS preprocessors.
 - Datastar and htmx: there is no backend-driven UI or fragment-swapping requirement.
 - WebAssembly: the site has no CPU-heavy workload. Wasm may be embedded later only for a real project demonstration whose computation benefits from it.
+- `p5.brush` in shared site code: its standalone runtime is reserved for the isolated studio route if that route becomes interactive.
 - Service workers and offline application behavior.
 - Runtime CMS, database, search service, contact form backend, or analytics.
 
@@ -256,6 +270,7 @@ portfolio/
 │   ├── notes/
 │   │   ├── _index.md
 │   │   └── <note-slug>.md
+│   ├── studio.md
 │   └── about.md
 ├── layouts/
 │   ├── _default/
@@ -271,6 +286,7 @@ portfolio/
 │       ├── header.html
 │       ├── footer.html
 │       ├── project-cover.html
+│       ├── cover-art.html
 │       └── evidence-chain.html
 ├── static/
 │   ├── favicon.svg
@@ -302,6 +318,12 @@ result = "Measured or inspectable outcome"
 code_url = ""
 demo_url = ""
 paper_url = ""
+
+[cover_art]
+label = "FIG. 01"
+motif = "orbit"
+density = 7
+rotation = -12
 +++
 ```
 
@@ -379,8 +401,10 @@ The locally served prototype will include:
 
 - All five route types using clearly marked representative content.
 - One fully composed flagship project cover and two simpler cover treatments.
+- Deterministic SVG cover art generated from allowlisted project front matter.
 - One example evidence chain.
 - One example technical note.
+- A static `/studio/` explanation of the agent-painting workflow; the live `p5.brush` runtime is deferred.
 - Responsive desktop and mobile layouts.
 - Native cross-document transition where supported.
 
