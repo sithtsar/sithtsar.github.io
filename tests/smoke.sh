@@ -14,6 +14,7 @@ grep -q 'InstiGPT' public/work/index.html
 grep -q 'QNLP Financial Intelligence' public/work/index.html
 grep -q 'Anywhere you want me' public/index.html
 grep -q 'AI engineer · researcher' public/index.html
+grep -q 'Professional Agent Orchestrator' public/index.html
 ! grep -q 'SM—26' public/index.html
 ! grep -q 'Selected systems and inquiries' public/index.html
 grep -q 'mishrasarthak1520@gmail.com' public/index.html

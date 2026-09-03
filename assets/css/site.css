@@ -107,14 +107,21 @@ h1, h2, h3, p { text-wrap: pretty; }
 .article-head--portrait { position: relative; grid-template-columns: 3fr 5fr 4fr; }
 .article-head--portrait > p:not(.section-index) { grid-column: 2; max-width: 38ch; margin: 1rem 0 0; font: 500 clamp(1.15rem, 1.8vw, 1.6rem)/1.3 var(--serif); }
 .article-head--portrait .polaroid { grid-column: 3; grid-row: 1 / 3; justify-self: end; align-self: start; margin-top: 0; z-index: 1; }
-.saber { position: absolute; right: 8%; bottom: 1.6rem; width: min(26rem, 34vw); height: auto; transform: rotate(-14deg); opacity: .32; transition: opacity .5s; }
+.saber { position: absolute; right: 24%; bottom: 2.6rem; width: min(32rem, 36vw); height: auto; transform: rotate(-14deg); opacity: 0; transition: opacity .25s; overflow: visible; }
 .saber:hover { opacity: 1; }
-.saber__hilt { fill: #6b6b66; }
-.saber__blade { fill: #050505; stroke: #f3eedc; stroke-width: 1.4; paint-order: stroke; }
-.saber__core { stroke: #f3eedc; stroke-width: 1.2; opacity: .8; }
-.saber:hover .saber__blade { filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px #cfd8e6); }
-.saber:hover .saber__core { animation: saberflicker .12s steps(2) infinite; }
-@keyframes saberflicker { to { opacity: .45; } }
+.saber__hilt { fill: #4a4a46; stroke: #8a8a84; stroke-width: .8; }
+.saber__guard { fill: #2c2c2a; }
+.saber__blade { transform-origin: 126px 30px; transform: scaleX(0); transition: transform .3s cubic-bezier(.2,.8,.2,1); fill: #050505; stroke: #fff; stroke-width: 1.8; stroke-linejoin: round; stroke-dasharray: 11 2 5 1 8 2; paint-order: stroke; filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 7px #dfe8ff); }
+.saber:hover .saber__blade { transform: scaleX(1); animation: sabercrackle .08s steps(2) infinite, saberrun .45s linear infinite; }
+[data-theme="paper"] .saber__blade { filter: drop-shadow(0 0 1px #171713) drop-shadow(0 0 3px #7f8aa8) drop-shadow(0 0 8px #b9c3dc); }
+@media (prefers-color-scheme: light) { :root:not([data-theme="ink"]) .saber__blade { filter: drop-shadow(0 0 1px #171713) drop-shadow(0 0 3px #7f8aa8) drop-shadow(0 0 8px #b9c3dc); } }
+@keyframes sabercrackle { to { stroke-width: 2.4; } }
+@keyframes saberrun { to { stroke-dashoffset: -29; } }
+.role { display: grid; cursor: default; }
+.role > span { grid-area: 1 / 1; transition: opacity .3s; }
+.role > span + span { opacity: 0; color: var(--vermilion-text); }
+.role:hover > span:first-child { opacity: 0; }
+.role:hover > span + span { opacity: 1; }
 .article-head > p:last-child { grid-column: 2; max-width: 38ch; margin: 1rem 0 0; font: 500 clamp(1.15rem, 1.8vw, 1.6rem)/1.3 var(--serif); }
 .article-body { width: min(100%, 46rem); margin: 4rem auto; font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.68; }
 .article-body h2 { margin: 3.5rem 0 1rem; font: 500 clamp(2rem, 4vw, 3.5rem)/1 var(--serif); letter-spacing: -.035em; }
