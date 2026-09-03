@@ -12,7 +12,7 @@ grep -Eq 'data-cover-motif="?atlas"?' public/index.html
 grep -q 'Lattice Boltzmann Flow' public/index.html
 grep -q 'InstiGPT' public/work/index.html
 grep -q 'QNLP Financial Intelligence' public/work/index.html
-grep -q 'Remote or on site' public/index.html
+grep -q 'Anywhere you want me' public/index.html
 grep -q 'AI engineer · researcher' public/index.html
 ! grep -q 'SM—26' public/index.html
 ! grep -q 'Selected systems and inquiries' public/index.html
@@ -68,10 +68,10 @@ test -f public/taste/index.html
 grep -q 'taste/' public/index.html
 grep -q 'data-theme-toggle' public/index.html
 grep -q 'say hi.' public/index.html
-grep -q 'data-portrait' public/index.html
+grep -q 'data-ascii' public/index.html
 ! grep -q 'Dispatch' public/index.html
 ! grep -q 'Why evidence beats demos' public/index.html
-test "$(gzip -c public/js/portrait.*.js | wc -c)" -le 2048
+test "$(gzip -c public/js/ascii.*.js | wc -c)" -le 2048
 grep -q 'Copy for AI' public/work/atlas/index.html
 grep -q 'textPath' public/about/index.html
 grep -q 'page-lead__year' public/work/index.html
@@ -83,13 +83,13 @@ for word in WorkOS CSRF pgvector 'brain.db' anydoc modernc 'delegation-token' 'd
   if grep -rqi -- "$word" public/work public/taste public/about; then echo "leaked internal detail: $word"; exit 1; fi
 done
 grep -q 'fill="#171713"' public/favicon.svg
-grep -q 'paint' public/taste/index.html
 grep -q 'bought a flight' public/about/index.html
 grep -q 'IntersectionObserver' public/js/paint.*.js
-grep -q 'class=mood' public/taste/index.html
-test "$(grep -o '<canvas' public/taste/index.html | wc -l)" -ge 8
+grep -q 'class=diary' public/taste/index.html
+grep -q 'herdr' public/taste/index.html
+grep -q 'Hyprland' public/taste/index.html
+grep -q 'marimo' public/taste/index.html
 grep -q 'tl-row' public/work/index.html
 grep -q 'map__land' public/index.html
-grep -q 'rings' public/index.html
-grep -q 'data-style=nobel' public/about/index.html
+grep -q 'img/me.jpg' public/about/index.html
 grep -q 'Bell Labs' public/index.html

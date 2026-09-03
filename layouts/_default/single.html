@@ -4,7 +4,7 @@
     <p class="section-index">{{ .Params.kicker | default "Working record" }}</p>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p>{{ . }}</p>{{ end }}
-    {{ if .Params.portrait }}<figure class="laureate"><canvas data-portrait data-style="nobel" data-src="{{ "img/me.jpg" | relURL }}" width="320" height="320" role="img" aria-label="A portrait of Sarthak in brush and gold"></canvas><figcaption>Sarthak Mishra · IIT Bombay ’26</figcaption></figure>{{ end }}
+    {{ if .Params.portrait }}<figure class="laureate"><img src="{{ "img/me.jpg" | relURL }}" width="400" height="400" alt="A painted portrait of Sarthak in a floral shirt, in a sunlit room of framed posters" decoding="async"><figcaption>Sarthak Mishra · IIT Bombay ’26</figcaption></figure>{{ end }}
   </header>
   {{ if .Params.story }}{{ partial "journey.html" . }}{{ end }}
   <div class="article-body">{{ .Content }}</div>

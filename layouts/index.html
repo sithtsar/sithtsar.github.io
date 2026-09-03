@@ -4,16 +4,13 @@
   <div class="cover-meta">
     <p>Hi, I’m Sarthak <span>· 2026 edition</span></p>
     <p>AI engineer × researcher</p>
-    <p class="cover-place">{{ partial "map-india.html" (dict "tiny" true) }}<span class="cover-place__text">Bhilai → Mumbai<br><span>Remote or on site</span></span></p>
+    <p class="cover-place">{{ partial "map-india.html" (dict "tiny" true) }}<span class="cover-place__text">Bhilai → Mumbai<br><span>Anywhere you want me</span></span></p>
   </div>
   <div class="cover-title">
     <p class="kicker">AI engineer · researcher</p>
     <h1>Sarthak<br>Mishra</h1>
   </div>
-  <div class="cover-atlas cover-atlas--signal" aria-hidden="true">
-    <svg class="rings" viewBox="0 0 200 200"><circle cx="100" cy="100" r="66"/><circle cx="100" cy="100" r="75"/><circle cx="100" cy="100" r="84"/><circle cx="100" cy="100" r="93"/><circle cx="100" cy="100" r="102"/><circle cx="100" cy="100" r="111"/></svg>
-    <canvas data-portrait data-src="{{ "img/me.jpg" | relURL }}" width="320" height="320" role="img" aria-label="A portrait of Sarthak, painted in six inks"></canvas>
-  </div>
+  <div class="cover-atlas cover-ascii" aria-hidden="true"><pre class="ascii" data-ascii></pre></div>
   <p class="cover-statement">{{ .Params.statement }}</p>
 </section>
 
@@ -42,7 +39,7 @@
 <section class="contact shell hello" id="contact" aria-labelledby="contact-title">
   <p class="section-index">03 / Say hi</p>
   <div class="hello__grid">
-    <figure class="plate-map">{{ partial "map-india.html" (dict "tiny" false) }}<figcaption>Bhilai, then Mumbai. Next stop: wherever you are.</figcaption></figure>
+    <figure class="plate-map">{{ partial "map-india.html" (dict "tiny" false) }}<figcaption>Bhilai, then Mumbai. Anywhere you want me.</figcaption></figure>
     <div class="hello__box">
       <h2 id="contact-title">say hi.</h2>
       <p>wanna talk about training and inference, RL, federated learning, or Bell Labs and how cracked they were? same. i reply the same day.</p>
