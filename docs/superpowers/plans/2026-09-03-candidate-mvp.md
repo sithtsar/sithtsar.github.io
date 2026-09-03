@@ -31,6 +31,8 @@
 - Create: `layouts/_default/baseof.html`
 - Create: `layouts/partials/header.html`
 - Create: `layouts/partials/footer.html`
+- Create: `layouts/index.html`
+- Create: `content/_index.md`
 - Create: `assets/css/site.css`
 - Create: `tests/smoke.sh`
 
@@ -56,7 +58,7 @@ Expected: failure because `public/index.html` does not exist.
 
 - [ ] **Step 3: Add the minimal Hugo configuration and shared page shell**
 
-`hugo.toml` sets the title, language, disabled taxonomy pages, RSS outputs, and minification-compatible URLs. `baseof.html` includes metadata, skip link, shared header/footer, the CSS pipeline, and a `main#content` block.
+`hugo.toml` sets the title, language, disabled taxonomy pages, RSS outputs, and minification-compatible URLs. `baseof.html` includes metadata, skip link, shared header/footer, the CSS pipeline, and a `main#content` block. Add a minimal homepage template and content record so the shell smoke test exercises rendered output.
 
 - [ ] **Step 4: Add foundational CSS**
 
@@ -77,12 +79,12 @@ git commit -m "build: add minimal Hugo site shell"
 ### Task 2: Homepage and generative project covers
 
 **Files:**
-- Create: `content/_index.md`
+- Modify: `content/_index.md`
 - Create: `content/work/_index.md`
 - Create: `content/work/agent-evaluation-ledger.md`
 - Create: `content/work/codebase-memory.md`
 - Create: `content/work/research-runtime.md`
-- Create: `layouts/index.html`
+- Modify: `layouts/index.html`
 - Create: `layouts/_default/list.html`
 - Create: `layouts/partials/project-cover.html`
 - Create: `layouts/partials/cover-art.html`
